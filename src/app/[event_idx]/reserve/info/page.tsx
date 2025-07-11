@@ -19,6 +19,8 @@ import { useTranslation } from 'react-i18next';
 
 interface EventDetail {
   Title: string;
+  isUseCoupon: string;
+  isUsePoint: string;
 }
 
 interface SelectedPlan {
@@ -623,69 +625,77 @@ useEffect(() => {
 </div>
 
     {/* 구분선 */}
-<div style={{ height: '4px', alignSelf: 'stretch', background: '#F0F1F3' }} />
+{ eventDetail.isUseCoupon === 'Y' && 
+  <>
+    <div style={{ height: '4px', alignSelf: 'stretch', background: '#F0F1F3' }} />
 
-<div className="my-6 px-5">
-  <h2>{t('reservation.section.coupon')}</h2>
-  <div
-    className="flex items-start justify-between bg-gray-50 border px-4 py-3 rounded-xl"
-    onClick={() => setCouponModalOpen(true)}
-  >
-{selectedCoupon
-  ? coupons.find((c) => c.COUPON_IDX === selectedCoupon)?.COUPON_NAME
-  : t('reservation.coupon.select')}
+    <div className="my-6 px-5">
+      <h2>{t('reservation.section.coupon')}</h2>
+      <div
+        className="flex items-start justify-between bg-gray-50 border px-4 py-3 rounded-xl"
+        onClick={() => setCouponModalOpen(true)}
+      >
+    {selectedCoupon
+      ? coupons.find((c) => c.COUPON_IDX === selectedCoupon)?.COUPON_NAME
+      : t('reservation.coupon.select')}
 
-  </div>
-  <p className="text-xs text-blue-600 mt-1">
-    {t('reservation.coupon.placeholder')}
-  </p>
-</div>
+      </div>
+      <p className="text-xs text-blue-600 mt-1">
+        {t('reservation.coupon.placeholder')}
+      </p>
+    </div>  
+  </>
+}
 
 {/* 구분선 */}
-<div style={{ height: '4px', alignSelf: 'stretch', background: '#F0F1F3' }} />
+{ eventDetail.isUsePoint === 'Y' && 
+  <>
+    <div style={{ height: '4px', alignSelf: 'stretch', background: '#F0F1F3' }} />
 
-<div className="my-6 px-5">
-  <h2>{t('reservation.section.point')}</h2>
+    <div className="my-6 px-5">
+      <h2>{t('reservation.section.point')}</h2>
 
-  <div className="flex justify-between items-center text-[16px] font-medium mb-1">
-    <span className="text-[#454545] font-semibold">{t('reservation.point.balance')}</span>
-    <span className="text-[#FF8FA9] text-[16px] font-bold">
-      {point}P
-    </span>
-  </div>
+      <div className="flex justify-between items-center text-[16px] font-medium mb-1">
+        <span className="text-[#454545] font-semibold">{t('reservation.point.balance')}</span>
+        <span className="text-[#FF8FA9] text-[16px] font-bold">
+          {point}P
+        </span>
+      </div>
 
-  <p className="text-[14px] text-[#267FF4] font-semibold mb-3">
-    {t('reservation.point.usageNote', {
-      point,
-      amount: (point * 0.001).toFixed(2),
-    })}<br />
-    {t('reservation.point.conversion')}
-  </p>
+      <p className="text-[14px] text-[#267FF4] font-semibold mb-3">
+        {t('reservation.point.usageNote', {
+          point,
+          amount: (point * 0.001).toFixed(2),
+        })}<br />
+        {t('reservation.point.conversion')}
+      </p>
 
-  <div className="flex gap-2">
-    <div className="relative w-full">
-      <input
-        type="number"
-        name="pointUsage"
-        placeholder={t('reservation.point.placeholder')}
-        value={formData.pointUsage}
-        onChange={handleInputChange}
-        className="w-full border rounded-xl px-4 py-3 pr-15 text-[16px]"
-      />
-      <span className="absolute right-4 top-1/2 -translate-y-1/2 text-[16px] text-gray-500">
-        {t('reservation.point.unit')}
-      </span>
-    </div>
+      <div className="flex gap-2">
+        <div className="relative w-full">
+          <input
+            type="number"
+            name="pointUsage"
+            placeholder={t('reservation.point.placeholder')}
+            value={formData.pointUsage}
+            onChange={handleInputChange}
+            className="w-full border rounded-xl px-4 py-3 pr-15 text-[16px]"
+          />
+          <span className="absolute right-4 top-1/2 -translate-y-1/2 text-[16px] text-gray-500">
+            {t('reservation.point.unit')}
+          </span>
+        </div>
 
-    <button
-      type="button"
-      className="bg-[#FF8FA9] px-4 text-white rounded-lg font-semibold whitespace-nowrap"
-      onClick={applyPoint}
-    >
-      {t('reservation.point.button')}
-    </button>
-  </div>
-</div>
+        <button
+          type="button"
+          className="bg-[#FF8FA9] px-4 text-white rounded-lg font-semibold whitespace-nowrap"
+          onClick={applyPoint}
+        >
+          {t('reservation.point.button')}
+        </button>
+      </div>
+    </div>  
+  </>
+}
 
 
 
