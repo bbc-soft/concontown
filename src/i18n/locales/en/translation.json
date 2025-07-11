@@ -1,0 +1,859 @@
+{
+    "home": {
+        "tabs" : [
+            "All",
+            "Coming soon",
+            "Available",
+            "Closing",
+            "Pending availability",
+            "Ended"
+        ],
+        "modal" : {
+            "sub" : "Hide this for today",
+            "button" : "Close"
+        }
+    },
+    "login" : {
+        "signUp" : "Sign up",
+        "googleLogin" : "Log in with Google account",
+        "appleLogin" : "Log in with Apple account",
+        "ifNoAccount" : "If you don’t have an account",
+        "signUpRegister": "Sign up for membership",
+        "guideMessage1": "Notice for E-mail Registration",
+        "guideMessage2": "Please use an email that can receive verification messages. For moother registration, <gmail> is recommended." 
+    },       
+    "loginEmail": {
+      "title": "Please enter your email to log in or sign up as a member",
+      "emailPlaceholder": "Email",
+      "continueButton": "Log in",
+      "forgotPassword": "Forgot password?",
+      "or": "Or",
+      "social": {
+        "google": "Google",
+        "kakao": "Kakao",
+        "line": "LINE",
+        "wechat": "WeChat",
+        "apple": "Apple"
+      },
+      "signUp": {
+        "snsTitle": "Please enter the required information to complete SNS registration.",
+        "sub" : "Sign up with E-mail",
+        "subSns" : "SNS Register",
+        "email" : "Email",
+        "emailAvailable" : "This email is available.",
+        "emailDuplicate" : "This email is already in use.",
+        "emailUnavailable" : "This email has been withdrawn and cannot be reused.",
+        "verify": "Verify",
+        "verified": "Verified",
+        "verifySuccess": "Authentication succeeded.",
+        "verifyFailed": "Authentication failed.",
+        "verifyTimeOut": "Timeout. Please try again.",
+        "verifyCodeValid10": "The authentication number is valid for 10 minutes.",
+        "verifyCodeExpired": "The authentication number has expired.",        
+        "message" : "Has the email not arrived yet?",
+        "sendBtn" : "Sign up",
+        "cancelBtn" : "Cancel",
+        "resendBtn" : "Resend",
+        "Google" : "Sign up with Google account",
+        "apple" : "Sign up with Apple account",
+        "registration_failed": "Registration Failed",
+        "email_already_in_use": "This account is already registered.\nPlease log in with this account or choose a different one to sign up." ,
+        "descMemberId": "Please enter your email.",
+        "descVerifyEmail": "Please verify your email address.",
+        "descVerifyCode": "Please enter verify code.",
+        "descPassword": "Please enter your password.",
+        "descPasswordAgain": "Please confirm your password.",
+        "descPasswordError": "Password must be at least 8 characters and include uppercase, lowercase, and numbers.",
+        "descPasswordMismatch": "Passwords do not match.",
+        "descName": "Please enter your full name in English characters.",
+        "descBirthday": "Please enter your date of birth.",
+        "descGender": "Please select your gender.",
+        "descCountryRegion": "Please select your country/region.",
+        "descCity": "Please enter your city of residence.",
+        "descCountryCode": "Please select your country code.",
+        "descContactNumber": "Please enter your contact number.",
+        "descTerm": "You must agree to the Terms of Use and Privacy Policy."        
+      },
+      "emailError": {
+        "title": "Email verification failed",
+        "message": "The email verification time has expired. Please resend the verification request again through the app.",
+        "ok": "OK"
+      }
+    },
+    "terms": {
+        "sub": "Please check and consent to the updated Terms of Use below.",
+        "allConsent": "I consent to all",
+        "required": "(Required)",
+        "optional": "(Optional)",
+        "termsAndConditions": "Terms and Conditions",
+        "promotionalConsent": "Consent to receive promotional information.",
+        "personalInfoConsent": "Consent to collect and use personal information for marketing purposes.",
+        "agreeButton": "Agree",
+        "agreementTitle": "Agreement to terms",
+        "agreementCheck2": "I have read the below information and agree with the Terms of Use",
+        "adAgree": "I agree to receive emails and push notifications",
+        "privacyNotice": "I have read and agree to the Privacy Policy",
+        "title": {
+            "cancel": "Cancellation Policy",
+            "use": "Terms of Use",
+            "privacy": "Privacy Policy",
+            "ad": "Email / Push Notification Consent"
+          },
+          "cancel": {
+            "1": "Cancellations must be made at least 7 days in advance.",
+            "2": "A cancellation fee may apply based on date of request.",
+            "3": "No-shows will not be refunded."
+          },
+          "use": {
+            "1": "Please respect the event rules and instructions.",
+            "2": "Services are available for international customers only.",
+            "3": "We do not allow third-party resale of packages."
+          },
+          "privacy": {
+            "1": "We collect personal information only for the purpose of reservation and communication.",
+            "2": "Your information will not be shared with third parties without your consent.",
+            "3": "You may request deletion of your data by contacting support.",
+            "4": "Data is encrypted and stored securely."
+          },
+          "ad": {
+            "1": "I agree to receive emails and push notifications related to package updates, events, and exclusive benefits.",
+            "2": "I can update my preferences or unsubscribe at any time through the app settings."
+          },
+          "cancel-free": {
+            "1": "Please note that this is a promotional event, and no cancellation fees will apply.",
+            "2": "It is normal for your booking status to appear as \"Waiting\" when checked under \"My Bookings.\"",
+            "3": "We look forward to your participation!"
+          }
+          
+    },
+    
+    "password": {
+        "sub": "Please enter a new password.",
+        "password": "Password",
+        "reenterPassword": "Re-enter Password",
+        "new": "New password",
+        "confirm": "Confirm new password",
+        "characters": "8–16 characters",
+        "numbers": "1 or more numbers",
+        "symbols": "1 or more symbols",
+        "button": "Next"     
+    },
+    "language": {
+        "title": "What's your preferred language?",
+        "english": "English",
+        "japanese": "Japanese",
+        "korean": "Korean",
+        "chinese": "Chinese",
+        "notice": "* CONCONTOWN Package service is currently available in four languages: English, Japanese, Korean and Chinese. Thank you for your understanding.",
+        "button": "Complete SignUp"
+    },
+    "complete": {
+        "success": "Your registration has been successfully completed.",
+        "congrats": "Congratulations!",
+        "goHome": "Go to Home",
+        "requestFanClubVerify": "This package requires fan club verification.",
+        "enterFanClubInfo": "Please click the button below to enter your fan club information.",
+        "alreadyRegistered": "If you have already registered,"        
+    },
+    "loginPw": {
+        "enterPassword": "Please enter password.",
+        "passwordPlaceholder": "password",
+        "forgotPassword" : "Forgot password?",
+        "button": "Next",
+        "loginFailed": "Login Failed",
+        "incorrectEmailPassword": "Incorrect email or password."
+    },
+    "socialAuth": {
+        "title": "'CONCONTOWN' is trying to login using your 'google.com' account.",
+        "message": "Your information will be shared with the app",
+        "cancel": "Cancel",
+        "continue": "Continue"
+    },
+    "forgotPassword": {
+        "title": "Please enter your email to sign in",
+        "emailPlaceholder": "Email",
+        "next": "Next",
+        "emailAddress": "Please enter the email address you signed up with.",
+        "firstName": "Please enter the first name you signed up with.",
+        "lastName": "Please enter the last name you signed up with.",
+        "SendTempPassword": "Send temporary password",
+        "passwordSent": "A temporary password has been sent to {{email}}.",
+        "informationMismatch": "The information you entered does not match.",
+        "noMember": "There is no member information.",                   
+        "verification": {
+            "title": "The verification code has been sent to your email:",
+            "subtitle": "Please enter the code.",
+            "inputPlaceholder": "Verification code",
+            "notArrived": "Has the email not arrived yet?",
+            "resend": "Resend",
+            "next": "Next"
+        },
+        "updatePassword": {
+            "title": "Please enter new password",
+            "new": "New password",
+            "confirm": "Confirm new password",
+            "characters": "6–16 characters",
+            "numbers": "1 or more numbers",
+            "symbols": "1 or more symbols",
+            "button": "Update information",
+            "message": "Please contact hello@concontown.com for password recovery assistance."
+        }
+    },
+    "personalInfo": {
+        "title": "Personal Information",
+        "description": "We kindly ask you to update your personal information for the global package tour.",
+        "firstName": "First Name( Given name)",
+        "lastName": "Last name( Family name)",
+        "passportNote": "Please check English name as in passport.",
+        "dob": "Date of Birth",
+        "gender": "Gender",
+        "female": "Female",
+        "male": "Male",
+        "both": "Other",
+        "country": "Country/Region",
+        "city": "City of residence",
+        "cityNote": "No need to enter the full address (ex. Seoul)",
+        "email": "Email address",
+        "emailNote": "You will receive the confirmation letter from CONCONTOWN Package via this email.",
+        "dialCode": "Country code",
+        "phone": "Contact Number",
+        "update": "Update information"
+    }, 
+    "reserve" : {
+        "title": "Package",
+        "comingBtn": "Coming soon",
+        "restockBtn": "Restock",
+        "waitingBtn": "Waiting",
+        "reserveBtn": "Reserve",
+        "cutoff": "Sale Stopped",
+        "waiting": "Waiting",
+        "restockFail" : {
+            "title": "Restock Notification Notice",
+            "message": "Notifications will be sent in the order of applicants. Please note that there may be a delay in receiving the alert, depending on your position in the queue.",
+            "button": "OK"
+        },
+        "option": {
+            "price": "Price",
+            "button": "Next"
+        }
+    },
+    "register": {
+        "guide": {
+          "email": "Please enter your email to use as your ID. And check for duplicates.",
+          "passwordRule": "Password must be 8–16 characters (include a number and one uppercase letter).",
+          "confirmPassword": "Please enter your password again to confirm.",
+          "firstName": "Please enter your First Name (Given Name). Use the exact English spelling as shown on your passport.",
+          "lastName": "Please enter your Last Name (Family Name). Use the exact English spelling as shown on your passport.",
+          "dob": "Please select your date of birth."
+        }
+      },
+    "reservation": {
+        "title": "Reservation",
+        "subTitle": "for International Fans only",
+        "section": {
+          "choice": "Your Choice",
+          "coupon": "Coupon",
+          "point": "Point",
+          "personalInfo": "Personal Information",
+          "personalInfoMessage": "The reservation holder's name must match the English name on the passport. If not, please update it under \"More\" → \"My Personal Information\" before proceeding with the reservation. ",
+          "companion": "Tour Friend’s Information",
+          "companionMessage": "Please enter your First Name (Given Name). Use the exact English spelling as shown on your passport.",
+          "selectBirthday": "Please select your date of birth.",
+          "agreement": "Agreement to terms"
+        },
+        "coupon": {
+          "select": "Select coupon",
+          "discountLabel": "{{percent}}% Welcome Discount",
+          "placeholder": "If you have a discount coupon, please use it here.",
+          "modalTitle": "Available Coupons",
+          "empty": "You have no available coupons.",
+          "discountLabelSimple": "Welcome Discount",
+          "validUntil": "Valid until {{date}}",
+          "close": "Close"
+        },
+        
+        "point": {
+          "balance": "My point Balance",
+          "usageNote": "{{point}}p can be used for up to ${{amount}}.",
+          "conversion": "(1,000P = $1.00)",
+          "placeholder": "Enter points",
+          "unit": "Points",
+          "button": "Apply"
+        },
+        "agreement": {
+          "cancel": "I have checked and agree with the cancellation policy",
+          "terms": "I have read the below information and agree with the Terms of Use"
+        },
+        "alert": {
+          "nameRequired": "Please enter your name.",
+          "agreementRequired": "Please agree to the terms and cancellation policy.",
+          "companionRequired": "Please fill out all companion information."
+        },
+        "cancel": "Cancellation Policy",
+        "fee": "Fee",
+        "total": "Total",
+        "purchase": "Purchase"
+      },
+      "couponList": {
+        "validUntil": "Valid until"
+      },
+    "companion": {
+        "title": "Please enter your tour companion information manually",
+        "backupEmail": "Backup E-mail",
+        "complete": "Complete"
+    },
+    "Reservation": {
+        "reservationTwin": {
+            "myFriend": {
+              "title": "TOUR MATE",
+              "description": "Choose a companion for the trip. If the friend you want to accompany is not in your list, add them first and then select.",
+              "selectFriend": "Select tour friend",
+              "goAdd": "Go to add friend",
+              "viewEntered": "View entered companion information"
+            }
+        },
+        "companionList": {
+            "manualEntryQuestion": "Would you like to enter the information manually?",
+            "manualEntryButton": "Enter manually"
+        }
+    },
+    "payment": {
+        "title": "Payment",
+        "method": "Payment method",
+        "creditCard": "Credit Card",
+        "purchaseButton": "{{price}} Purchase",
+        "back": "Back to Payment Method"
+    },
+    "confirmation": {
+        "title": "The payment has been completed.",
+        "reservedTicket": "Reserved ticket",
+        "packageName": "Package Name",
+        "payment": "Payment",
+        "subtotal": "Subtotal",
+        "price": "Price",
+        "coupon": "Coupon",
+        "point": "Point",
+        "discountCoupon": "Discount coupon",
+        "pointUsage": "{{points}}point usage",
+        "orderNumber": "Order Number",
+        "personalInfo": "Personal Information",
+        "passportNote": "Please make sure your English name as in passport.",
+        "flightInfo": "Flight Information",
+        "paymentMethod": "Payment Method",
+        "confirm": "Confirm",
+        "cancelButton": "Cancel",
+        "payNow": "Proceed to Payment"
+
+    },
+    "shop": {
+        "title": "Shop",
+        "myConcert": "My reserved Concert",
+        "sub": "You can only buy goods for your booked concert.",
+        "button": "Go to shop",
+        "shopDetail" : {
+            "sub": "Goods for package service",
+            "addToCartBtn": "add to cart",
+            "addedBtn": "added !",
+            "ready": "{count} product",
+            "readyMulti": "{count} products"
+        },
+        "goodsDetail": {
+            "quantity": "Quantity",
+            "productDetail": "Product Detail",
+            "notice": "Notice",
+            "buyBtn": "Buy {count} Products",
+            "addedBtn": "added !"
+        },
+        "checkout": {
+            "title": "Checkout",
+            "quantity": "Quantity",
+            "coupon": "Coupon",
+            "selectCoupon": "Select coupon",
+            "point": "Point",
+            "pointBalance": "My point Balance",
+            "pointUsage": "Usage($)",
+            "pointInfo": "1,000P can be used for up to 1 dollar. ",
+            "applyBtn": "Apply",
+            "agreementTitle": "Agreement to terms",
+            "agreementCheck1": "I have checked and agree with the cancellation policy.",
+            "agreementCheck2": "I have read the below information and agree with the Terms of Use",
+            "purchaseBtn": "Purchase"
+        }
+    },
+    "cart": {
+        "title": "Your cart",
+        "all": "All",
+        "product": "products",
+        "total": "Total",
+        "buy": "Buy {count} Products",
+        "checkout": {
+            "title": "Checkout",
+            "yourOrder": "Your Order", 
+            "total": "Total ({count} items)",
+            "totalShort": "Total",
+            "coupon": "Coupon",
+            "selectCoupon": "Select coupon",
+            "point": "Point",
+            "pointBalance": "My point Balance",
+            "pointUsage": "Usage($)",
+            "pointInfo": "1,000P can be used for up to 1 dollar. ",
+            "apply": "Apply",
+            "agreementTitle": "Agreement to terms",
+            "agreementCheck1": "I have checked and agree with the cancellation policy.",
+            "agreementCheck2": "I have read the below information and agree with the Terms of Use",
+            "purchaseBtn": "Purchase",
+            "payNowBtn": "Pay Now"
+        }
+    },
+    "wish": {
+        "tabs": [
+            "All",
+            "Coming soon",
+            "Reserve",
+            "Waiting"
+        ],
+        "location": "City",
+        "international": "for International Fans only",
+        "comingSoon": "Coming soon",
+        "reserve": "Reserve"
+    }, 
+    "more": {
+        "title": "More",
+        "myPersonalInfo": "My Personal Info",
+        "point": "Point",
+        "coupon": "Coupon",
+        "wishlist": "Wishlist",
+        "myTourFriend": "My Tour Friend",
+        "myBooking": "My Booking",
+        "orderHistory": "SHOP Order History",
+        "qna": "Q&A",
+        "faq": "FAQ",
+        "customerService": "Customer Service",
+        "setting": "Setting"
+    },
+    "myPersonalInfo": {
+        "title": "My Personal Information",
+        "detail" : {
+            "message": "Personal information must be updated to purchase the package.",
+            "name" : "Name (First / Last)",
+            "email" : "E-mail",
+            "backupEmail" : "Backup Email",
+            "emailSub" : "Not registered",
+            "date" : "Date of Birth",
+            "gender" : "Gender",
+            "country" : "Country/Region",
+            "city": "City of residence",
+            "contactNumber": "Contact Number",
+            "editButton" : "Edit"
+        },
+        "edit" : {
+           "countrySub" : "Please check English name as in passport.",
+           "citySub" : "No need to enter the full address (ex. Seoul)",
+           "emailSub" : "You will receive the confirmation from CONCONTOWN package via this email",
+           "contractSub" : "You will receive the confirmation from CONCONTOWN package via this email."
+        }  
+    },
+    "point": {
+        "title": "Point",
+        "totalPoint": "Total Point",
+        "tabs": [
+            "All",
+            "Added",
+            "Used"
+        ],
+        "validUntil" : "valid until"
+    },
+    "coupon": {
+        "title": "Coupon",
+        "validUntil": "valid until",
+        "tab": {
+            "available": "Available",
+            "expired": "Expired / Used"
+          }
+          
+    },
+    "wishlist": {
+        "title": "Wishlist",
+        "tabs": [
+            "all",
+            "Interested",
+            "Plan to purchase"
+        ],
+        "completionDate": "Completion date"
+    },
+    "personal_information": {
+    "first_name": "Sunny",
+    "last_name": "Kim",
+    "email": "hello@gmail.com",
+    "backup_email": "hello@gmail.com",
+    "date_of_birth": "10. Oct. 2000",
+    "gender": "Female",
+    "country": "Republic of Korea",
+    "city": "Seoul",
+    "dialing_code": "Republic of Korea (+82)",
+    "contact_number": "1058776977",
+    "status": "update_needed",
+    "message": "Personal information must be updated to purchase the package."
+    },
+    "myTourFriends": {
+        "myTourFriendsList" : {
+            "empty": {
+                "title": "TOUR MATE",
+                "noFriendsMessage": "You haven’t added any friends yet.",
+                "instructions": "Try entering a friend’s CONCONTOWN email(ID) to send a tour friend request.",
+                "addFriendButton": "Add Friend"
+            },
+            "add" : {
+                "idTitle": "Please enter your friend's CONCONTOWN account email(ID).",
+                "messageTitle": "Please enter your friend's CONCONOWN account email(ID) and message.", 
+                "inputField": [{
+                  "placeholder": "concontown email (ID)",
+                  "error": "The email address is not found"
+                },
+                {
+                    "placeholder": "Message",
+                    "example": "Enter the message you want to send to your friend."
+                }],
+                "button": "Request"
+            },
+            "myTourFriendsList": {
+                "title": "TOUR MATE List",
+                "followTabs": [
+                    {
+                        "Following": "Following",
+                        "Follower": "Follower"
+                    }
+                ],
+                "followings": [
+                    {
+                        "message": "Successfully sent a friend request to Sarah. Please wait until Sarah follow back."
+                    }
+                ],
+                "followers": [
+                    {
+                    "message": "You`ve received a friend request from Jenny",
+                    "button": "Follow Back"
+                    }
+                ],
+                "button": "Add Tour Friend"
+            }
+        }
+    },
+    "myBooking": {
+        "title": "My Booking",
+        "reservationStatus": "Reservation status",
+        "paymentCanceled": "Payment successfully cancelled.",        
+        "tabs" : { 
+            "all" : "ALL",
+            "booking":"Booking",
+            "waiting":"Waiting",
+            "canceled":"Canceled"
+        },
+        "badge": {
+            "paymentRequired": "Payment Required"
+          },
+        "bookingDetail": {
+            "title":"Reservation Information",
+            "ticket": {
+                "title": "Reserved ticket",
+                "packageName": "Package Name",
+                "status": {
+                "title": "Status",
+                "reservationStatus": "Reservation status",
+                "paymentStatus": "Payment status",
+                "booking": "Booking",
+                "paid": "Paid",
+                "canceled": "Canceled",
+                "refunded": "Refunded",
+                "waiting": "Waiting",
+                "unknown": "Unknown",
+                "completed": "Completed",
+                "completed_part": "Partially Paid",
+                "created": "Payment Created",
+                "denied": "Payment Denied",
+                "expired": "Expired",
+                "failed": "Failed",
+                "pending": "Pending",
+
+                "refund_r": "Refund Processing",
+                "reversed": "Reversed (Dispute)",
+                "processed": "Processed",
+                "voided": "Voided",
+                "canceled_r": "Canceled by Admin"
+                },
+                "payment": {
+                "payment": "Payment",
+                "subtotal": "Subtotal",
+                "price": "Price",
+                "coupon": "Coupon",
+                "point": "Point"
+                },
+                "orderNumber": "Order Number"
+            },
+            "personalInformation": {
+                "title": "Personal Information",
+                "firstName": "First Name",
+                "lastName": "Last/Family Name",
+                "dateOfBirth": "Date of Birth",
+                "gender": "Gender",
+                "country": "Country/Region",
+                "city": "City of residence",
+                "email": "E-mail",
+                "contactNumber": "Contact Number",
+                "message": "You will receive the confirmation from CONCONTOWN package via this email.",
+                "button": "Edit my Information"
+            },
+            "flightInformation": {
+                "title": "Flight Information",
+                "arrivalFlightNumber": "Arrival Flight Number",
+                "departureFlightNumber": "Departure Flight Number"
+            },
+            "paymentMethod": {
+                "title": "Payment"
+            },
+            "contactInfo": {
+                "title": "Contact Us",
+                "serviceHours": "Mon-Fri, 09:00-18:00 (KST, exclude public holidays)",
+                "phone": "+82-2-6237-0050"
+            },
+            "button": "Go to Q&A"
+        },
+        "cancel": {
+            "cancelPayment": "Cancel Payment",
+            "totalPayment": "Total Payment",
+            "cancelFee": "Cancellation Fee",
+            "refundAmount": "Refund Amount",
+            "cancelPolicy": "* A cancellation fee will be applied according to the policy. Please review the details carefully before proceeding.",
+            "loadCancelInformation": "Loading cancellation information…",
+            "agreeTerms": "Agreement to Terms",
+            "reviewedCancelPolicy": "I have reviewed and agree to the cancellation policy.",
+            "readInformationAndAgreeToTerms": "I have read the information below and agree to the Terms of Use.",
+            "reasonForCancel": "Reason for Cancellation",
+            "placefolderReason": "Please provide the reason for your cancellation."
+        }        
+    },
+    "orderHistory": {
+        "title": "Order History",
+        "status": {
+        "purchaseCompleted": "Purchase Completed"
+        }
+    },
+    "QnA": {
+        "title":"Q&A",
+        "tabs" : [
+            "ALL",
+            "Category name",
+            "Category name",
+            "Category name"
+        ],
+        "etc": [
+            "Edit",
+            "Delete"
+        ],
+        "ask": {
+            "eventName": "Event Name",
+            "Select Event": "Select Event",
+            "category": "Category",
+            "Select Category": "Select Category",
+            "title": "Title",
+            "inquiry": "Enter the information you wnat to inquire about.",
+            "uploadImage": "Upload Image",
+            "submitButton": "Submit",
+            "conpleteButton": "Complete",
+            "modal" : [
+                "Take a photo",
+                "Select from album"
+            ]
+        },
+        "qnaConfirmation": {
+            "message": "Are you sure you want to delete your post? Once deleted, it cannot be restored.",
+            "actions": [
+                    "Cancel",
+                    "Delete"
+                ]
+            },
+        "button": "Ask a question"
+    },
+    "faq": {
+        "title":"FAQ",
+        "faqTabs" : {
+            "all" : "ALL",
+            "category1": "Category name",
+            "category2": "Category name",
+            "category3": "Category name"
+        }
+    },
+    "customerService" : {
+        "registrationGuide": {
+            "title": "Registration Guide"
+        },
+        "customerService": {
+            "title": "Customer Service",
+            "menus": [
+                "Registration Guide",
+                "Purchase Guide",
+                "TOUR MATE(Companion) Pre-registration Manual",
+                "Wish List Guide",
+                "Coupon Usage Manual",
+                "K-ETA Application Guide",
+                "Contact Us"
+            ],
+            "contactUsSub": "English/Japanese/Korean/Chinese Available",
+            "contact_details": {
+                "title": "Service Hours",
+                "serviceHours": "Mon-Fri, 09:00-18:00(KST, exclude public holidays)",
+                "phone": "+82-2-6237-0050",
+                "lunchTime": "Lunch Time : 12:00 - 13:00"
+            }
+            } 
+    },
+    "setting" : {
+        "setting" :   {
+            "title": "Setting",
+            "appLanguage": "App Language",
+            "appLanguageSub": "English/Japanese/Korean/Chinese Available",
+            "accountPassword": "Reset Password",
+            "notification": { 
+                "title": "Notification",
+                "qnaMobileNotification": "Q&A Mobile Notification",
+                "qnaMobileNotificationSub": "If you turn off Auto log-in, you will not receive notifications and Q&A answers in real time.",
+                "personalNotice": "Push Notifications",
+                "inAppSounds": "In-App Sounds",
+                "inAppVibration": "In-App Vibration",
+                "autoLogIn": "Auto log-in",
+                "marketingEmail": "Receive email notifications",
+                "marketingEmailSub": "Receive updates about events, offers, and packages via email."        
+            },
+            "applicationInformation": {
+                "title": "Application Information",
+                "installedVersion": "Installed Version",
+                "latestVersion": "Latest Version"
+            },
+                "servicePolicy": {
+                "title": "Service Policy",
+                "packageSalesPolicy": "Package Sales Policy",
+                "privacyPolicy": "Privacy Policy"
+                }
+        },
+        "changePassword" : {
+            "content": "Please enter your current password and new password",
+            "fields": {
+                    "oldPassword": "Please enter your current password.",
+                    "newPassword": "New password",
+                    "confirmPassword": "Confirm new password"
+            },
+            "message": "Password must be 8–16 characters ( include a number and a capital letter.)",
+            "button": "Update",
+            "currentPasswordIncorrect": "The current password is incorrect.",
+            "newPasswordNotMatch": "The new passwords you entered do not match.",
+            "errorOccurred": "Error occurred. ",
+            "passwordChangeSuccess": "Your password has been successfully changed.",
+            "passwordChangeFail": "Your password change has failed."
+        },
+        "language" :   {
+            "content": "What’s your preferred language?",
+            "options": ["English", "Japanese", "Korean", "Chinese"],
+            "update": "Update"
+        }
+    },  
+    "notice": {
+        "title": "Notice",
+        "general" : "General",
+        "personal" : "Personal",
+        "notice": "Notice",
+        "ad": "Advertisement",
+        "loading": "Loading...",
+        "emptyList": "No notices available.",
+        "postedAt": "Posted At",
+        "readAt": "Read At"
+    },
+    "navbar": {
+        "comingSoonTitle": "Coming Soon",
+        "comingSoonDesc": "This feature will be available soon!",
+        "ok": "OK"
+    }, 
+    "myFanclub": "My Fanclub",
+    "notice1": "You can check your fan club membership information by logging into the Weverse service.",
+    "notice2": "Currently, only Japanese fan club membership information can be entered.",
+    "joinedListTitle": "Joined Fanclubs",
+    "code": "Code",
+    "remark1": "Input1",
+    "remark2": "Input2",
+    "delete": "Delete",
+    "logout": "Logout",
+    "deleteAccount": "Delete Account",
+    "noFanclub": "No fanclubs registered.",
+    "add": "Add Fanclub",
+    "fanclub": {
+        "joinedListTitle": "Fan Clubs You’ve Joined",
+        "noFanclub": "No fan clubs joined.",
+        "add": "Add Fan Club",
+        "message": "Please fill in the information you are registering with the fan club.",
+        "select": "Name of the MEMBERSHIP (JP) you are already joined to",
+        "membershipNumber": "Weverse Membership Number",
+        "nameHanja": "Name (Fill it in just like you did on Weverse)",
+        "nameKana": "Name (Katakana)",
+        "email": "Weverse Registered Email (ID)",
+        "birthday": "Date of birth (8 digits)",
+        "selectFanclubAlert": "Please select the MEMBERSHIP (JP).",
+        "enterMembershipNumber": "Please enter your membership number.",
+        "enterMembershipNumber11digits": "Your membership number must be 11 digits long.",
+        "enterHanja": "Please enter your name in Hanja.",
+        "enterKana": "Please enter your name in Katakana.",
+        "enterEmail": "Please enter your Weverse email.",
+        "enterJpNumber": "Please enter your JP. MEMBERSHIP NO.",
+        "enterJpNumber6Digits": "JP. MEMBERSHIP NO. must be 6 digits.",
+        "enterBirthday": "Please enter your birthday.",
+        "jpNumberDesc": "This is the membership number assigned by the SM Japan Fan Club."
+      },
+      "common": {
+        "maxLength12": "Up to 12 characters allowed.",
+        "maxLength6": "Up to 6 characters allowed.",
+        "notAutoFilled": "This will not be auto-filled.",
+        "save": "Save",
+        "errorOccurred": "An error has occurred.",
+        "warning": "Warning",
+        "loginRequired": "Login information is missing.",
+        "close": "Close",
+        "submit": "Submit"
+      },
+      "paymentTab": {
+        "localCard": "Korean-issued card",
+        "paypal": "PayPal",
+        "overseasCard": "Overseas card"
+      },
+      "exchange": {
+        "notice": "* This payment will be charged in KRW based on the latest exchange rate. (1 USD = {{rate}} KRW applied)"
+      },
+      "alertModal": {
+        "title": "Payment Error",
+        "description": "An unexpected error occurred during payment. Please try again.",
+        "confirm": "OK"
+      },
+      "select": {
+        "back": "Reservation",
+        "room": {
+          "twinTitle": "Twin Room",
+          "twinDesc": "Shared by two people. The displayed price is per person. Your tour companion must also be a CONCONTOWN member.",
+          "singleTitle": "Single Room",
+          "singleDesc": "Room for one person. No companion required."
+        },
+        "ticketOption": "Ticket Option",
+        "priceOption": "Price Options",
+        "eventOption": "Event Options",
+        "total": "Total",
+        "next": "Next",
+        "alert": {
+          "courseRequired": "Please select a course.",
+          "ticketRequired": "Please select a ticket option.",
+          "pickupRequired": "Please select a price option.",
+          "optionRequired": "Please select an event option.",
+          "serverError": "Failed to confirm due to server error."
+        },
+        "selectCourseMessage": "Please select a course"
+        
+      }
+      
+      
+      
+}

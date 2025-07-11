@@ -1,0 +1,836 @@
+{
+    "home": {
+        "tabs" : [
+            "全部",
+            "即将上线",
+            "开放预订",
+            "截止中",
+            "等待取消",
+            "已结束"
+        ],
+        "modal" : {
+            "sub" : "今日不再显示",
+            "button" : "关闭"
+        }
+    },
+    "login" : {
+        "signUp" : "注册",
+        "googleLogin" : "使用Google账户登录",
+        "appleLogin" : "使用Apple账户登录",
+        "ifNoAccount" : "如果您还没有账户",
+        "signUpRegister": "注册成为会员",
+        "guideMessage1": "电子邮件注册时的提示",
+        "guideMessage2": "注册会员时，请使用可以接收验证邮件的邮箱。建议尽量使用 Gmail，以便更方便地使用服务。"         
+    },    
+    "loginEmail": {
+      "title": "请填写您的电子邮件地址以登录或注册会员。",
+      "emailPlaceholder": "Email",
+      "continueButton": "登录",
+      "forgotPassword": "忘记密码?",
+      "or": "Or",
+      "social": {
+        "google": "Google",
+        "kakao": "Kakao",
+        "line": "LINE",
+        "wechat": "WeChat",
+        "apple": "Apple"
+      },
+      "signUp": {
+        "snsTitle": "请输入所需信息以完成SNS注册。",
+        "sub" : "邮箱注册",
+        "subSns" : "SNS 注册",
+        "email" : "Email",
+        "emailAvailable" : "此Email可用。",
+        "emailDuplicate" : "此Email已被使用。",
+        "emailUnavailable" : "此Email已被撤回，无法重复使用。",        
+        "verify": "认证",
+        "verified": "已验证",
+        "verifySuccess": "身份验证成功。",
+        "verifyFailed": "身份验证失败。",
+        "verifyTimeOut": "时间已到。请重试。",     
+        "verifyCodeValid10": "认证号码有效期为10分钟。",
+        "verifyCodeExpired": "身份验证号码已过期。",        
+        "message" : "电子邮件还没有收到吗？",
+        "sendBtn" : "注册会员",
+        "cancelBtn" : "取消",
+        "resendBtn" : "重新发送",
+        "Google" : "使用账号注册",
+        "apple" : "使用账号注册",
+        "registration_failed": "会员注册失败",
+        "email_already_in_use": "该SNS账户的邮箱已注册为会员。\n请使用其他账户或该邮箱登录。",
+        "descMemberId": "请输入您的邮箱。",
+        "descVerifyEmail": "请验证您的邮箱地址。",
+        "descVerifyCode": "请输入验证码。",
+        "descPassword": "请输入您的密码。",
+        "descPasswordAgain": "请再次输入密码。",
+        "descPasswordError": "密码必须至少包含8个字符，并包括大写、小写字母和数字。",
+        "descPasswordMismatch": "密码与确认密码不一致。",
+        "descName": "请用英文输入您的姓名(名/姓)。",
+        "descBirthday": "请输入您的出生日期。",
+        "descGender": "请选择您的性别。",
+        "descCountryRegion": "请选择您的国家/地区。",
+        "descCity": "请输入您居住的城市。",
+        "descCountryCode": "请选择您的国家代码。",
+        "descContactNumber": "请输入您的联系电话。",
+        "descTerm": "您必须同意使用条款和隐私政策。"        
+      },
+      "emailError": {
+        "title": "电子邮件验证失败",
+        "message": "电子邮件验证时间已过期。请通过应用程序重新发送验证请求",
+        "ok": "确认"
+      }
+    },
+    "terms": {
+        "sub": "请查看并同意以下更新后的使用条款。",
+        "allConsent": "同意所有内容",
+        "required": "(必填)",
+        "optional": "(可选)",
+        "termsAndConditions": "条款和条件",
+        "promotionalConsent": "同意接收促销信息",
+        "personalInfoConsent": "同意收集和使用个人信息用于营销目的",
+        "agreeButton": "同意",
+        "agreementTitle": "同意条款",
+        "agreementCheck2": "我已阅读以下内容，并同意《使用条款》。",
+        "adAgree": "我同意接收电子邮件和推送通知",
+        "privacyNotice": "我已阅读并同意《隐私政策》。",
+        "title": {
+            "cancel": "取消政策",
+            "use": "使用条款",
+            "privacy": "隐私政策",
+            "ad": "电子邮件 / 推送通知接收同意"
+          },
+          "cancel": {
+            "1": "必须至少提前7天取消。",
+            "2": "根据申请日期可能会收取取消费用。",
+            "3": "未到场将不予退款。"
+          },
+          "use": {
+            "1": "请遵守活动规则和指示。",
+            "2": "服务仅面向国际客户。",
+            "3": "不允许转售套餐给第三方。"
+          },
+          "privacy": {
+            "1": "我们仅为预订和沟通目的收集个人信息。",
+            "2": "未经您的同意不会与第三方共享您的信息。",
+            "3": "您可以通过联系客服请求删除您的数据。",
+            "4": "数据将被加密并安全存储。"
+          },
+          "ad": {
+            "1": "我同意接收有关套餐行程、活动和优惠的宣传电子邮件和推送通知。",
+            "2": "如需取消接收，可在 App 设置中进行更改。"
+          },
+          "cancel-free": {
+            "1": "本次活动为特别赠票活动，无需支付取消费用。",
+            "2": "在【我的预约】中显示为 Waiting（待处理）状态 属于正常现象。",
+            "3": "欢迎大家踊跃参与申请！"
+          }
+          
+    },
+    "password": {
+        "sub": "请输入新密码",
+        "password": "密码",
+        "reenterPassword": "重新输入密码",
+        "new": "新密码",
+        "confirm": "确认新密码",
+        "characters": "8~16个字符",
+        "numbers": "包含至少一个数字",
+        "symbols": "包含至少一个符号",
+        "button": "下一步"      
+    },
+    "language": {
+        "title": "你偏好的语言是什么？",
+        "english": "英语",
+        "japanese": "日语",
+        "korean": "韩语",
+        "chinese": "中文",
+        "notice": "* CONCONTOWN 包裹服务目前提供四种语言：英语、日语、韩语和中文。希望您理解。",
+        "button": "完成注册"
+    },
+    "complete": {
+        "success": "您的注册已成功完成。",
+        "congrats": "恭喜！",
+        "goHome": "前往主页",
+        "requestFanClubVerify": "此套餐需要粉丝俱乐部认证。",
+        "enterFanClubInfo": "请点击下方按钮输入您的粉丝俱乐部信息。",
+        "alreadyRegistered": "已注册的用户，"            
+    },
+    "loginPw": {
+        "enterPassword": "请输入密码",
+        "passwordPlaceholder": "密码",
+        "forgotPassword" : "忘记密码？",
+        "button": "下一步",
+        "loginFailed": "登录失败",
+        "incorrectEmailPassword": "电子邮件或密码不正确。"
+    },
+    "socialAuth": {
+        "title": "‘CONCONTOWN’ 正在尝试使用您的 ‘google.com’ 帐户登录。",
+        "message": "您的信息将由应用程序共享。",
+        "cancel": "取消",
+        "continue": "继续"
+    },
+    "forgotPassword": {
+        "title": "请输入您注册时使用的电子邮件地址",
+        "emailPlaceholder": "电子邮件",
+        "next": "下一步",
+        "emailAddress": "请输入您注册时使用的电子邮件地址。",
+        "firstName": "请输入您注册时使用的名字。",
+        "lastName": "请输入您注册时使用的姓氏。",
+        "SendTempPassword": "发送临时密码",
+        "passwordSent": "临时密码已发送至 {{email}}。",
+        "informationMismatch": "您输入的信息不匹配。",
+        "noMember": "暂无会员信息。",            
+        "verification": {
+            "title": "验证代码已发送到您的电子邮件：",
+            "subtitle": "请输入验证码。",
+            "inputPlaceholder": "验证码",
+            "notArrived": "电子邮件还没有收到吗？",
+            "resend": "重新发送",
+            "next": "下一步"
+        },
+        "updatePassword": {
+            "title": "请输入新密码",
+            "new": "新密码",
+            "confirm": "确认新密码",
+            "characters": "6–16 文字",
+            "numbers": "包含至少一个数字",
+            "symbols": "包含至少一个符号",
+            "button": "更新信息",
+            "message": "请联系 hello@concontown.com 获取密码恢复帮助。"
+        }
+    },
+    "personalInfo": {
+        "title": "个人信息",
+        "description": "我们恳请您更新您的个人信息，以便参与全球包裹服务。",
+        "firstName": "名字",
+        "lastName": "姓氏",
+        "passportNote": "请检查护照上的英文名字。",
+        "dob": "出生日期",
+        "gender": "性别",
+        "female": "女性",
+        "male": "男性",
+        "both": "其他",
+        "country": "国家/地区",
+        "city": "居住城市",
+        "cityNote": "请不要填写完整地址 (例如：首尔)",
+        "email": "电子邮件地址",
+        "emailNote": "您将收到来自CONCONTOWN的确认信。如果您有 CONCONTOWN Package 邮件，请输入邮件 。",
+        "dialCode": "接国家代码",
+        "phone": "联系电话号码",
+        "update":"更新信息"
+    }, 
+    "reserve" : {
+        "title": "套餐",
+        "comingBtn": "商品准备中",
+        "restockBtn": "补货",
+        "waitingBtn": "取消待处理",
+        "reserveBtn": "可预订",
+        "cutoff": "停止销售",
+        "waiting": "等待中",
+        "restockFail" : {
+            "title": "补货通知注意事项",
+            "message": "补货通知将根据申请者的顺序依次发送，因此收到通知的先后顺序可能会有所差异。",
+            "button": "确认"
+        },
+        "option": {
+            "price": "价格",
+            "button": "下一页"
+        }
+    },     
+    "register": {
+        "guide": {
+          "email": "请输入您的邮箱作为登录ID，并检查是否已被使用。",
+          "passwordRule": "密码长度必须为8到16个字符，且必须包含至少一个数字和一个大写英文字母。",
+          "confirmPassword": "请再次输入密码以进行确认。",
+          "firstName": "请输入您的名字（First name），与护照上的拼写完全一致。",
+          "lastName": "请输入您的姓氏（Last name），与护照上的拼写完全一致。",
+          "dob": "请选择您的出生日期。"
+        }
+      },
+    "reservation": {
+        "title": "预订",
+        "subTitle": "海外粉丝专用",
+        "section": {
+          "choice": "选择项",
+          "coupon": "优惠券",
+          "point": "积分",
+          "personalInfo": "个人信息",
+          "personalInfoMessage": "预订者姓名必须与护照上的姓名一致。如不一致，请在“More”→“My Personal Information”中修改后重新预订。",
+          "companion": "同行人信息填写",
+          "companionMessage": "请输入您的名字（First name）和姓氏（Last name）。*请使用与护照上完全一致的英文拼写。",
+          "selectBirthday": "请选择您的出生日期。",
+          "agreement": "条款协议"
+        },
+        "coupon": {
+          "select": "选择优惠券",
+          "discountLabel": "{{percent}}% 欢迎折扣",
+          "placeholder": "如果您有优惠券，请在此使用。",
+          "modalTitle": "可用优惠券",
+          "empty": "没有可用的优惠券。",
+          "discountLabelSimple": "欢迎优惠",
+          "validUntil": "有效期至 {{date}}",
+          "close": "关闭"
+        },
+        "point": {
+          "balance": "我的积分余额",
+          "usageNote": "{{point}}积分可用于最高{{amount}}美元。",
+          "conversion": "(1,000P = $1.00)",
+          "placeholder": "输入使用积分",
+          "unit": "积分",
+          "button": "应用"
+        },
+        "agreement": {
+          "cancel": "我已阅读并同意取消政策。",
+          "terms": "我已阅读以下信息并同意使用条款。"
+        },
+        "alert": {
+          "nameRequired": "请输入您的姓名。",
+          "agreementRequired": "请同意条款与取消政策。",
+          "companionRequired": "请填写所有同行者信息。"
+        },
+        "cancel": "取消政策",
+        "fee": "手续费",
+        "total": "总计",
+        "purchase": "购买"
+      },
+      "couponList": {
+        "validUntil": "有效期至"
+      },
+    "reservationTwin": {
+        "myTourFriend": {
+            "myFriend": {
+              "title": "TOUR MATE",
+              "description": "选择您的旅行伙伴。如果您要同行的朋友不在列表中，请先添加他们，然后再选择。",
+              "selectFriend": "选择旅行好友",
+              "goAdd": "添加好友",
+              "viewEntered": "查看输入的同行者信息"
+            }
+        },
+        "companionList": {
+            "manualEntryQuestion": "您想手动输入信息吗？",
+            "manualEntryButton": "手动输入"
+        }
+    },
+    "payment": {
+        "title": "查看详情",
+        "method": "支付方式",
+        "creditCard": "信用卡",
+        "purchaseButton": "{{price}} 购买",
+        "back": "返回付款方式"
+    },
+    "confirmation": {
+        "title": "付款已完成。",
+        "reservedTicket": "预订票务",
+        "packageName": "套餐名称",
+        "payment": "付款信息",
+        "subtotal": "合计",
+        "price": "价格",
+        "coupon": "优惠券",
+        "point": "积分",
+        "discountCoupon": "折扣券",
+        "pointUsage": "{{points}}积分使用",
+        "orderNumber": "订单号",
+        "personalInfo": "个人信息",
+        "passportNote": "请检查护照上的英文名字。",
+        "flightInfo": "航班信息",
+        "paymentMethod": "支付方式",
+        "confirm": "確認",
+        "cancelButton": "取消",
+        "payNow": "前往付款"
+
+    },
+    "shop": {
+        "title": "商店",
+        "myConcert": "我预订的演唱会",
+        "sub": "仅限您预订的演唱会，可购买商品。",
+        "button": "前往商店",
+        "shopDetail" : {
+            "sub": "套餐专属周边",
+            "addToCartBtn": "加入购物车",
+            "addedBtn": "已添加 !",
+            "ready": "{count} 商品",
+            "readyMulti": "{count} 商品"
+        },
+        "goodsDetail": {
+            "quantity": "数量",
+            "productDetail": "商品详细信息",
+            "notice": "注意事项",
+            "buyBtn": "{count} 购买 商品",
+            "addedBtn": "已添加 !"
+        },
+        "checkout": {
+            "title": "查看详情",
+            "quantity": "数量",
+            "coupon": "优惠券",
+            "selectCoupon": "选择优惠券",
+            "point": "积分",
+            "pointBalance": "我的积分余额",
+            "pointUsage": "使用金额($)",
+            "pointInfo": "1,000积分可用于最高1美元。使用金额($)  应用 ",
+            "applyBtn": "应用",
+            "agreementTitle": "条款协议",
+            "agreementCheck1": "我已阅读并同意取消政策。",
+            "agreementCheck2": "我已阅读以下信息并同意使用条款。",
+            "purchaseBtn": "购买"
+        }
+    },
+    "cart": {
+        "title": "购物车",
+        "all": "全部",
+        "product": "商品",
+        "total": "总金额",
+        "buy": "{count} 购买 商品",
+        "checkout": {
+            "title": "查看详情",
+            "yourOrder": "订单历史", 
+            "total": "合计 ({count} 个)",
+            "totalShort": "总计",
+            "coupon": "优惠券",
+            "selectCoupon": "选择优惠券",
+            "point": "积分",
+            "pointBalance": "我的积分余额",
+            "pointUsage": "使用金额($)",
+            "pointInfo": "1,000积分可用于最高1美元。使用金额($)  应用 ",
+            "apply": "应用",
+            "agreementTitle": "条款协议",
+            "agreementCheck1": "我已阅读并同意取消政策。",
+            "agreementCheck2": "我已阅读以下信息并同意使用条款。",
+            "purchaseBtn": "购买",
+            "payNowBtn": "结算"
+        }
+    },
+    "wish": {
+        "tabs": [
+            "全部",
+            "商品准备中",
+            "可预订",
+            "取消待处理"
+        ],
+        "location": "城市",
+        "international": "海外粉丝专用",
+        "comingSoon": "商品准备中",
+        "reserve": "可预订"
+    }, 
+    "more": {
+        "title": "更多",
+        "myPersonalInfo": "我的个人信息",
+        "point": "积分",
+        "coupon": "优惠券",
+        "wishlist": "心愿单",
+        "myTourFriend": "MY TOUR FRIENDS",
+        "myBooking": "我的预订",
+        "orderHistory": "SHOP 订单历史",
+        "qna": "问答",
+        "faq": "FAQ",
+        "customerService": "客户服务",
+        "setting": "设置"
+    },
+    "myPersonalInfo": {
+        "title": "我的个人信息",
+        "detail" : {
+            "message": "必须更新个人信息才能购买套餐。",
+            "name" : "名前 (名字 / 姓氏)",
+            "email" : "电子邮件",
+            "backupEmail" : "备用电子邮件",
+            "emailSub" : "未登録",
+            "date" : "出生日期",
+            "gender" : "性别",
+            "country" : "国家/地区 ",
+            "city": "居住城市",
+            "contactNumber": "联系电话号码",
+            "editButton" : "编辑"
+        },
+        "edit" : {
+           "countrySub" : "请检查护照上的英文名字。",
+           "citySub" : "请不要填写完整地址。（例如：首尔）",
+           "emailSub" : "您将收到来自CONCONTOWN的确认信。如果您有 CONCONTOWN 邮件，请输入邮件",
+           "contractSub" : "您将收到来自CONCONTOWN的确认信。如果您有 CONCONTOWN 邮件，请输入邮件"
+        }  
+    },
+    "point": {
+        "title": "积分",
+        "totalPoint": "总积分",
+        "tabs": [
+            "全部",
+            "已获得",
+            "已使用"
+        ],
+        "validUntil" : "有效期至"
+    },
+    "coupon": {
+        "title": "优惠券",
+        "validUntil": "有效期至",
+        "tab": {
+            "available": "可用",
+            "expired": "已过期 / 已使用"
+          }
+          
+    },
+    "wishlist": {
+        "title": "心愿单",
+        "tabs": [
+            "全部",
+            "感兴趣",
+            "计划购买"
+        ],
+        "completionDate": "完成日期"
+    },
+    "myTourFriends": {
+        "myTourFriendsList" : {
+            "empty": {
+                "title": "我的旅行好友",
+                "noFriendsMessage": "你还没有添加任何好友。",
+                "instructions": "请输入好友的 CONCONTOWN ID（邮件）来发送旅行好友请求。",
+                "addFriendButton": "添加好友"
+            },
+            "add" : {
+                "idTitle": "请输入您好友的 CONCONTOWN 账号邮件 (ID)。",
+                "messageTitle": "请输入您好友的 CONCONTOWN 账号邮件 (ID) 和消息。", 
+                "inputField": [{
+                  "placeholder": "CONCONTOWN 邮件 (ID)",
+                  "error": "未找到该邮件地址"
+                },
+                {
+                    "placeholder": "消息",
+                    "example": "输入您想发送给好友的消息。"
+                }],
+                "button": "请求"
+            },
+            "myTourFriendsList": {
+                "title": "我的旅行好友列表",
+                "followTabs": [
+                    {
+                        "following": "关注中",
+                        "follower": "粉丝"
+                    }
+                ],
+                "followings": [
+                    {
+                        "message": "已成功向 Sarah 发送好友请求。请等待 Sarah 回关。"
+                    }
+                ],
+                "followers": [
+                    {
+                    "message": "您收到了 Jenny 的好友请求。",
+                    "button": "回关"
+                    }
+                ],
+                "button": "添加旅行好友"
+            }
+        }
+    },
+    "myBooking": {
+        "title": "我的预订",
+        "reservationStatus": "预订状态",
+        "paymentCanceled": "您的付款已被取消。",        
+        "tabs" : { 
+            "all" : "全部",
+            "booking":"已预订",
+            "waiting":"待处理",
+            "canceled":"已取消"
+        },
+        "badge": {
+            "paymentRequired": "需要付款"
+          },
+        "bookingDetail": {
+            "title":"预订信息",
+            "ticket": {
+                "title": "已预订门票",
+                "packageName": "套餐名称",
+                "status": {
+                    "title": "状态",
+                    "reservationStatus": "预订状态",
+                    "paymentStatus": "付款状态",
+                    "booking": "已预订",
+                    "paid": "已支付",
+                    "canceled": "已取消",
+                    "refunded": "已退款",
+                    "waiting": "等待中",
+                    "unknown": "未确认",
+                    "completed": "已完成",
+                    "completed_part": "部分支付完成",
+                    "created": "已创建支付",
+                    "denied": "支付被拒绝",
+                    "expired": "已过期",
+                    "failed": "支付失败",
+                    "pending": "等待中",
+                    "refund_r": "退款处理中",
+                    "reversed": "纠纷处理中",
+                    "processed": "已处理",
+                    "voided": "已作废",
+                    "canceled_r": "管理员取消"
+                },
+                "payment": {
+                    "payment": "查看详情",
+                    "subtotal": "合计",
+                    "price": "价格",
+                    "coupon": "优惠券",
+                    "point": "积分"
+                },
+                "orderNumber": "订单号"
+            },
+            "personalInformation": {
+                "title": "个人信息",
+                "firstName": "名字",
+                "lastName": "Last/Family Name",
+                "dateOfBirth": "出生日期",
+                "gender": "性别",
+                "country": "国家/地区 ",
+                "city": "居住城市",
+                "email": "电子邮件",
+                "contactNumber": "联系电话号码",
+                "message": "您将收到来自CONCONTOWN的确认信。如果您有 CONCONTOWN 邮件，请输入邮件",
+                "button": "编辑我的信息"
+            },
+            "flightInformation": {
+                "title": "航班信息",
+                "arrivalFlightNumber": "到达航班号",
+                "departureFlightNumber": "出发航班号"
+            },
+            "paymentMethod": {
+                "title": "查看详情"
+            },
+            "contactInfo": {
+                "title": "联系我们",
+                "serviceHours": "周一至周五 09:00 - 18:00 (KST，节假日除外)",
+                "phone": "+82-2-6237-0050"
+            },
+            "button": "前往 Q&A"
+        },
+        "cancel": {
+            "cancelPayment": "取消付款",
+            "totalPayment": "支付总金额",
+            "cancelFee": "取消手续费",
+            "refundAmount": "退款金额",
+            "cancelPolicy": "* 取消手续费将根据政策收取。请务必在继续操作前确认。",
+            "loadCancelInformation": "正在加载取消信息...",
+            "agreeTerms": "同意条款",
+            "reviewedCancelPolicy": "我已确认并同意取消政策",
+            "readInformationAndAgreeToTerms": "我已阅读以下内容并同意《使用条款》",
+            "reasonForCancel": "取消原因",
+            "placefolderReason": "请告知取消的原因。"
+        }        
+    },
+    "orderHistory": {
+        "title": "订单历史",
+        "status": {
+        "purchaseCompleted": "购买完成"
+        }
+    },
+    "QnA": {
+        "title":"服务时间",
+        "tabs" : [
+            "全部",
+            "类别 标题",
+            "类别 标题",
+            "类别 标题"
+        ],
+        "etc": [
+            "编辑",
+            "削除"
+        ],
+        "ask": {
+            "eventName": "活动名称",
+            "selectEvent": "选择活动",
+            "category": "类别",
+            "selectCategory": "选择类别",
+            "title": "标题",
+            "inquiry": "输入您想要咨询的信息。",
+            "uploadImage": "上传图片",
+            "submitButton": "提交",
+            "conpleteButton": "完成",
+            "modal" : [
+                "拍照",
+                "从相册选择"
+            ]
+        },
+        "qnaConfirmation": {
+            "message": "您确定要删除您的帖子吗？删除后将无法恢复。",
+            "actions": [
+                    "取消",
+                    "削除"
+                ]
+            },
+        "button": "提问"
+    },
+    "faq": {
+        "title":"FAQ",
+        "faqTabs" : {
+            "all" : "全部",
+            "category1": "类别 标题",
+            "category2": "类别 标题",
+            "category3": "类别 标题"
+        }
+    },
+    "customerService" : {
+        "registrationGuide": {
+            "title": "注册指南"
+        },
+        "customerService": {
+            "title": "客户服务",
+            "menus": [
+                "注册指南",
+                "购买指南",
+                "我的TOURMATE(同行者) 预注册手册",
+                "心愿单使用指南",
+                "优惠券使用手册 ",
+                "K-ETA 申请指南",
+                "询问"
+            ],
+            "contactUsSub": "英语/日语/韩语/中文 服务",
+            "contact_details": {
+                "title": "服务时间",
+                "serviceHours": "周一至周五 09:00 - 18:00 (KST，节假日除外)",
+                "phone": "+82-2-6237-0050",
+                "lunchTime": "午休时间：12:00-13:00"
+            }
+            } 
+    },
+    "setting" : {
+        "setting" :   {
+            "title": "设置",
+            "appLanguage": "应用语言",
+            "appLanguageSub": "英语/日语/韩语/中文 可能",
+            "accountPassword": "重置密码",
+            "notification": { 
+                "title": "通知",
+                "qnaMobileNotification": "Q&A 移动通知",
+                "qnaMobileNotificationSub": "如果关闭自动登录，您将无法实时接收通知和问答回复。",
+                "personalNotice": "推送通知",
+                "inAppSounds": "应用内声音",
+                "inAppVibration": "应用内震动",
+                "autoLogIn": "自动登录",
+                "marketingEmail": "接收电子邮件通知",
+                "marketingEmailSub": "通过电子邮件接收活动、优惠和套餐相关信息。"
+            },
+            "applicationInformation": {
+                "title": "应用信息",
+                "installedVersion": "已安装版本",
+                "latestVersion": "最新版本"
+            },
+                "servicePolicy": {
+                "title": "服务政策",
+                "packageSalesPolicy": "套餐销售政策",
+                "privacyPolicy": "隐私政策"
+                }
+        },
+        "changePassword" : {
+            "content": "请输入当前密码和新密码",
+            "fields": {
+                    "oldPassword": "请输入当前密码。",
+                    "newPassword": "新密码",
+                    "confirmPassword": "确认新密码"
+            },
+            "message": "密码必须为8到16个字符（包含一个数字和一个大写字母）。",
+            "button": "更新",
+            "currentPasswordIncorrect": "当前密码错误。",
+            "newPasswordNotMatch": "输入的新密码不一致。",
+            "errorOccurred": "发生错误。",
+            "passwordChangeSuccess": "您的密码已成功更改。",
+            "passwordChangeFail": "密码更改失败。"
+        },
+        "language" :   {
+            "content": "您偏好的语言是什么？",
+            "options": ["英语", "日语", "韩语", "中文"],
+            "update": "更新"
+        }
+    },  
+    "notice": {
+        "title": "通知",
+        "general": "一般",
+        "personal": "个人",
+        "notice": "公告",
+        "ad": "广告",
+        "loading": "加载中...",
+        "emptyList": "暂无通知。",
+        "postedAt": "发布时间",
+        "readAt": "阅读时间"
+    }, 
+    "navbar": {
+        "comingSoonTitle": "即将推出",
+        "comingSoonDesc": "该功能即将上线！",
+        "ok": "确认"
+    },      
+    "myFanclub": "我的粉丝俱乐部",
+    "notice1": "登录Weverse服务后即可查看粉丝俱乐部会员信息。",
+    "notice2": "目前仅支持输入日本粉丝俱乐部的会员信息。",
+    "joinedListTitle": "已加入的粉丝俱乐部",
+    "code": "代码",
+    "remark1": "输入1",
+    "remark2": "输入2",
+    "delete": "删除",
+    "logout": "登出",
+    "deleteAccount": "退出会员",
+    "noFanclub": "尚未注册粉丝俱乐部。",
+    "add": "添加粉丝俱乐部",
+    "fanclub": {
+        "joinedListTitle": "你加入的粉丝俱乐部",
+        "noFanclub": "尚未加入任何粉丝俱乐部。",
+        "add": "添加粉丝俱乐部",
+        "message": "请填写您在粉丝俱乐部注册的信息。",
+        "select": "当前加入的 MEMBERSHIP(JP) 姓名",
+        "membershipNumber": "Weverse 会员编号",
+        "jpNumber" : "JP 会员编号",
+        "nameHanja": "姓名（汉字）",
+        "nameKana": "姓名（片假名）",
+        "email": "Weverse 注册邮箱 (ID)",
+        "birthday": "出生日期（8 位数字）",
+        "selectFanclubAlert": "请选择当前加入的 MEMBERSHIP(JP) 姓名。",
+        "enterMembershipNumber": "请输入会员编号。",
+        "enterMembershipNumber11digits": "您的会员号码必须为 11 位数字。",
+        "enterHanja": "请输入您的中文姓名。",
+        "enterKana": "请输入您的日文假名姓名。",
+        "enterEmail": "请输入您的 Weverse 邮箱地址。",
+        "enterJpNumber": "请输入 JP. MEMBERSHIP NO.。",
+        "enterJpNumber6Digits": "太平绅士。会员编号必须是 6 位数字。",
+        "enterBirthday": "请输入您的生日。",
+        "jpNumberDesc": "这是由SM日本粉丝俱乐部分配的会员编号。"
+      },
+      "common": {
+        "maxLength12": "最多输入12个字符。",
+        "maxLength6": "最多输入6个字符。",
+        "notAutoFilled": "不会自动填写。",
+        "save": "保存",
+        "errorOccurred": "发生错误。",
+        "warning": "警告",
+        "loginRequired": "登录信息不存在。",
+        "close": "关闭",
+        "submit": "提交"
+      },
+      "paymentTab": {
+        "localCard": "韩国发行的卡",
+        "paypal": "贝宝 (PayPal)",
+        "overseasCard": "海外发行的卡"
+      },
+      "exchange": {
+        "notice": "* 本次付款将根据实时汇率以韩元(KRW)结算。（适用汇率：1 USD = {{rate}} KRW）"
+      },
+      "alertModal": {
+        "title": "支付错误",
+        "description": "支付过程中发生意外错误，请重试。",
+        "confirm": "确认"
+      },
+      "select": {
+        "back": "预订",
+        "room": {
+          "twinTitle": "双人间",
+          "twinDesc": "双人共享房间。显示价格为每人价格，同行者也必须是CONCONTOWN会员。",
+          "singleTitle": "单人间",
+          "singleDesc": "单人房。无需同行者即可预订。"
+        },
+        "ticketOption": "票务选项",
+        "priceOption": "价格选项",
+        "eventOption": "活动选项",
+        "total": "总计",
+        "next": "下一步",
+        "alert": {
+          "courseRequired": "请选择课程。",
+          "ticketRequired": "请选择票务选项。",
+          "pickupRequired": "请选择价格选项。",
+          "optionRequired": "请选择活动选项。",
+          "serverError": "由于服务器错误，确认失败。"
+        },
+        "selectCourseMessage": "请选择一个课程"
+      }
+      
+      
+}

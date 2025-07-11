@@ -1,0 +1,838 @@
+{
+    "home": {
+        "tabs" : [
+            "전체",
+            "커밍순",
+            "예약가능",
+            "마감중",
+            "취소 대기중",
+            "판매종료"
+        ],
+        "modal" : {
+            "sub" : "오늘 하루 보지 않기",
+            "button" : "닫기"
+        }
+    },
+    "login" : {
+        "signUp" : "회원가입",
+        "googleLogin" : "구글 계정으로 로그인",
+        "appleLogin" : "애플 계정으로 로그인",
+        "ifNoAccount" : "회원 계정이 없으시다면",
+        "signUpRegister": "회원가입 등록",
+        "guideMessage1": "E-mail 회원 가입시 안내 말씀",
+        "guideMessage2": "회원 가입시 인증문자가 수신 가능한 이메일을 사용해 주시기 바랍니다. 가급적 Gmail 을 이용해 주시면 보다 편리하게 이용하실 수 있습니다." 
+    },
+    "loginEmail": {
+      "title": "로그인 또는 회원등록을 위해 이메일 주소를 입력해 주세요.",
+      "emailPlaceholder": "이메일",
+      "continueButton": "로그인",
+      "forgotPassword": "비밀번호를 잊으셨나요?",
+      "or": "Or",
+      "social": {
+        "google": "Google",
+        "kakao": "Kakao",
+        "line": "LINE",
+        "wechat": "WeChat",
+        "apple": "Apple"
+      },
+      "signUp": {
+        "snsTitle": "SNS 회원가입을 완료하려면 필수 정보를 입력하세요.",
+        "sub" : "E-mail로 회원가입",
+        "subSns" : "SNS 회원가입",
+        "email" : "이메일",
+        "emailAvailable" : "이 이메일을 사용할 수 있습니다.",
+        "emailDuplicate" : "이 이메일은 이미 사용 중입니다.",
+        "emailUnavailable" : "이 이메일은 삭제되었으며 재사용할 수 없습니다.",
+        "verify": "인증",
+        "verified": "인증확인",
+        "verifySuccess": "인증이 성공하였습니다.",
+        "verifyFailed": "인증이 실패하였습니다.",
+        "verifyTimeOut": "시간이 초과되었습니다. 다시 시도해주세요.",
+        "verifyCodeValid10": "인증번호는 10분간 유효합니다.",
+        "verifyCodeExpired": "인증번호 유효시간이 만료되었습니다.",
+        "message" : "이메일을 아직 받지 못하셨나요?",
+        "sendBtn" : "회원가입",
+        "cancelBtn" : "취소",
+        "resendBtn" : "재발송",
+        "Google" : "어카운트로 회원가입",
+        "apple" : "어카운트로 회원가입",
+        "registration_failed": "회원가입 실패",
+        "email_already_in_use": "이미 이메일로 회원 가입이 되어 있는 SNS 계정입니다.\n다른 계정 또는 해당 이메일로 로그인 해주세요.",
+        "descMemberId": "이메일을 입력해주세요.",
+        "descVerifyEmail": "이메일 주소를 인증해주세요.",
+        "descVerifyCode": "인증 코드를 입력해주세요.",
+        "descPassword": "비밀번호를 입력해주세요.",
+        "descPasswordAgain": "비밀번호를 다시 입력해주세요.",
+        "descPasswordError": "비밀번호는 최소 8자 이상이며, 대문자, 소문자, 숫자를 포함해야 합니다.",
+        "descPasswordMismatch": "비밀번호와 비밀번호 확인이 일치하지 않습니다.",
+        "descName": "영문 이름(이름/성)을 입력해주세요.",
+        "descBirthday": "생년월일을 입력해주세요.",
+        "descGender": "성별을 선택해주세요.",
+        "descCountryRegion": "국가/지역을 선택해주세요.",
+        "descCity": "거주 도시를 입력해주세요.",
+        "descCountryCode": "국가 코드를 선택해주세요.",
+        "descContactNumber": "연락처를 입력해주세요.",
+        "descTerm": "이용약관 및 개인정보 처리방침에 동의해 주세요."
+      },
+      "emailError": {
+        "title": "이메일 인증 실패",
+        "message": "이메일 인증 기간이 만료되었습니다.앱을 통해 재인증 요청 바랍니다",
+        "ok": "확인"
+      }
+    },
+    "terms": {
+        "sub": "아래 업데이트된 이용약관을 보시고 동의해 주시기 바랍니다.",
+        "allConsent": "모든 내용에 동의합니다.",
+        "required": "(필수)",
+        "optional": "(선택)",
+        "termsAndConditions": "조항 및 조건",
+        "promotionalConsent": "프로모션 정보 수신 동의",
+        "personalInfoConsent": "개인정보 수집 및 마케팅 목적 이용 동의",
+        "adAgree": "이메일 및 푸시 알림 수신에 동의합니다",
+        "agreeButton": "동의",
+            "agreementTitle": "약관 동의",
+            "agreementCheck2": "아래 내용을 모두 확인하였으며, 이용약관에 동의합니다.",
+            "privacyNotice": "개인정보 처리방침을 확인하고 동의합니다.",
+            "title": {
+                "cancel": "취소 정책",
+                "use": "이용약관",
+                "privacy": "개인정보 처리방침",
+                "ad": "이메일 / 푸시알람 수신 동의"
+              },
+              "cancel": {
+                "1": "취소는 최소 7일 전에 요청해 주세요.",
+                "2": "요청 시점에 따라 취소 수수료가 부과될 수 있습니다.",
+                "3": "노쇼(No-show) 시 환불이 불가합니다."
+              },
+              "use": {
+                "1": "행사 규칙과 안내를 준수해 주세요.",
+                "2": "서비스는 해외 고객만을 대상으로 합니다.",
+                "3": "제3자에게 패키지를 재판매하는 행위는 금지됩니다."
+              },
+              "privacy": {
+                "1": "예약 및 안내 목적 외에는 개인정보를 수집하지 않습니다.",
+                "2": "동의 없이 제3자에게 정보를 제공하지 않습니다.",
+                "3": "지원팀을 통해 개인정보 삭제 요청이 가능합니다.",
+                "4": "데이터는 암호화되어 안전하게 저장됩니다."
+              },
+              "ad": {
+                "1": "패키지 일정, 이벤트 및 혜택에 대한 광고성 안내 이메일/푸시 알람 수신에 동의합니다.",
+                "2": "수신거부는 앱 설정 내에서 직접 변경 가능합니다."
+              },
+              "cancel-free": {
+                "1": "본 행사는 이벤트 행사로 캔슬 차지가 없습니다.",
+                "2": "마이 예약에 Waiting 상태로 되어 있는 것이 정상입니다.",
+                "3": "많은 응모 바랍니다."
+              }
+              
+        
+    },
+    "password": {
+        "sub": "새 비밀번호를 입력하세요",
+        "password": "비밀번호",
+        "reenterPassword": "비밀번호를 다시 입력하세요",
+        "new": "새 비밀번호",
+        "confirm": "새 비밀번호 확인",
+        "characters": "글자수 8~16개",
+        "numbers": "하나 이상의 숫자를 포함",
+        "symbols": "하나 이상의 알파벳 소문자, 대문자 포함",
+        "button": "다음"
+    },
+    "language": {
+        "title": "당신이 선호하는 언어는 무엇입니까?",
+        "english": "영어",
+        "japanese": "일본어",
+        "korean": "한국어",
+        "chinese": "중국어",
+        "notice": "* CONCONTOWN 패키지 서비스는 현재 영어, 일본어, 한국어, 중국어 등 4개 언어로 제공되고 있습니다. 양해 부탁드립니다. ",
+        "button": "등록완료"
+    },
+    "complete": {
+        "success": "회원가입이 성공적으로 완료되었습니다.",
+        "congrats": "축하합니다!",
+        "goHome": "메인화면으로 이동",
+        "requestFanClubVerify": "이 패키지는 팬클럽 인증이 필요합니다.",
+        "enterFanClubInfo": "다음 버튼을 눌러 팬클럽 정보를 입력해 주세요.",
+        "alreadyRegistered": "이미 등록하신 분은"            
+    },
+    "loginPw": {
+        "enterPassword": "비밀번호를 입력해 주세요.",
+        "passwordPlaceholder": "비밀번호",
+        "forgotPassword" : "비밀번호를 잊으셨나요?",
+        "button": "다음",
+        "loginFailed": "로그인 실패",
+        "incorrectEmailPassword": "이메일 또는 비밀번호가 올바르지 않습니다."
+    },
+    "socialAuth": {
+        "title": "‘CONCONTOWN’이 귀하의 ‘google.com’ 계정을 사용하여 로그인 하려 합니다.",
+        "message": "귀하에 대한 정보는 앱에 의해 공유됩니다.",
+        "cancel": "취소",
+        "continue": "계속"
+    },
+    "forgotPassword": {
+        "title": "가입할 때 사용한 이메일 주소를 알려주세요",
+        "emailPlaceholder": "이메일",
+        "next": "다음",
+        "emailAddress": "가입 시 사용하신 이메일 주소를 입력해 주세요.",
+        "firstName": "가입 시 사용한 이름을 입력하세요.",
+        "lastName": "가입 시 사용한 성을 입력하세요.",
+        "SendTempPassword": "임시 비밀번호 발송",
+        "passwordSent": "{{email}} 으로 임시 비밀번호가 전송되었습니다.",
+        "informationMismatch": "입력한 정보가 일치 하지 않습니다.",
+        "noMember": "회원 정보가 없습니다.",
+        "verification": {
+            "title": "인증 코드가 이메일로 전송되었습니다:",
+            "subtitle": "코드를 입력해 주세요.",
+            "inputPlaceholder": "인증 코드",
+            "notArrived": "이메일을 아직 받지 못하셨나요?",
+            "resend": "재발송",
+            "next": "다음"
+        },
+        "updatePassword": {
+            "title": "새 비밀번호를 입력하세요",
+            "new": "새 비밀번호",
+            "confirm": "새 비밀번호 확인",
+            "characters": "6–16 자",
+            "numbers": "하나 이상의 숫자를 포함",
+            "symbols": "하나 이상의 특수문자 포함",
+            "button": "정보 업데이트",
+            "message": "비밀번호 복구에 도움이 필요하면 hello@concontown.com으로 문의하세요."
+        }
+    },
+    "personalInfo": {
+        "title": "개인 정보",
+        "description": "CONCONTOWN 여행을 위해 개인 정보를 업데이트해 주시기 바랍니다.",
+        "firstName": "이름",
+        "lastName": "성",
+        "passportNote": "여권에 기재된 영문 이름을 확인하세요.",
+        "dob": "생년월일",
+        "gender": "성별",
+        "female": "여성",
+        "male": "남성",
+        "both": "기타",
+        "country": "국가/지역",
+        "city": "거주 도시",
+        "cityNote": "전체 주소를 입력하지 마십시오(예: Seoul)",
+        "email": "이메일",
+        "emailNote": "CONCONTOWN으로 부터 확인 메일을 받습니다. CONCONTOWN 에 가입한 이메일이 맞는지 확인하세요!",
+        "dialCode": "국가 코드",
+        "phone": "연락처 번호",
+        "update":"정보 업데이트"
+    }, 
+    "reserve" : {
+        "title": "패키지",
+        "comingBtn": "상품준비중",
+        "restockBtn": "재입고",
+        "waitingBtn": "캔슬대기",
+        "reserveBtn": "예약가능",
+        "cutoff": "판매중지",
+        "waiting": "판매대기",
+        "restockFail" : {
+            "title": "재입고 알림 주의사항",
+            "message": "재입고 알림은 신청자 순번으로 알림이 진행됩니다. 따라서 알림을 받는 순서의 차이가 있을 수 있습니다.",
+            "button": "확인"
+        },
+        "option": {
+            "price": "가격",
+            "button": "다음"
+        }
+    },     
+    "register": {
+        "guide": {
+          "email": "ID로 사용할 E-mail 주소를 입력해 주세요. 입력 후 중복 여부 확인해 주세요.",
+          "passwordRule": "비밀번호는 최소 8자 이상 16자 이하이며 숫자와 영문 대문자 1개를 필수로 포함해야 합니다.",
+          "confirmPassword": "확인을 위해 비밀번호를 다시 입력해 주세요.",
+          "firstName": "영문 First Name (이름)을 입력해 주세요. 여권과 동일한 영문 이름으로 작성해 주세요.",
+          "lastName": "영문 Last Name (성)을 입력해 주세요. 여권과 동일한 영문 성으로 작성해 주세요.",
+          "dob": "생년월일을 선택해 주세요."
+        }
+      },
+    "reservation": {
+        "title": "예약",
+        "subTitle": "해외 팬 전용",
+        "section": {
+          "choice": "선택 사항",
+          "coupon": "쿠폰",
+          "point": "포인트",
+          "personalInfo": "개인 정보",
+          "personalInfoMessage": "예약자 이름은 여권에 있는 이름과 동일해야 합니다. 그렇지 않은 경우, \"More\" → \"My Personal Information\"에서 수정한 후 다시 예약해 주세요.",
+          "companion": "동행자 정보 입력",
+          "companionMessage": "명(First name)과 성(Last name)을 넣어주세요. *여권에 기록된 동일 영문 이름으로 넣어주세요.",
+          "selectBirthday": "생년월일을 선택해 주세요.",
+          "agreement": "약관 동의"
+        },
+        "coupon": {
+          "select": "쿠폰 선택",
+          "discountLabel": "{{percent}}% 웰컴 할인",
+          "placeholder": "할인 쿠폰이 있다면 여기서 선택해주세요.",
+          "modalTitle": "사용 가능한 쿠폰",
+          "empty": "사용 가능한 쿠폰이 없습니다.",
+          "discountLabelSimple": "웰컴 할인",
+          "validUntil": "{{date}}까지 사용 가능",
+          "close": "닫기"
+        },
+        "point": {
+          "balance": "내 포인트 잔액",
+          "usageNote": "{{point}}P는 최대 {{amount}}달러로 사용할 수 있습니다.",
+          "conversion": "(1,000P = $1.00)",
+          "placeholder": "사용할 포인트 입력",
+          "unit": "포인트",
+          "button": "적용"
+        },
+        "agreement": {
+          "title": "약관 동의",
+          "cancel": "취소 정책을 확인하였으며 이에 동의합니다.",
+          "terms": "아래 내용을 읽었으며 이용 약관에 동의합니다."
+        },
+        "alert": {
+          "nameRequired": "이름을 입력해주세요.",
+          "agreementRequired": "약관 및 취소 정책에 동의해주세요.",
+          "companionRequired": "동승자 정보를 모두 입력해주세요."
+        },
+        "cancel": "취소 정책",
+        "fee": "수수료",
+        "total": "총액",
+        "purchase": "구매"
+      },
+      "couponList": {
+        "validUntil": "유효 기간"
+      },
+    "reservationTwin": {
+        "myTourFriend": {
+            "myFriend": {
+              "title": "TOUR MATE",
+              "description": "여행 동반자를 선택하세요. 동반하려는 친구가 목록에 없으면 먼저 추가한 후 선택하세요.",
+              "selectFriend": "여행 친구 선택",
+              "goAdd": "TOUR MATE 추가하기",
+              "viewEntered": "입력한 동반자 정보 보기"
+            }
+        },
+        "companionList": {
+            "manualEntryQuestion": "정보를 수동으로 입력하시겠습니까?",
+            "manualEntryButton": "수동 입력"
+        }
+    },
+    "payment": {
+        "title": "결제",
+        "method": "결제 방법",
+        "creditCard": "신용카드",
+        "purchaseButton": "{{price}} 구매",
+        "back": "결제 방법 선택으로 돌아가기"
+    },
+    "confirmation": {
+        "title": "결제가 완료되었습니다",
+        "reservedTicket": "예약 티켓",
+        "packageName": "패키지 이름",
+        "payment": "결재 정보",
+        "subtotal": "합계",
+        "price": "가격",
+        "coupon": "쿠폰",
+        "point": "포인트",
+        "discountCoupon": "할인 쿠폰",
+        "pointUsage": "{{points}}포인트 사용",
+        "orderNumber": "주문 번호",
+        "personalInfo": "개인 정보 ",
+        "passportNote": "여권에 기재된 영문 이름을 확인하세요.",
+        "flightInfo": "항공편 정보",
+        "paymentMethod": "결제 방법",
+        "confirm": "확인",
+        "cancelButton": "취소하기",
+        "payNow": "결제 진행하기"
+
+    },
+    "shop": {
+        "title": "상점",
+        "myConcert": "내가 예약한 콘서트",
+        "sub": "예약하신 콘서트에 한해서만 상품을 구매하실 수 있습니다.",
+        "button": "굿즈샵으로 이동",
+        "shopDetail" : {
+            "sub": "패키지 전용 굿즈",
+            "addToCartBtn": "담기",
+            "addedBtn": "추가됨 !",
+            "ready": "{count} 제품",
+            "readyMulti": "{count} 제품"
+        },
+        "goodsDetail": {
+            "quantity": "수량",
+            "productDetail": "제품 상세 정보",
+            "notice": "주의사항",
+            "buyBtn": "{count} 제품 구입",
+            "addedBtn": "추가됨 !"
+        },
+        "checkout": {
+            "title": "결제",
+            "quantity": "수량",
+            "coupon": "쿠폰",
+            "selectCoupon": "쿠폰 선택",
+            "point": "포인트",
+            "pointBalance": "내 포인트 잔액",
+            "pointUsage": "사용 금액($)",
+            "pointInfo": "1,000P는 최대 1달러로 사용할 수 있습니다.",
+            "applyBtn": "적용",
+            "agreementTitle": "약관 동의",
+            "agreementCheck1": "취소 정책을 확인하였으며 이에 동의합니다.",
+            "agreementCheck2": "아래 내용을 읽었으며 이용 약관에 동의합니다.",
+            "purchaseBtn": "구매"
+        }
+    },
+    "cart": {
+        "title": "장바구니",
+        "all": "전체",
+        "product": "제품",
+        "total": "총액",
+        "buy": "{count} 제품 구입",
+        "checkout": {
+            "title": "결제",
+            "yourOrder": "주문 내역", 
+            "total": "합계 ({count} 제품)",
+            "totalShort": "총액",
+            "coupon": "쿠폰",
+            "selectCoupon": "쿠폰 선택",
+            "point": "포인트",
+            "pointBalance": "내 포인트 잔액",
+            "pointUsage": "사용 금액($)",
+            "pointInfo": "1,000P는 최대 1달러로 사용할 수 있습니다.",
+            "apply": "적용",
+            "agreementTitle": "약관 동의",
+            "agreementCheck1": "취소 정책을 확인하였으며 이에 동의합니다.",
+            "agreementCheck2": "아래 내용을 읽었으며 이용 약관에 동의합니다.",
+            "purchaseBtn": "구매",
+            "payNowBtn": "결제하기"
+        }
+    },
+    "wish": {
+        "tabs": [
+            "전체",
+            "상품준비중",
+            "예약가능",
+            "캔슬대기"
+        ],
+        "location": "도시",
+        "international": "해외팬전용",
+        "comingSoon": "상품준비중",
+        "reserve": "예약가능"
+    }, 
+    "more": {
+        "title": "더 보기",
+        "myPersonalInfo": "내 개인정보",
+        "point": "포인트",
+        "coupon": "쿠폰",
+        "wishlist": "위시리스트",
+        "myTourFriend": "마이 투어 프랜즈",
+        "myBooking": "내 예약",
+        "orderHistory": "SHOP 주문 내역",
+        "qna": "Q&A",
+        "faq": "FAQ",
+        "customerService": "고객 서비스",
+        "setting": "설정"
+    },
+    "myPersonalInfo": {
+        "title": "내 개인정보",
+        "detail" : {
+            "message": "패키지를 구매하려면 개인정보를 업데이트해야 합니다.",
+            "name" : "이름 (이름 / 성)",
+            "email" : "이메일",
+            "backupEmail" : "백업 이메일",
+            "emailSub" : "등록되지 않음",
+            "date" : "생년월일",
+            "gender" : "성별",
+            "country" : "국가/지역 ",
+            "city": "거주 도시",
+            "contactNumber": "연락처 번호",
+            "editButton" : "수정"
+        },
+        "edit" : {
+           "countrySub" : "여권에 기재된 영문 이름을 확인하세요.",
+           "citySub" : "전체 주소를 입력하지 마세요. (예: 서울)",
+           "emailSub" : "CONCONTOWN으로 부터 확인 메일을 받습니다. CONCONTOWN 에 가입한 이메일이 맞는지 확인하세요!",
+           "contractSub" : "CONCONTOWN으로 부터 확인 메일을 받습니다. CONCONTOWN 에 가입한 이메일이 맞는지 확인하세요!"
+        }  
+    },
+    "point": {
+        "title": "포인트",
+        "totalPoint": "총 포인트",
+        "tabs": [
+            "전체",
+            "적립",
+            "사용"
+        ],
+        "validUntil" : "유효기간"
+    },
+    "coupon": {
+        "title": "쿠폰",
+        "validUntil": "유효기간",
+        "tab": {
+            "available": "사용 가능",
+            "expired": "만료 / 사용됨"
+          }
+    },
+    "wishlist": {
+        "title": "위시리스트",
+        "tabs": [
+            "전체",
+            "관심",
+            "구매계획"
+        ],
+        "completionDate": "완료 날짜"
+    },
+    "myTourFriends": {
+        "myTourFriendsList" : {
+            "empty": {
+                "title": "TOUR MATE",
+                "noFriendsMessage": "아직 친구를 추가하지 않았습니다.",
+                "instructions": "친구의 CONCONTOWN 계정 이메일(ID)을 입력하여 투어 친구 요청을 보내보세요.",
+                "addFriendButton": "친구 추가"
+            },
+            "add" : {
+                "idTitle": "친구의 CONCONTOWN 계정 이메일(ID)을 입력하세요.",
+                "messageTitle": "친구의 CONCONTOWN 계정 이메일(ID)과 메시지를 입력하세요.", 
+                "inputField": [{
+                  "placeholder": "CONCONTOWN 이메일 (ID)",
+                  "error": "이메일 주소를 찾을 수 없습니다"
+                },
+                {
+                    "placeholder": "메시지",
+                    "example": "친구에게 보낼 메시지를 입력하세요."
+                }],
+                "button": "요청하기"
+            },
+            "myTourFriendsList": {
+                "title": "TOUR MATE 리스트",
+                "followTabs": [
+                    {
+                        "following": "팔로잉",
+                        "follower": "팔로워"
+                    }
+                ],
+                "followings": [
+                    {
+                        "message": "Sarah에게 친구 요청을 성공적으로 보냈습니다. Sarah가 팔로우할 때까지 기다려 주세요."
+                    }
+                ],
+                "followers": [
+                    {
+                    "message": "Jenny에게서 친구 요청을 받았습니다.",
+                    "button": "맞팔로우"
+                    }
+                ],
+                "button": "TOUR MATE 추가"
+            }
+        }
+    },
+    "myBooking": {
+        "title": "내 예약",
+        "reservationStatus": "예약 상태",
+        "paymentCanceled": "결제가 취소 되었습니다.",
+        "tabs" : { 
+            "all" : "전체",
+            "booking":"예약 완료",
+            "waiting":"대기 중",
+            "canceled":"취소됨"
+        },
+        "badge": {
+            "paymentRequired": "결제 필요"
+          },
+        "bookingDetail": {
+            "title":"예약 정보",
+            "ticket": {
+                "title": "예약 티켓",
+                "packageName": "패키지 이름",
+                "status": {
+                    "title": "상태",
+                    "reservationStatus": "예약 상태",
+                    "paymentStatus": "결제 상태",
+                    "booking": "예약 완료",
+                    "paid": "결제 완료",
+                    "refunded": "환불 완료",
+                    "waiting": "대기중",
+                    "unknown": "미확인",
+                    "completed": "결제 완료",
+                    "completed_part": "부분 결제 완료",
+                    "canceled": "취소 완료",
+                    "created": "결제 생성됨",
+                    "denied": "승인 거절됨",
+                    "expired": "결제 만료",
+                    "failed": "결제 실패",
+                    "pending": "결제 대기 중",
+                    "refund_r": "환불 처리 중",
+                    "reversed": "분쟁 처리 중",
+                    "processed": "처리됨",
+                    "voided": "결제 무효",
+                    "canceled_r": "취소 완료(관리자)"
+                    
+                },
+                "payment": {
+                    "payment": "결제",
+                    "subtotal": "합계",
+                    "price": "가격",
+                    "coupon": "쿠폰",
+                    "point": "포인트"
+                },
+                "orderNumber": "주문 번호"
+            },
+            "personalInformation": {
+                "title": "개인 정보 ",
+                "firstName": "이름",
+                "lastName": "성",
+                "dateOfBirth": "생년월일",
+                "gender": "성별",
+                "country": "국가/지역 ",
+                "city": "거주 도시",
+                "email": "이메일",
+                "contactNumber": "연락처 번호",
+                "message": "CONCONTOWN으로 부터 확인 메일을 받습니다 CONCONTOWN 에 가입한 이메일이 맞는지 확인하세요!",
+                "button": "내 정보 수정"
+            },
+            "flightInformation": {
+                "title": "항공편 정보",
+                "arrivalFlightNumber": "도착 항공편 번호",
+                "departureFlightNumber": "출발 항공편 번호"
+            },
+            "paymentMethod": {
+                "title": "결제"
+            },
+            "contactInfo": {
+                "title": "문의하기",
+                "serviceHours": "월-금 09:00-18:00 (KST, 공휴일 제외)",
+                "phone": "+82-2-6237-0050"
+            },
+            "button": "Q&A로 이동"
+        },
+        "cancel": {
+            "cancelPayment": "결제 취소",
+            "totalPayment": "총 결제 금액",
+            "cancelFee": "취소 수수료",
+            "refundAmount": "환불 금액",
+            "cancelPolicy": "* 취소 수수료는 정책에 따라 적용됩니다. 진행 전에 반드시 확인해 주세요.",
+            "loadCancelInformation": "취소 정보 불러오는 중...",
+            "agreeTerms": "약관 동의",
+            "reviewedCancelPolicy": "취소 정책을 확인하였으며 이에 동의합니다.",
+            "readInformationAndAgreeToTerms": "아래 내용을 읽었으며 이용약관에 동의합니다.",
+            "reasonForCancel": "취소 사유",
+            "placefolderReason": "취소 사유를 알려주세요."
+        }  
+    },
+    "orderHistory": {
+        "title": "주문 내역",
+        "status": {
+        "purchaseCompleted": "구매 완료"
+        }
+    },
+    "QnA": {
+        "title":"Q&A",
+        "tabs" : [
+            "전체",
+            "카테고리 제목",
+            "카테고리 제목",
+            "카테고리 제목"
+        ],
+        "etc": [
+            "편집",
+            "삭제"
+        ],
+        "ask": {
+            "eventName": "이벤트",
+            "selectEvent": "이벤트 선택",
+            "category": "카테고리",
+            "selectCategory": "카테고리 선택",
+            "title": "제목",
+            "inquiry": "티켓팅 관련 질문 。",
+            "uploadImage": "이미지 업로드",
+            "submitButton": "제출",
+            "conpleteButton": "완료",
+            "modal" : [
+                "사진 촬영",
+                "앨범에서 선택"
+            ]
+        },
+        "qnaConfirmation": {
+            "message": "게시물을 삭제하시겠습니까? 삭제하면 복구할 수 없습니다.",
+            "actions": [
+                    "취소",
+                    "삭제"
+                ]
+            },
+        "button": "질문하기"
+    },
+    "faq": {
+        "title":"자주 묻는 질문",
+        "faqTabs" : {
+            "all" : "전체",
+            "category1": "카테고리 제목",
+            "category2": "카테고리 제목",
+            "category3": "카테고리 제목"
+        }
+    },
+    "customerService" : {
+        "registrationGuide": {
+            "title": "등록 안내"
+        },
+        "customerService": {
+            "title": "고객 서비스",
+            "menus": [
+                "등록 안내",
+                "구매 안내",
+                "TOUR MATE(동반자) 사전 등록 매뉴얼",
+                "위시리스트 이용 가이드",
+                "쿠폰 사용 매뉴얼",
+                "K-ETA 신청 가이드",
+                "문의하기"
+            ],
+            "contactUsSub": "영어/일본어/한국어/중국어 가능",
+            "contact_details": {
+                "title": "서비스 시간",
+                "serviceHours": "월-금, 09:00-18:00(KST, 공휴일 제외)",
+                "phone": "+82-2-6237-0050",
+                "lunchTime": "점심시간: 12:00-13:00"
+            }
+            } 
+    },
+    "setting" : {
+        "setting" :   {
+            "title": "설정",
+            "appLanguage": "앱 언어",
+            "appLanguageSub": "영어/일본어/한국어/중국어 가능",
+            "accountPassword": "비밀번호 재설정",
+            "notification": { 
+                "title": "알림",
+                "qnaMobileNotification": "Q&A 모바일 알림",
+                "qnaMobileNotificationSub": "자동 로그인 기능을 끄면 알림 및 Q&A 답변을 실시간으로 받을 수 없습니다.",
+                "personalNotice": "푸시 알림",
+                "inAppSounds": "앱 내 소리",
+                "inAppVibration": "앱 내 진동",
+                "autoLogIn": "자동 로그인",
+                "marketingEmail": "이메일 알림 수신",
+                "marketingEmailSub": "이벤트, 할인, 패키지 정보 등을 이메일로 받아보세요."
+            },
+            "applicationInformation": {
+                "title": "애플리케이션 정보",
+                "installedVersion": "설치된 버전",
+                "latestVersion": "최신 버전"
+            },
+                "servicePolicy": {
+                "title": "서비스 정책",
+                "packageSalesPolicy": "패키지 판매 정책",
+                "privacyPolicy": "개인정보 보호정책"
+                }
+        },
+        "changePassword" : {
+            "content": "현재 비밀번호와 새 비밀번호를 입력하세요",
+            "fields": {
+                    "oldPassword": "현재 패스워드를 넣어주세요.",
+                    "newPassword": "새 비밀번호",
+                    "confirmPassword": "새 비밀번호 확인"
+            },
+            "message": "비밀번호는 최소8자 최소 16자이며 숫자와 영문 대문자 1개를 필수로 포함해야 합니다.",
+            "button": "업데이트",
+            "currentPasswordIncorrect": "현재 패스워드가 틀립니다.",
+            "newPasswordNotMatch": "입력된 새로운 패스워드가 일치하지 않습니다.",
+            "errorOccurred": "에러 발생",
+            "passwordChangeSuccess": "비밀번호가 성공적으로 변경되었습니다.",
+            "passwordChangeFail": "비밀번호 변경에 실패했습니다."
+        },
+        "language" :   {
+            "content": "선호하는 언어는 무엇인가요?",
+            "options": ["영어", "일본어", "한국어", "중국어"],
+            "update": "업데이트"
+        }
+    },  
+    "notice": {
+        "title": "알림",
+        "general": "일반",
+        "personal": "개인",
+        "notice": "공지",
+        "ad": "광고",
+        "loading": "불러오는 중...",
+        "emptyList": "공지사항이 없습니다.",
+        "postedAt": "게시일",
+        "readAt": "읽은 시간"
+    }, 
+    "navbar": {
+        "comingSoonTitle": "곧 제공 예정",
+        "comingSoonDesc": "이 기능은 곧 이용하실 수 있습니다!",
+        "ok": "확인"
+    },      
+    "myFanclub": "내 팬클럽",
+    "notice1": "팬클럽 멤버쉽 정보는 위버스 서비스에 로그인하여 확인 가능합니다.",
+    "notice2": "현재 일본팬클럽 멤버쉽 정보만 입력 가능합니다.",
+    "joinedListTitle": "가입한 팬클럽",
+    "code": "코드",
+    "remark1": "입력1",
+    "remark2": "입력2",
+    "delete": "삭제",
+    "logout": "로그아웃",
+    "deleteAccount": "회원탈퇴",
+    "noFanclub": "가입된 팬클럽이 없습니다.",
+    "add": "팬클럽 추가하기",
+    "fanclub": {
+        "joinedListTitle": "가입한 팬클럽",
+        "noFanclub": "가입된 팬클럽이 없습니다.",
+        "add": "팬클럽 추가하기",
+        "message": "팬 클럽에 등록하는 정보를 작성해주세요.",
+        "select": "가입 중인 MEMBERSHIP(JP) 이름",
+        "membershipNumber": "위버스 멤버쉽 번호",
+        "jpNumber" : "JP 멤버쉽 번호",
+        "nameHanja": "이름(한자)",
+        "nameKana": "이름(카타카나)",
+        "email": "위버스 등록 이메일 (ID)",
+        "birthday": "생년월일(숫자 8자리)",
+        "selectFanclubAlert": "가입 중인 MEMBERSHIP(JP) 이름을 선택해주세요.",
+        "enterMembershipNumber": "멤버십 번호를 입력해주세요.",
+        "enterMembershipNumber11digits": "멤버십 번호는 11자리 이어야 합니다.",
+        "enterHanja": "이름(한자)를 입력해주세요.",
+        "enterKana": "이름(카타카나)를 입력해주세요.",
+        "enterEmail": "Weverse 이메일을 입력해주세요.",
+        "enterJpNumber": "JP. MEMBERSHIP NO.를 입력해주세요.",
+        "enterJpNumber6Digits": "JP. MEMBERSHIP NO.는 6자리 이어야 합니다.",
+        "enterBirthday": "생년월일을 입력해주세요.",
+        "jpNumberDesc": "SM 일본 팬클럽에서 부여 받은 회원 번호 입니다."
+      },
+      "common": {
+        "maxLength12": "12자 이상 입력 불가",
+        "maxLength6": "6자 이상 입력 불가",
+        "notAutoFilled": "자동 입력 아님",
+        "save": "저장",
+        "errorOccurred": "오류가 발생했습니다.",
+        "warning": "경고",
+        "loginRequired": "로그인 정보가 없습니다.",
+        "close": "닫기",
+        "submit": "전송하기"
+      },
+      "paymentTab": {
+        "localCard": "한국 카드 결제",
+        "paypal": "페이팔",
+        "overseasCard": "해외 카드 결제"
+      },
+      "exchange": {
+        "notice": "* 본 결제는 실시간 환율(KRW 기준)로 원화 결제가 진행됩니다. (적용 환율: 1 USD = {{rate}} KRW)"
+      },
+      "alertModal": {
+        "title": "결제 오류",
+        "description": "결제 중 예기치 않은 오류가 발생했습니다. 다시 시도해주세요.",
+        "confirm": "확인"
+      },
+      "select": {
+        "back": "예약하기",
+        "room": {
+          "twinTitle": "트윈룸",
+          "twinDesc": "두 명이 함께 사용하는 객실입니다. 표시된 금액은 1인 기준이며 동반자도 콘콘타운 회원이어야 합니다.",
+          "singleTitle": "싱글룸",
+          "singleDesc": "혼자 사용하는 객실입니다. 동반자 없이 예약 가능합니다."
+        },
+        "ticketOption": "티켓 옵션",
+        "priceOption": "가격 옵션",
+        "eventOption": "이벤트 옵션",
+        "total": "총합",
+        "next": "다음",
+        "alert": {
+          "courseRequired": "코스를 선택해주세요.",
+          "ticketRequired": "티켓 옵션을 선택해주세요.",
+          "pickupRequired": "가격 옵션을 선택해주세요.",
+          "optionRequired": "이벤트 옵션을 선택해주세요.",
+          "serverError": "서버 오류로 확인에 실패했습니다."
+        },
+        "selectCourseMessage": "코스를 선택해 주세요"
+      }
+      
+      
+}
