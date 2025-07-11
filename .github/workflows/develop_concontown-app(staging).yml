@@ -6,7 +6,7 @@ name: Build and deploy Node.js app to Azure Web App - concontown-app
 on:
   push:
     branches:
-      - develop
+      - main
   workflow_dispatch:
 
 jobs:
@@ -22,6 +22,12 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18.x'
+
+      - name: npm install, build, and test
+        run: |
+          npm install
+          npm run build --if-present
+          npm run test --if-present
 
       - name: Zip artifact for deployment
         run: zip release.zip ./* -r
@@ -55,7 +61,7 @@ jobs:
         uses: azure/login@v2
         with:
           client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_32D0FD61C99941DFAA5CD9FB17713F2E }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_AEA029DBB1514B92A59E13A558444D9F }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_05400961200D4F269B5F035BAD31E187 }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_450C5488AAD646D7AB60B1BDF9D874FE }}
 
       - name: 'Deploy to Azure Web App'
