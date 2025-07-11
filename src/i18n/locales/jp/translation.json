@@ -276,7 +276,9 @@
           "conversion": "(1,000P = $1.00)",
           "placeholder": "使用ポイントを入力",
           "unit": "ポイント",
-          "button": "適用"
+          "button": "適用",
+          "discountMessage": "{{rounded}}P (${{dollarDiscount}}) 分の割引が適用されました。",
+          "autoCalcMessage": "最大使用可能ポイントが自動で入力されます。適用ボタンを押すと、割引が適用されます。"
         },
         "agreement": {
           "cancel": "キャンセルポリシーを確認し、同意します。",
