@@ -460,6 +460,13 @@ useEffect(() => {
       const data: Point[] = await res.json();
       const total = data.reduce((acc, item) => acc + item.POINT, 0);
       setPoint(total);
+
+      const rounded = Math.floor(total / 1000) * 1000;
+      console.log('rounded', rounded);
+      setFormData((prev) => ({
+        ...prev,
+        pointUsage: rounded.toString()
+      }));
     };
   
     if (member?.idx) fetchPoint();
@@ -501,7 +508,8 @@ useEffect(() => {
       pointUsage: rounded.toString()
     }));
   
-    alert(`${rounded.toLocaleString()}P ($${dollarDiscount.toFixed(2)}) discount applied.`);
+    setAlertMessage(t('reservation.point.discountMessage', { rounded: rounded.toLocaleString(), dollarDiscount: dollarDiscount.toFixed(2) }));
+    setAlertVisible(true);
   };
   
   
@@ -679,6 +687,7 @@ useEffect(() => {
             value={formData.pointUsage}
             onChange={handleInputChange}
             className="w-full border rounded-xl px-4 py-3 pr-15 text-[16px]"
+            readOnly
           />
           <span className="absolute right-4 top-1/2 -translate-y-1/2 text-[16px] text-gray-500">
             {t('reservation.point.unit')}
@@ -693,6 +702,9 @@ useEffect(() => {
           {t('reservation.point.button')}
         </button>
       </div>
+      <p className="text-xs text-blue-600 mt-1">
+        {t('reservation.point.autoCalcMessage')}
+      </p>
     </div>  
   </>
 }

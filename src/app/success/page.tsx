@@ -287,19 +287,6 @@ export default function ReservationSuccessPage() {
 
       {amount !== '0' && (
         <section className="border-b border-[#F0F1F3] pb-4 mb-4">
-          <h2 className="font-bold text-[16px] mb-1">Payment</h2>
-          <p className="text-[16px] mb-1"> {data.room} × {data.course} × {data.grade}</p>
-
-          <div className="flex justify-between mb-2 mt-2">
-            <span className="text-[16px] font-medium">Subtotal</span>
-            {
-              reservationExchangeRate === '1' ?
-              <span className="text-[#12235B] font-bold">${Number(amount).toLocaleString()}</span>
-              :
-              <span className="text-[#12235B] font-bold">{Number(amount).toLocaleString()}원</span>
-            }
-          </div>
-
           <div className="text-[16px] text-gray-600 space-y-1">
             <h3 className="text-[16px] font-semibold text-black mb-1">Discount</h3>
             <div className="flex justify-between">
@@ -319,6 +306,20 @@ export default function ReservationSuccessPage() {
               <span>- {formatPrice(data.point)}</span>
             </div>
           </div>
+
+          <h2 className="font-bold text-[16px] mb-1">Payment</h2>
+          <p className="text-[16px] mb-1"> {data.room} × {data.course} × {data.grade}</p>
+
+          <div className="flex justify-between mb-2 mt-2">
+            <span className="text-[16px] font-medium">Subtotal</span>
+            {
+              reservationExchangeRate === '1' ?
+              <span className="text-[#12235B] font-bold">${Number(amount).toLocaleString()}</span>
+              :
+              <span className="text-[#12235B] font-bold">{Number(amount).toLocaleString()}원</span>
+            }
+          </div>
+
         </section>
       )}
 

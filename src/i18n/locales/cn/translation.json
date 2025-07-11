@@ -276,7 +276,9 @@
           "conversion": "(1,000P = $1.00)",
           "placeholder": "输入使用积分",
           "unit": "积分",
-          "button": "应用"
+          "button": "应用",
+          "discountMessage": "已应用{{rounded}}积分 (${{dollarDiscount}}) 折扣。",
+          "autoCalcMessage": "已为您自动计算可使用的最大积分。请点击“使用”按钮以应用积分。"
         },
         "agreement": {
           "cancel": "我已阅读并同意取消政策。",

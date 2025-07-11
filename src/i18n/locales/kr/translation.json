@@ -277,7 +277,9 @@
           "conversion": "(1,000P = $1.00)",
           "placeholder": "사용할 포인트 입력",
           "unit": "포인트",
-          "button": "적용"
+          "button": "적용",
+          "discountMessage": "{{rounded}}P (${{dollarDiscount}}) 할인이 적용되었습니다.",
+          "autoCalcMessage": "사용 가능한 최대 포인트를 자동 계산해 드렸습니다. 적용버튼을 눌러 포인트 할인을 받으세요."
         },
         "agreement": {
           "title": "약관 동의",

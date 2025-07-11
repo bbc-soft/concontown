@@ -278,7 +278,9 @@
           "conversion": "(1,000P = $1.00)",
           "placeholder": "Enter points",
           "unit": "Points",
-          "button": "Apply"
+          "button": "Apply",
+          "discountMessage": "{{rounded}}P (${{dollarDiscount}}) discount applied.",
+          "autoCalcMessage": "The maximum usable points have been calculated. Click [Apply] to use them."
         },
         "agreement": {
           "cancel": "I have checked and agree with the cancellation policy",
