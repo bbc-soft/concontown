@@ -41,7 +41,7 @@ export default function CouponModal({ coupons, selected, onSelect, onClose }: Pr
                     'border px-4 py-3 rounded-xl cursor-pointer',
                     isSelected ? 'bg-[#FDF1D6]' : 'bg-white'
                   )}
-                  onClick={() => onSelect(coupon.COUPON_IDX)}
+                  onClick={() => onSelect(coupon.COUPON_IDX === selected ? 0 : coupon.COUPON_IDX)}
                 >
                    <p className="font-bold text-[#1A2456] mb-1">{coupon.COUPON_NAME}</p> 
                   <p className="text-[16px] text-gray-500">
@@ -56,7 +56,7 @@ export default function CouponModal({ coupons, selected, onSelect, onClose }: Pr
           onClick={onClose}
           className="mt-5 w-full py-3 rounded-lg bg-[#FF8FA9] text-white font-semibold"
         >
-          {t('reservation.coupon.close')}
+          {t('reservation.coupon.apply')}
         </button>
       </div>
     </div>

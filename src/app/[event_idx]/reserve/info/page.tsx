@@ -15,8 +15,6 @@ import Loading from '../../../../../components/common/Loading';
 import CountrySelectModal from '../../../../../components/common/CountrySelectModal';
 import { useTranslation } from 'react-i18next';
 
-
-
 interface EventDetail {
   Title: string;
   isUseCoupon: string;
@@ -59,6 +57,7 @@ export default function ReservationInfoPage() {
   const [selectedCoupon, setSelectedCoupon] = useState<number | null>(null);
   const { member } = useAuthStore();
   const [point, setPoint] = useState(0);
+  const [pointUsage, setPointUsage] = useState(0);
   const [pointApplied, setPointApplied] = useState(0);
   const [alertVisible, setAlertVisible] = useState(false);
   const [alertMessage, setAlertMessage] = useState('');
@@ -68,8 +67,6 @@ export default function ReservationInfoPage() {
   const [showCompanionCodeModal, setShowCompanionCodeModal] = useState(false);
   const { t } = useTranslation();
 
-
-  
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -85,7 +82,6 @@ export default function ReservationInfoPage() {
     globalPackageId: '',
     flightArrival: '',
     flightDeparture: '',
-    pointUsage: '',
   });
 
   const [companion, setCompanion] = useState({
@@ -99,6 +95,28 @@ export default function ReservationInfoPage() {
     phone: '',
   });
   const [hasCancelFee, setHasCancelFee] = useState<boolean | null>(null);
+
+  const handleCouponChange = (value: number) => {
+    setSelectedCoupon(value);
+    const couponInfo = coupons.find(c => c.COUPON_IDX === value);
+    const discountCoupon = couponInfo ? couponInfo.DISCOUNT_PRICE : 0;
+
+    const basePrice = Number(selectedPlan?.price) || 0;
+    const ticketPrice = Number(selectedPlan?.ticketPrice) || 0;
+    const pickupPrice = Number(selectedPlan?.pickupPrice) || 0;
+  
+    const isTwin = selectedPlan?.room === 'Twin';
+    const totalTicket = isTwin ? ticketPrice * 2 : ticketPrice;
+    const total = basePrice + totalTicket + pickupPrice;
+
+    const dollarDiscount = total - discountCoupon;
+    if(dollarDiscount > 0) {
+
+    } else {
+      setPointUsage(0);
+    }
+
+  };
 
   useEffect(() => {
     const fetchCancelPolicy = async () => {
@@ -115,7 +133,6 @@ export default function ReservationInfoPage() {
 
     fetchCancelPolicy();
   }, [event_idx]);
-
 
   const handleCompanionChange = (key: string, value: string) => {
     setCompanion((prev) => ({ ...prev, [key]: value }));
@@ -160,7 +177,6 @@ export default function ReservationInfoPage() {
           globalPackageId: '',
           flightArrival: '',
           flightDeparture: '',
-          pointUsage: '',
         }));
       } catch (err) {
         console.error('❌ Failed to fetch member info:', err);
@@ -170,11 +186,6 @@ export default function ReservationInfoPage() {
     fetchMemberInfo();
   }, [member]);
   
-  
-  
-  
-  
-
   useEffect(() => {
     const fetchDetail = async () => {
       try {
@@ -227,11 +238,9 @@ const isValid = () => {
       return false;
     }
   }
-  
 
   return true;
 };
-
 
 const handlePurchase = async () => {
   if (!isValid()) return;
@@ -270,7 +279,6 @@ const handlePurchase = async () => {
 
     // Toss 결제용 orderId로 사용하기 위해 localStorage 저장
     localStorage.setItem('reservationOrderCode', reservation_code);
-
 
     // ✅ Step 2. 예약 디테일 저장
     const detailPayload = {
@@ -361,7 +369,6 @@ const handlePurchase = async () => {
       pointApplied
     : 0;
   
-
     const couponInfo = coupons.find(c => c.COUPON_IDX === selectedCoupon);
 
     const reservationData = {
@@ -386,7 +393,6 @@ const handlePurchase = async () => {
     
     localStorage.setItem('reservationConfirmation', JSON.stringify(reservationData));
     
-
     // ✅ 콘솔 출력 추가
     console.log('✅ [reservationConfirmation 저장 데이터]', reservationData);
     // localStorage.setItem('reservationConfirmation', JSON.stringify(reservationData));
@@ -406,11 +412,6 @@ const handlePurchase = async () => {
     setIsLoading(false); // ✅ 성공하거나 실패해도 무조건 로딩 끄기
   }
 };
-
-
-
-
-
 
 // 인풋 변경 시 처리 함수
 const handleInputChange = (
@@ -446,34 +447,28 @@ useEffect(() => {
   fetchCoupons();
 }, [member]);
 
-
-  
-
-  useEffect(() => {
+useEffect(() => {
     const fetchPoint = async () => {
       const res = await fetch('/api/point', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ member_idx: member?.idx, lang: 'EN' }),
       });
-  
+    
       const data: Point[] = await res.json();
       const total = data.reduce((acc, item) => acc + item.POINT, 0);
       setPoint(total);
 
       const rounded = Math.floor(total / 1000) * 1000;
       console.log('rounded', rounded);
-      setFormData((prev) => ({
-        ...prev,
-        pointUsage: rounded.toString()
-      }));
+      setPointUsage(rounded);
     };
-  
+    
     if (member?.idx) fetchPoint();
   }, [member]);
 
   const applyPoint = () => {
-    const usage = Number(formData.pointUsage);
+    const usage = pointUsage;
     const basePrice = Number(selectedPlan?.price) || 0;
     const ticketPrice = Number(selectedPlan?.ticketPrice) || 0;
     const pickupPrice = Number(selectedPlan?.pickupPrice) || 0;
@@ -502,11 +497,6 @@ useEffect(() => {
     }
   
     setPointApplied(dollarDiscount);
-  
-    setFormData((prev) => ({
-      ...prev,
-      pointUsage: rounded.toString()
-    }));
   
     setAlertMessage(t('reservation.point.discountMessage', { rounded: rounded.toLocaleString(), dollarDiscount: dollarDiscount.toFixed(2) }));
     setAlertVisible(true);
@@ -673,7 +663,7 @@ useEffect(() => {
       <p className="text-[14px] text-[#267FF4] font-semibold mb-3">
         {t('reservation.point.usageNote', {
           point,
-          amount: (point * 0.001).toFixed(2),
+          amount: (pointUsage * 0.001).toFixed(2),
         })}<br />
         {t('reservation.point.conversion')}
       </p>
@@ -684,7 +674,7 @@ useEffect(() => {
             type="number"
             name="pointUsage"
             placeholder={t('reservation.point.placeholder')}
-            value={formData.pointUsage}
+            value={pointUsage}
             onChange={handleInputChange}
             className="w-full border rounded-xl px-4 py-3 pr-15 text-[16px]"
             readOnly
@@ -937,7 +927,8 @@ useEffect(() => {
         <CouponModal
           coupons={coupons}
           selected={selectedCoupon}
-          onSelect={setSelectedCoupon}
+          //onSelect={setSelectedCoupon}
+          onSelect={(value) => handleCouponChange(value)}
           onClose={() => setCouponModalOpen(false)}
         />
 

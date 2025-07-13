@@ -269,7 +269,8 @@
           "empty": "사용 가능한 쿠폰이 없습니다.",
           "discountLabelSimple": "웰컴 할인",
           "validUntil": "{{date}}까지 사용 가능",
-          "close": "닫기"
+          "close": "닫기",
+          "apply": "적용"
         },
         "point": {
           "balance": "내 포인트 잔액",

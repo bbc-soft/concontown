@@ -269,7 +269,8 @@
           "empty": "You have no available coupons.",
           "discountLabelSimple": "Welcome Discount",
           "validUntil": "Valid until {{date}}",
-          "close": "Close"
+          "close": "Close",
+          "apply": "Apply"
         },
         
         "point": {
