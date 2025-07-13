@@ -111,7 +111,8 @@ export default function ReservationInfoPage() {
 
     const dollarDiscount = total - discountCoupon;
     if(dollarDiscount > 0) {
-
+      const rounded = Math.floor(point / 1000) * 1000;
+      setPointUsage(rounded);
     } else {
       setPointUsage(0);
     }
