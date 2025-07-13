@@ -268,7 +268,8 @@
           "empty": "没有可用的优惠券。",
           "discountLabelSimple": "欢迎优惠",
           "validUntil": "有效期至 {{date}}",
-          "close": "关闭"
+          "close": "关闭",
+          "apply": "应用"
         },
         "point": {
           "balance": "我的积分余额",

@@ -268,7 +268,8 @@
           "empty": "利用可能なクーポンがありません。",
           "discountLabelSimple": "ウェルカム割引",
           "validUntil": "{{date}}まで有効",
-          "close": "閉じる"
+          "close": "閉じる",
+          "apply": "適用"
         },
         "point": {
           "balance": "マイポイント残高",
