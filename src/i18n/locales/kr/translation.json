@@ -331,6 +331,7 @@
         "price": "가격",
         "coupon": "쿠폰",
         "point": "포인트",
+        "paymentPrice": "결제금액",
         "discountCoupon": "할인 쿠폰",
         "pointUsage": "{{points}}포인트 사용",
         "orderNumber": "주문 번호",

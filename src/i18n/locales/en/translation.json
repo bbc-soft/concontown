@@ -336,6 +336,7 @@
         "price": "Price",
         "coupon": "Coupon",
         "point": "Point",
+        "paymentPrice": "Payment amount",
         "discountCoupon": "Discount coupon",
         "pointUsage": "{{points}}point usage",
         "orderNumber": "Order Number",

@@ -329,6 +329,7 @@
         "price": "価格",
         "coupon": "クーポン",
         "point": "ポイント",
+        "paymentPrice": "お支払い額",
         "discountCoupon": "割引クーポン",
         "pointUsage": "{{points}}使ポイント用",
         "orderNumber": "注文番号",

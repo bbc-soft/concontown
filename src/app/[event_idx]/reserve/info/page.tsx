@@ -111,7 +111,8 @@ export default function ReservationInfoPage() {
 
     const dollarDiscount = total - discountCoupon;
     if(dollarDiscount > 0) {
-
+      const rounded = Math.floor(point / 1000) * 1000;
+      setPointUsage(rounded);
     } else {
       setPointUsage(0);
     }
@@ -686,8 +687,13 @@ useEffect(() => {
 
         <button
           type="button"
-          className="bg-[#FF8FA9] px-4 text-white rounded-lg font-semibold whitespace-nowrap"
+          // className="bg-[#FF8FA9] px-4 text-white rounded-lg font-semibold whitespace-nowrap"
+          className={clsx(
+            'px-4 text-white rounded-lg font-semibold whitespace-nowrap',
+            pointUsage === 0 ? 'bg-gray-300 cursor-not-allowed' : 'bg-[#FF8FA9]'
+          )}
           onClick={applyPoint}
+          disabled={pointUsage === 0}
         >
           {t('reservation.point.button')}
         </button>
