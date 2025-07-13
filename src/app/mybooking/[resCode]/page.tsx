@@ -190,7 +190,11 @@ export default function BookingDetailPage() {
           </p>
           <p className="flex justify-between">
             <span>{t('confirmation.point')}</span>
-            <span>- ${detail.point.toFixed(2)} (-{detail.Point_Price}p)</span>
+            <span>- ${(detail.Point_Price * 0.001).toFixed(2)} (-{detail.Point_Price}p)</span>
+          </p>
+          <p className="flex justify-between">
+            <span>{t('confirmation.paymentPrice')}</span>
+            <span>${detail.Total_Amount.toFixed(2)}</span>
           </p>
         </div>
       </section>
