@@ -330,6 +330,7 @@
         "coupon": "优惠券",
         "point": "积分",
         "paymentPrice": "付款金额",
+        "discountHistory": "折扣详情",
         "discountCoupon": "折扣券",
         "pointUsage": "{{points}}积分使用",
         "orderNumber": "订单号",

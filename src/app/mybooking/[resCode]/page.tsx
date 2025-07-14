@@ -175,14 +175,14 @@ export default function BookingDetailPage() {
             </span>
           </div>
           <div className="text-right text-[#12235B] font-bold">
-            ${detail.Total_Amount.toFixed(2)}
+            ${detail.Package_price.toFixed(2)}
           </div>
         </div>
       </div>
 
       {/* 할인 정보 */}
       <section className="border-b border-gray-300 pb-4 mb-6">
-        <h2 className="text-[16px] font-semibold text-gray-500 mb-2">{t('confirmation.discountCoupon')}</h2>
+        <h2 className="text-[16px] font-semibold text-gray-500 mb-2">{t('confirmation.discountHistory')}</h2>
         <div className="text-[16px] space-y-1">
           <p className="flex justify-between">
             <span>{t('confirmation.coupon')}</span>
@@ -194,7 +194,7 @@ export default function BookingDetailPage() {
           </p>
           <p className="flex justify-between">
             <span>{t('confirmation.paymentPrice')}</span>
-            <span>${detail.Total_Amount.toFixed(2)}</span>
+            <span className="font-bold">${detail.Total_Amount.toFixed(2)}</span>
           </p>
         </div>
       </section>

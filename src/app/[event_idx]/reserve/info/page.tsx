@@ -263,7 +263,7 @@ const handlePurchase = async () => {
         option_idx: selectedPlan?.optionIdx || 0,
         coupon_idx: selectedCoupon || 0,
         u_ip: '111.111.111.111',
-        point
+        pointApplied//point
       }),
     });
 
@@ -398,13 +398,15 @@ const handlePurchase = async () => {
     console.log('✅ [reservationConfirmation 저장 데이터]', reservationData);
     // localStorage.setItem('reservationConfirmation', JSON.stringify(reservationData));
 
-    if (selectedPrice <= 0) {
-      // 0달러면 결제 없이 성공 페이지로 이동
-      router.push(`/success?amount=0&orderId=${reservation_code}`);
-    } else {
-      // 결제 필요하면 결제 페이지로 이동
-      router.push(`/${event_idx}/reserve/payment/tosspay?price=${finalPrice}`);
-    } 
+    // if (selectedPrice <= 0) {
+    //   // 0달러면 결제 없이 성공 페이지로 이동
+    //   router.push(`/success?amount=0&orderId=${reservation_code}`);
+    // } else {
+    //   // 결제 필요하면 결제 페이지로 이동
+    //   router.push(`/${event_idx}/reserve/payment/tosspay?price=${finalPrice}`);
+    // } 
+
+    router.push(`/${event_idx}/reserve/preview?selectedPrice=${selectedPrice}&price=${finalPrice}`);
 
   } catch (err) {
     console.error('❌ 예약 처리 실패:', err);
@@ -521,8 +523,10 @@ useEffect(() => {
     const couponDiscount = selectedCoupon
       ? Number(coupons.find((c) => c.COUPON_IDX === selectedCoupon)?.DISCOUNT_PRICE || 0)
       : 0;
+
+    const price = total - couponDiscount - pointApplied;
   
-    return total - couponDiscount - pointApplied;
+    return price > 0 ? price : 0;
   })();
   
   if (isLoading) return <Loading />;

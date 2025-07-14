@@ -17,6 +17,7 @@ interface QnaItem {
   reply_content?: string;
   parents?: number | null;
   depth?: number;
+  file_url?: string;
 }
 
 interface SiteInfo {
@@ -107,7 +108,7 @@ export default function QnaPage() {
         ))}
       </div>
 
-      <div className="space-y-4">
+      <div className="space-y-4 mb-10">
         {filteredParents.map((parent) => {
           const reply = qnaList.find((item) => item.depth === 1 && item.parents === parent.idx);
           return (
@@ -119,6 +120,15 @@ export default function QnaPage() {
               <div className="text-[16px] text-gray-700 leading-tight whitespace-pre-line">
                 {parent.contents || t('ask.inquiry', 'No description provided.')}
               </div>
+              {parent.file_url && (
+                <div className="mt-2">
+                  <img
+                    src={parent.file_url}
+                    alt="Attached"
+                    className="max-w-full h-auto rounded-md shadow"
+                  />
+                </div>
+              )}
 
               {reply && (
                 <div className="mt-4 bg-[#F8F9FB] rounded-lg p-3 text-[16px]">

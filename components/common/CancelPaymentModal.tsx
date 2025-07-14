@@ -75,7 +75,7 @@ export default function CancelPaymentModal({
   }, [res_day, res_seq, member_idx]);
 
   const renderCurrency = (amount: number) => {
-    if (currency === 'KRW') return `₩${amount.toLocaleString()}`;
+    if (currency === 'KRW') return `₩${Math.trunc(amount).toLocaleString()}`;
     return `$${amount.toFixed(2)}`;
   };
 
