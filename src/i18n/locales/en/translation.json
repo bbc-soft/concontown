@@ -336,6 +336,8 @@
         "price": "Price",
         "coupon": "Coupon",
         "point": "Point",
+        "paymentStatus": "Payment Status",
+        "transactionID": "Transaction ID",
         "paymentPrice": "Payment amount",
         "discountHistory": "Discount details",
         "discountCoupon": "Discount coupon",

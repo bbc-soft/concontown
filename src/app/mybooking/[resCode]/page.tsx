@@ -204,12 +204,11 @@ export default function BookingDetailPage() {
         <section className="border-b border-gray-300 pb-4 mb-6">
           <h2 className="text-[16px] font-semibold text-gray-500 mb-2">{t('confirmation.payment')}</h2>
           <div className="text-[16px]">
-            <p className="flex justify-between"><span>{t('confirmation.subtotal')}</span> <span className="font-bold">{renderCurrency(payment.totalAmount, payment.currency)}
-</span></p>
-            <p className="flex justify-between text-gray-600"><span>{t('confirmation.paymentMethod')}</span> <span>{payment.pay_method}</span></p>
-            <p className="flex justify-between text-gray-600"><span>{t('confirmation.card')}</span> <span>{payment.card_name}</span></p>
-            <p className="flex justify-between text-gray-600"><span>{t('confirmation.status')}</span> <span>{payment.payment_status}</span></p>
-            <p className="flex justify-between text-gray-600"><span>{t('confirmation.txnId')}</span> <span>{payment.txn_id}</span></p>
+            <p className="flex justify-between"><span>{t('confirmation.subtotal')}</span> <span className="font-bold">{renderCurrency(payment.totalAmount, payment.currency)}</span></p>
+            {/*<p className="flex justify-between text-gray-600"><span>{t('confirmation.paymentMethod')}</span> <span>{payment.pay_method}</span></p>*/}
+            <p className="flex justify-between text-gray-600"><span>{t('confirmation.paymentMethod')}</span> <span>{payment.card_name}</span></p>
+            <p className="flex justify-between text-gray-600"><span>{t('confirmation.paymentStatus')}</span> <span>{payment.payment_status}</span></p>
+            <p className="flex justify-between text-gray-600"><span>{t('confirmation.transactionID')}</span> <span>{payment.txn_id}</span></p>
           </div>
         </section>
       )}

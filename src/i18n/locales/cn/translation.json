@@ -329,6 +329,8 @@
         "price": "价格",
         "coupon": "优惠券",
         "point": "积分",
+        "paymentStatus": "支付状态",
+        "transactionID": "交易编号",           
         "paymentPrice": "付款金额",
         "discountHistory": "折扣详情",
         "discountCoupon": "折扣券",

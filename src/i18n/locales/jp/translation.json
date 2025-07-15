@@ -329,6 +329,8 @@
         "price": "価格",
         "coupon": "クーポン",
         "point": "ポイント",
+        "paymentStatus": "支払い状況",
+        "transactionID": "取引ID",        
         "paymentPrice": "お支払い額",
         "discountHistory": "割引履歴",
         "discountCoupon": "割引クーポン",
