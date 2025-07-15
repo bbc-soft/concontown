@@ -249,6 +249,8 @@ const handlePurchase = async () => {
   try {
     const member_idx = member?.idx;
 
+    console.log('pointUsage', pointUsage);
+
     // ✅ Step 1. 예약 마스터 저장
     const res = await fetch('/api/reserve/booking/master', {
       method: 'POST',
@@ -263,7 +265,7 @@ const handlePurchase = async () => {
         option_idx: selectedPlan?.optionIdx || 0,
         coupon_idx: selectedCoupon || 0,
         u_ip: '111.111.111.111',
-        point: pointUsage//point
+        point: pointUsage
       }),
     });
 
