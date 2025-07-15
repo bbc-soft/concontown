@@ -249,6 +249,8 @@ const handlePurchase = async () => {
   try {
     const member_idx = member?.idx;
 
+    console.log('pointUsage', pointUsage);
+
     // ✅ Step 1. 예약 마스터 저장
     const res = await fetch('/api/reserve/booking/master', {
       method: 'POST',
@@ -263,7 +265,7 @@ const handlePurchase = async () => {
         option_idx: selectedPlan?.optionIdx || 0,
         coupon_idx: selectedCoupon || 0,
         u_ip: '111.111.111.111',
-        point
+        point: pointUsage
       }),
     });
 
@@ -398,13 +400,15 @@ const handlePurchase = async () => {
     console.log('✅ [reservationConfirmation 저장 데이터]', reservationData);
     // localStorage.setItem('reservationConfirmation', JSON.stringify(reservationData));
 
-    if (selectedPrice <= 0) {
-      // 0달러면 결제 없이 성공 페이지로 이동
-      router.push(`/success?amount=0&orderId=${reservation_code}`);
-    } else {
-      // 결제 필요하면 결제 페이지로 이동
-      router.push(`/${event_idx}/reserve/payment/tosspay?price=${finalPrice}`);
-    } 
+    // if (selectedPrice <= 0) {
+    //   // 0달러면 결제 없이 성공 페이지로 이동
+    //   router.push(`/success?amount=0&orderId=${reservation_code}`);
+    // } else {
+    //   // 결제 필요하면 결제 페이지로 이동
+    //   router.push(`/${event_idx}/reserve/payment/tosspay?price=${finalPrice}`);
+    // } 
+
+    router.push(`/${event_idx}/reserve/preview?selectedPrice=${selectedPrice}&price=${finalPrice}`);
 
   } catch (err) {
     console.error('❌ 예약 처리 실패:', err);
@@ -521,8 +525,10 @@ useEffect(() => {
     const couponDiscount = selectedCoupon
       ? Number(coupons.find((c) => c.COUPON_IDX === selectedCoupon)?.DISCOUNT_PRICE || 0)
       : 0;
+
+    const price = total - couponDiscount - pointApplied;
   
-    return total - couponDiscount - pointApplied;
+    return price > 0 ? price : 0;
   })();
   
   if (isLoading) return <Loading />;
@@ -690,10 +696,10 @@ useEffect(() => {
           // className="bg-[#FF8FA9] px-4 text-white rounded-lg font-semibold whitespace-nowrap"
           className={clsx(
             'px-4 text-white rounded-lg font-semibold whitespace-nowrap',
-            pointUsage === 0 ? 'bg-gray-300 cursor-not-allowed' : 'bg-[#FF8FA9]'
+            (pointUsage === 0 || pointApplied > 0) ? 'bg-gray-300 cursor-not-allowed' : 'bg-[#FF8FA9]'
           )}
           onClick={applyPoint}
-          disabled={pointUsage === 0}
+          disabled={ pointUsage === 0 || pointApplied > 0}
         >
           {t('reservation.point.button')}
         </button>
@@ -825,15 +831,14 @@ useEffect(() => {
   </div>
 )}
 
-          {/* 구분선 */}
-          <div style={{ height: '4px', alignSelf: 'stretch', background: '#F0F1F3' }} />
+{/* 구분선 */}
+<div style={{ height: '4px', alignSelf: 'stretch', background: '#F0F1F3' }} />
 
+{/* Agreement Section */}
+<div className="my-6 px-5">
+  <h2>{t('reservation.section.agreement')}</h2>
 
-      {/* Agreement Section */}
-      <div className="my-6 px-5">
-      <h2>{t('reservation.section.agreement')}</h2>
-
-       {/* Cancellation Policy */}
+  {/* Cancellation Policy */}
 <div className="flex items-center justify-between rounded-xl py-3 cursor-pointer">
   <div
     className="flex items-center gap-3"
@@ -885,11 +890,7 @@ useEffect(() => {
     <img src="/common/arrow-down.svg" className="w-[24px] h-[24px]" alt="arrow" />
   </button>
 </div>
-
-      </div>
-
-
-
+</div>
   
       <div className="sticky bottom-0 left-0 right-0 w-full px-5 py-4 bg-white border-t max-w-[430px] m-auto">
         <div className="text-[16px] mb-1">

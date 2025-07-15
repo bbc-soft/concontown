@@ -289,10 +289,10 @@ export default function ReservationSuccessPage() {
         <section className="border-b border-[#F0F1F3] pb-4 mb-4">
           <div className="text-[16px] text-gray-600 space-y-1">
             <h3 className="text-[16px] font-semibold text-black mb-1">Discount</h3>
-            <div className="flex justify-between">
+            {/*<div className="flex justify-between">
               <span>Price</span>
               <span>{formatPrice(data.subtotal + data.discount + data.point)}</span>
-            </div>
+            </div>*/}
             <div className="flex justify-between">
               <span>Coupon</span>
               <span>
@@ -316,7 +316,11 @@ export default function ReservationSuccessPage() {
               reservationExchangeRate === '1' ?
               <span className="text-[#12235B] font-bold">${Number(amount).toLocaleString()}</span>
               :
-              <span className="text-[#12235B] font-bold">{Number(amount).toLocaleString()}원</span>
+              <span className="text-[#12235B] font-bold">{Number(amount).toLocaleString()}원
+                  <span className="text-sm text-gray-500 ml-1">
+                    (${(Number(amount) / Number(reservationExchangeRate)).toFixed(2)})
+                  </span>
+              </span>
             }
           </div>
 
