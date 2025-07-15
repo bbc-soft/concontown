@@ -263,7 +263,7 @@ const handlePurchase = async () => {
         option_idx: selectedPlan?.optionIdx || 0,
         coupon_idx: selectedCoupon || 0,
         u_ip: '111.111.111.111',
-        point: pointApplied//point
+        point: pointUsage//point
       }),
     });
 
