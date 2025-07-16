@@ -29,6 +29,8 @@ export default function SettingPage() {
   const [ready, setReady] = useState(false);
   const [allowMarketing, setAllowMarketing] = useState(false);
   const [allowPush, setAllowPush] = useState(false);
+  const [localVersion, setLocalVersion] = useState('1.0.0');
+  const [storeVersion, setStoreVersion] = useState('1.0.0');
 
   useEffect(() => {
     if (i18n.isInitialized) {
@@ -62,6 +64,15 @@ export default function SettingPage() {
           setAllowPush(isPush);
           updateLocalIsPush(data.isPush);
         }
+
+        const local_version = localStorage.getItem('localVersion');
+        if(local_version)
+          setLocalVersion(local_version);
+
+        const store_version = localStorage.getItem('storeVersion');
+        if(store_version)
+          setStoreVersion(store_version);
+
       } catch (err) {
         console.error('❌ Failed to fetch latest member detail:', err);
       }
@@ -171,11 +182,11 @@ export default function SettingPage() {
         <div className="text-md font-bold mb-4">{t('setting.setting.applicationInformation.title')}</div>
         <div className="flex justify-between text-md mb-2">
           <span className="text-gray-700">{t('setting.setting.applicationInformation.installedVersion')}</span>
-          <span className="font-medium">v1.0.2</span>
+          <span className="font-medium">v{localVersion}</span>
         </div>
         <div className="flex justify-between text-md mb-4">
           <span className="text-gray-700">{t('setting.setting.applicationInformation.latestVersion')}</span>
-          <span className="font-medium">v1.0.3</span>
+          <span className="font-medium">v{storeVersion}</span>
         </div>
 
         <button
