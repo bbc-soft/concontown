@@ -28,7 +28,7 @@ export default function Home() {
       };
 
       (window as any).onFlutterVersionReceived = (localVersion: string, storeVersion: string) => {
-        // console.log('Flutter로부터 받은 버전 정보:', localVersion, storeVersion);
+        console.log('Flutter로부터 받은 버전 정보:', localVersion, storeVersion);
         localStorage.setItem('localVersion', localVersion);
         localStorage.setItem('storeVersion', storeVersion);
 
