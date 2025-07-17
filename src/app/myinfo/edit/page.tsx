@@ -55,8 +55,10 @@ export default function EditInfoPage() {
           setNationalCode(data.National_Code || '');
 
           const sns_provider = localStorage.getItem('sns_provider');
-          if(sns_provider)
+          if(sns_provider) {
             setProvider(sns_provider);          
+            setCurrentPassword('12345');
+          }
         }
       } catch (err) {
         console.error('❌ Failed to load member info', err);
