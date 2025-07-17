@@ -112,15 +112,15 @@ export async function POST(req: NextRequest) {
       // return new NextResponse(
       //   `<html><body>
       //     <script>
-      //       const state = {
-      //         state: {
-      //           isLoggedIn: true,
-      //           token: "dummy-token",
-      //           member: ${JSON.stringify(JSON.stringify(memberInfo))},
-      //           autoLogin: false
-      //         },
-      //         version: 0
-      //       };
+            // const state = {
+            //   state: {
+            //     isLoggedIn: true,
+            //     token: "dummy-token",
+            //     member: ${JSON.stringify(JSON.stringify(memberInfo))},
+            //     autoLogin: false
+            //   },
+            //   version: 0
+            // };
       //       localStorage.setItem("auth-storage", JSON.stringify(state));
       //       localStorage.setItem("sns_provider", "apple");
       //       location.href = "/sns-redirect";
@@ -133,6 +133,17 @@ export async function POST(req: NextRequest) {
       return new NextResponse(
         `<html><body>
           <script>
+            const state = {
+              state: {
+                isLoggedIn: true,
+                token: "dummy-token",
+                member: ${JSON.stringify(JSON.stringify(memberInfo))},
+                autoLogin: false
+              },
+              version: 0
+            };
+            localStorage.setItem("auth-storage", JSON.stringify(state));
+            localStorage.setItem("sns_provider", "apple");
             location.href = "${redirectTo}";
           </script>
         </body></html>`,
