@@ -33,6 +33,7 @@ export default function EditInfoPage() {
   const [codeModalOpen, setCodeModalOpen] = useState(false);
 
   const [provider, setProvider] = useState('');
+  const [snsSub, setSnsSub] = useState('');
 
   useEffect(() => {
     const fetchMemberInfo = async () => {
@@ -56,7 +57,11 @@ export default function EditInfoPage() {
 
           const sns_provider = localStorage.getItem('sns_provider');
           if(sns_provider)
-            setProvider(sns_provider);          
+            setProvider(sns_provider);      
+          
+          const sns_sub = localStorage.getItem('sns_uid');
+          if(sns_sub)
+            setSnsSub(sns_sub);          
         }
       } catch (err) {
         console.error('❌ Failed to load member info', err);
@@ -93,6 +98,7 @@ export default function EditInfoPage() {
         City: city,
         Phone: phone,
         National_Code: nationalCode,
+        sns_sub: snsSub,
       }),
     });
 

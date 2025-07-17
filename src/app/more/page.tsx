@@ -80,6 +80,7 @@ export default function MorePage() {
     if(isLoggedIn === false) {
         //console.log("logout!!!!");
       localStorage.setItem("sns_provider", "");
+      localStorage.setItem("sns_uid", "");
       if(typeof window !== "undefined" && (window as any).LogoutChannel) {
         const payload = {
         };

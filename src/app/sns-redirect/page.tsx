@@ -52,6 +52,8 @@ export default function SNSRedirectPage() {
           const data = await res.json();
           const user = data.user;
 
+          localStorage.setItem('sns_uid', parsed?.sub);
+
           login(
             data.token,
             {
