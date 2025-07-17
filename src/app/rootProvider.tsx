@@ -25,7 +25,7 @@ export default function RootProvider({ children }: { children: React.ReactNode }
   useEffect(() => {
     if (!hydrated) return; // 복구되기 전이면 아무것도 하지 않음
 
-    if (!isLoggedIn && !pathname.startsWith('/login') && !pathname.startsWith('/register') && !pathname.startsWith('/sign') && !pathname.startsWith('/forgot')) {
+    if (!isLoggedIn && !pathname.startsWith('/login') && !pathname.startsWith('/register') && !pathname.startsWith('/sign') && !pathname.startsWith('/forgot') && !pathname.startsWith('/apple')) {
       router.replace(`/login?redirect=${pathname}`);
     }
   }, [hydrated, isLoggedIn, pathname, router]);

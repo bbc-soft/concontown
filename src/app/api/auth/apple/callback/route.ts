@@ -109,34 +109,35 @@ export async function POST(req: NextRequest) {
       console.log('🧾 [Set_Member_Login_sns 결과]', loginResult);
       // console.log('🔎 로그인된 최종 member_idx:', memberInfo?.idx);
 
-      return new NextResponse(
-        `<html><body>
-          <script>
-            const state = {
-              state: {
-                isLoggedIn: true,
-                token: "dummy-token",
-                member: ${JSON.stringify(JSON.stringify(memberInfo))},
-                autoLogin: false
-              },
-              version: 0
-            };
-            localStorage.setItem("auth-storage", JSON.stringify(state));
-            localStorage.setItem("sns_provider", "apple");
-            location.href = "/sns-redirect";
-          </script>
-        </body></html>`,
-        { headers: { 'Content-Type': 'text/html' } }
-      );      
-
       // return new NextResponse(
       //   `<html><body>
       //     <script>
-      //       location.href = "/apple-redirect";
+      //       const state = {
+      //         state: {
+      //           isLoggedIn: true,
+      //           token: "dummy-token",
+      //           member: ${JSON.stringify(JSON.stringify(memberInfo))},
+      //           autoLogin: false
+      //         },
+      //         version: 0
+      //       };
+      //       localStorage.setItem("auth-storage", JSON.stringify(state));
+      //       localStorage.setItem("sns_provider", "apple");
+      //       location.href = "/sns-redirect";
       //     </script>
       //   </body></html>`,
       //   { headers: { 'Content-Type': 'text/html' } }
-      // );        
+      // );      
+
+      const redirectTo = `/apple-redirect`;
+      return new NextResponse(
+        `<html><body>
+          <script>
+            location.href = "${redirectTo}";
+          </script>
+        </body></html>`,
+        { headers: { 'Content-Type': 'text/html' } }
+      );        
     } else {
       // 4. 신규 회원 → 가입 처리
       // await executeProcedure('Set_Member', {
