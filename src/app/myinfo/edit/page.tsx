@@ -61,7 +61,9 @@ export default function EditInfoPage() {
           
           const sns_sub = localStorage.getItem('sns_uid');
           if(sns_sub)
-            setSnsSub(sns_sub);          
+            setSnsSub(sns_sub);     
+
+          console.log('currentPassword1', currentPassword);
         }
       } catch (err) {
         console.error('❌ Failed to load member info', err);
@@ -79,6 +81,8 @@ export default function EditInfoPage() {
 
     const [year, month, day] = birth ? birth.split('-') : ['', '', ''];
 
+    console.log('currentPassword2', currentPassword);
+
     const res = await fetch('/api/member/update', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -86,8 +90,8 @@ export default function EditInfoPage() {
         method: 'UPDATE',
         member_idx: idx,
         member_id: memberId,
-        member_pwd: currentPassword,
-        member_pwd_new: currentPassword,
+        member_pwd: provider === '' ? currentPassword : '',
+        member_pwd_new: provider === '' ? currentPassword : '',
         Name_1st: firstName,
         Name_3rd: lastName,
         Gender: gender,
