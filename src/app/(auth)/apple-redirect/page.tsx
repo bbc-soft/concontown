@@ -94,7 +94,8 @@ export default function SNSRedirectPage() {
             parsed.autoLogin
           );
 
-          router.replace('/');
+          // router.replace('/');
+          router.replace('/login');
         }
       }
     } catch (err) {
