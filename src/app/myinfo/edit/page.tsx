@@ -32,6 +32,8 @@ export default function EditInfoPage() {
   const [countryModalOpen, setCountryModalOpen] = useState(false);
   const [codeModalOpen, setCodeModalOpen] = useState(false);
 
+  const [provider, setProvider] = useState('');
+
   useEffect(() => {
     const fetchMemberInfo = async () => {
       try {
@@ -51,6 +53,10 @@ export default function EditInfoPage() {
           setCity(data.City || '');
           setPhone(data.Phone || '');
           setNationalCode(data.National_Code || '');
+
+          const sns_provider = localStorage.getItem('sns_provider');
+          if(sns_provider)
+            setProvider(sns_provider);          
         }
       } catch (err) {
         console.error('❌ Failed to load member info', err);
@@ -63,7 +69,7 @@ export default function EditInfoPage() {
   const handleSubmit = async () => {
     const idx = Number(member?.idx);
     if (!idx) return showAlert(t('common.error'), t('loginEmail.emailError.message'));
-    if (!currentPassword) return showAlert(t('password.sub'), t('loginPw.enterPassword'));
+    if (provider === '' && !currentPassword) return showAlert(t('password.sub'), t('loginPw.enterPassword'));
     if (!nationalCode || !phone) return showAlert(t('personalInfo.phone'), t('reservation.pointUsageNote'));
 
     const [year, month, day] = birth ? birth.split('-') : ['', '', ''];
@@ -172,8 +178,8 @@ export default function EditInfoPage() {
         </div>
       </div>
 
-      <label className="block mb-2 text-[16px] font-medium">{t('loginPw.enterPassword')}</label>
-      <div className="relative mb-6">
+      {provider === '' && <label className="block mb-2 text-[16px] font-medium">{t('loginPw.enterPassword')}</label>}
+      {provider === '' && <div className="relative mb-6">
         <input
           type={showPassword ? 'text' : 'password'}
           value={currentPassword}
@@ -187,7 +193,7 @@ export default function EditInfoPage() {
         >
           {showPassword ? <Eye size={18} /> : <EyeOff size={18} />}
         </button>
-      </div>
+      </div>}
 
       <button onClick={handleSubmit} className="bg-[#FF8FA9] text-white w-full py-3 rounded-xl font-semibold">
         {t('myPersonalInfo.detail.editButton')}

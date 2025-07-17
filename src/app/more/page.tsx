@@ -77,12 +77,15 @@ export default function MorePage() {
   }, [member]);
 
   useEffect(() => {
-    if(isLoggedIn === false && typeof window !== "undefined" && (window as any).LogoutChannel) {
+    if(isLoggedIn === false) {
         //console.log("logout!!!!");
-      const payload = {
-      };
-  
-      (window as any).LogoutChannel.postMessage(JSON.stringify(payload));
+      localStorage.setItem("sns_provider", "");
+      if(typeof window !== "undefined" && (window as any).LogoutChannel) {
+        const payload = {
+        };
+    
+        (window as any).LogoutChannel.postMessage(JSON.stringify(payload));
+      }
     }
   }, [isLoggedIn]);
 
