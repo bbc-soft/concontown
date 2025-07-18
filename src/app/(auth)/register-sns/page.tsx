@@ -367,7 +367,7 @@ export default function RegisterPage() {
         <button 
           type="button"
           onClick={() => setShowCountryModal(true)} 
-          className="w-full border rounded-xl px-4 py-3 text-[16px] text-left text-gray-600 mb-3"
+          className="w-full border rounded-xl px-4 py-3 text-[16px] text-left text-gray-600 mb-2"
           >
           {form.nationality || t('personalInfo.country', 'Country/Region')}
         </button>
@@ -387,7 +387,7 @@ export default function RegisterPage() {
       </div>
 
       {/* 이메일 입력 + 중복 확인 */}
-      <p className="text-xs text-gray-500 mb-1 mt-4">
+      <p className="text-xs text-gray-500 mb-1 mt-6">
         {t('register.guide.email')}
       </p>
       <div className="flex gap-2">        
@@ -408,7 +408,7 @@ export default function RegisterPage() {
 
       {/* 인증번호 입력 영역 */}
       {showVerification && (
-        <div className="flex flex-col gap-2 mt-2">
+        <div className="flex flex-col gap-2 mt-6">
           <div className="flex gap-2">
             <input
               value={form.auth_code}
@@ -430,7 +430,7 @@ export default function RegisterPage() {
         </div>
       )}
 
-      <p className="text-xs text-gray-500 mb-1">
+      <p className="text-xs text-gray-500 mb-1 mt-6">
         {t('register.guide.firstName')}
       </p>
       <input 
