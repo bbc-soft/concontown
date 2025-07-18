@@ -136,6 +136,7 @@ export async function GET(req: NextRequest) {
             };
             localStorage.setItem("auth-storage", JSON.stringify(state));
             localStorage.setItem("sns_provider", "google");
+            localStorage.setItem("sns_uid", "${sns_uid}");
             location.href = "/sns-redirect";
           </script>
         </body></html>`,

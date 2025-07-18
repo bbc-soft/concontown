@@ -107,7 +107,7 @@ export async function POST(req: NextRequest) {
 
       const memberInfo = loginResult[0] as MemberInfo;
       console.log('🧾 [Set_Member_Login_sns 결과]', loginResult);
-      // console.log('🔎 로그인된 최종 member_idx:', memberInfo?.idx);
+      console.log('🔎 로그인된 최종 member_idx:', memberInfo?.idx);
 
       return new NextResponse(
         `<html><body>
@@ -123,20 +123,12 @@ export async function POST(req: NextRequest) {
             };
             localStorage.setItem("auth-storage", JSON.stringify(state));
             localStorage.setItem("sns_provider", "apple");
+            localStorage.setItem("sns_uid", "${sns_uid}");
             location.href = "/sns-redirect";
           </script>
         </body></html>`,
         { headers: { 'Content-Type': 'text/html' } }
       );      
-
-      // return new NextResponse(
-      //   `<html><body>
-      //     <script>
-      //       location.href = "/apple-redirect";
-      //     </script>
-      //   </body></html>`,
-      //   { headers: { 'Content-Type': 'text/html' } }
-      // );        
     } else {
       // 4. 신규 회원 → 가입 처리
       // await executeProcedure('Set_Member', {

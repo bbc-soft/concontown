@@ -22,6 +22,7 @@ export async function POST(req: NextRequest) {
     National_Code,
     MailYN = '', // ✅ 광고성 수신 동의 추가
     sns_sub,
+    sns_provider,
   } = body;
 
   if (!member_idx) {
@@ -58,7 +59,8 @@ export async function POST(req: NextRequest) {
         @site_language = 'EN',
         @MailSelector = '',
         @U_IP = '',
-        @sns_sub = '${sns_sub}'
+        @sns_sub = '${sns_sub}',
+        @sns_provider = '${sns_provider}'
     `);
 
     const result = await pool
@@ -89,6 +91,7 @@ export async function POST(req: NextRequest) {
       .input('MailSelector', sql.Char, '')
       .input('U_IP', sql.NVarChar, '')
       .input('sns_sub', sql.NVarChar, sns_sub)
+      .input('sns_provider', sql.NVarChar, sns_provider)
       .execute('Set_Member');
 
     const output = result.recordset?.[0];

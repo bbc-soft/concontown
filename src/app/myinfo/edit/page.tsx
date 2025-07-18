@@ -62,8 +62,6 @@ export default function EditInfoPage() {
           const sns_sub = localStorage.getItem('sns_uid');
           if(sns_sub)
             setSnsSub(sns_sub);     
-
-          console.log('currentPassword1', currentPassword);
         }
       } catch (err) {
         console.error('❌ Failed to load member info', err);
@@ -80,8 +78,6 @@ export default function EditInfoPage() {
     if (!nationalCode || !phone) return showAlert(t('personalInfo.phone'), t('reservation.pointUsageNote'));
 
     const [year, month, day] = birth ? birth.split('-') : ['', '', ''];
-
-    console.log('currentPassword2', currentPassword);
 
     const res = await fetch('/api/member/update', {
       method: 'POST',
@@ -103,6 +99,7 @@ export default function EditInfoPage() {
         Phone: phone,
         National_Code: nationalCode,
         sns_sub: snsSub,
+        sns_provider: provider,
       }),
     });
 
