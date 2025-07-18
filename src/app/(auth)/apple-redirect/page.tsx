@@ -53,7 +53,7 @@ export default function AppleRedirectPage() {
   useEffect(() => {
     const stored = localStorage.getItem('auth-storage');
     if (stored) {
-      setAlert({ open: true, title: 'Caution', description: 'apple redirect', buttonText: 'OK' });
+      setAlert({ open: true, title: 'Caution', description: 'auth-storage', buttonText: 'OK' });
       try {
         setAlert({ open: true, title: 'Caution', description: stored, buttonText: 'OK' });
         const parsed = JSON.parse(stored).state;
