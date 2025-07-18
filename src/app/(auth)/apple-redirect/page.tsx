@@ -35,6 +35,7 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuthStore } from '@/stores/useAuthStore';
 import { useTranslation } from 'react-i18next';
+import BackButton from '../../../../components/common/BackButton';
 
 export default function SNSRedirectPage() {
   const { t } = useTranslation();
@@ -49,6 +50,7 @@ export default function SNSRedirectPage() {
         if (parsed?.token && parsed?.member) {
           login(parsed.token, parsed.member, parsed.autoLogin);
           //router.replace('/');
+          alert('handleLogin');
           handleLogin();
         }
       } catch (e) {
@@ -78,6 +80,8 @@ export default function SNSRedirectPage() {
             return;
           }
 
+          alert('login success!!');
+
           const data = await res.json();
           const user = data.user;
 
@@ -95,7 +99,7 @@ export default function SNSRedirectPage() {
           );
 
           // router.replace('/');
-          window.location.reload();
+          // window.location.reload();
           // router.refresh();
         }
       }
@@ -105,5 +109,12 @@ export default function SNSRedirectPage() {
     }
   };
 
-  return null;
+  // return null;
+    return (
+      <div className="max-w-[430px] mx-auto min-h-screen bg-white pt-5 pb-28 px-5 text-black relative">
+        <BackButton label={t('loginEmail.signUp.subSns', 'SNS Register')} />
+              <p className="text-[16px] text-gray-600 my-4">{t('loginEmail.signUp.snsTitle', 'Please enter the required information to complete SNS registration.')}</p>
+
+    </div>
+  );
 }
