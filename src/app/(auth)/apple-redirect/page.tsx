@@ -57,11 +57,11 @@ export default function AppleRedirectPage() {
         const parsed = JSON.parse(stored).state;
 
         if (parsed?.token && parsed?.member) {
-          setAlert({ open: true, title: 'Caution', description: parsed.autoLogin, buttonText: 'OK' });
-          // login(parsed.token, parsed.member, parsed.autoLogin);
+          // setAlert({ open: true, title: 'Caution', description: parsed.autoLogin, buttonText: 'OK' });
+          // login(parsed.token, parsed.member, true);
           // //router.replace('/');
           // alert('handleLogin');
-          // handleLogin();
+          handleLogin();
         }
       } catch (e) {
         console.error('❌ Failed to parse auth-storage:', e);
@@ -75,6 +75,7 @@ export default function AppleRedirectPage() {
 
   const handleLogin = async () => {
     const oauth = localStorage.getItem('sns_oauth_json');
+    setAlert({ open: true, title: 'Caution', description: oauth, buttonText: 'OK' });
     try {
       if (oauth) {
         const parsed = JSON.parse(oauth);
@@ -103,10 +104,10 @@ export default function AppleRedirectPage() {
               email: user.email,
               member_pwd: '',
             },
-            parsed.autoLogin
+            true
           );
 
-          // router.replace('/');
+          router.replace('/');
           // window.location.reload();
           // router.refresh();
         }
