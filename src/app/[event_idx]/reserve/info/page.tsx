@@ -265,7 +265,7 @@ const handlePurchase = async () => {
         option_idx: selectedPlan?.optionIdx || 0,
         coupon_idx: selectedCoupon || 0,
         u_ip: '111.111.111.111',
-        point: pointUsage
+        point: (pointApplied * 1000)//pointUsage
       }),
     });
 
