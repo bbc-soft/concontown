@@ -157,7 +157,7 @@ export default function LoginEmailPageInner() {
         </div>
 
         <div className="mt-3 space-y-3">
-          <button
+          {navigator.userAgent.includes('concontown-ios') && <button
             onClick={() => {
               window.location.href = '/api/auth/apple/login';
             }}
@@ -167,9 +167,9 @@ export default function LoginEmailPageInner() {
             <span className="text-[16px] font-medium text-gray-800">
               {t('login.appleLogin', 'Log in with Apple account')}
             </span>
-          </button>
+          </button>}
 
-          <button
+          {navigator.userAgent.includes('concontown-android') && <button
             onClick={() => {
               window.location.href = '/api/auth/google/login';
             }}
@@ -179,7 +179,7 @@ export default function LoginEmailPageInner() {
             <span className="text-[16px] font-medium text-gray-800">
               {t('login.googleLogin', 'Log in with Google account')}
             </span>
-          </button>
+          </button>}
         </div>
 
         <div
