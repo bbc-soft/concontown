@@ -268,8 +268,7 @@ export default function RegisterPage() {
           sns_sub: form.sns_sub,
           sns_oauth_json: form.sns_oauth_json,
           site_language: 'EN',
-          sns_email: form.sns_email,
-          member_id: form.sns_email,
+          sns_email: form.sns_email
         }),
       });
   

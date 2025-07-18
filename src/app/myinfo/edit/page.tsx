@@ -105,7 +105,7 @@ export default function EditInfoPage() {
 
     const result = await res.json();
     if (result.result === '0000') {
-      showAlert(t('myPersonalInfo.edit.edited'), t('notice.title'), () => router.replace('/myinfo'));
+      showAlert(t('notice.title'), t('myPersonalInfo.edit.edited'), () => router.replace('/myinfo'));
     } else if (result.result === '0002') {
       showAlert(t('loginPw.forgotPassword'), t('loginPw.forgotPassword'));
     } else {

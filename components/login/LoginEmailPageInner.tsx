@@ -144,14 +144,6 @@ export default function LoginEmailPageInner() {
         <div
           className="mt-3 text-center text-[16px] text-[#12325b] underline cursor-pointer"
           onClick={() => {
-            // setModalTitle(t('loginPw.forgotPassword', 'Password Recovery'));
-            // setModalDescription(
-            //   t(
-            //     'forgotPassword.updatePassword.message',
-            //     'Please contact hello@concontown.com for password recovery assistance.'
-            //   )
-            // );
-            // setShowModal(true);
             router.push('/forgot');
           }}
         >
@@ -165,7 +157,7 @@ export default function LoginEmailPageInner() {
         </div>
 
         <div className="mt-3 space-y-3">
-          {!navigator.userAgent.includes('concontown-ios') && <button
+          <button
             onClick={() => {
               window.location.href = '/api/auth/apple/login';
             }}
@@ -175,7 +167,7 @@ export default function LoginEmailPageInner() {
             <span className="text-[16px] font-medium text-gray-800">
               {t('login.appleLogin', 'Log in with Apple account')}
             </span>
-          </button>}
+          </button>
 
           <button
             onClick={() => {
