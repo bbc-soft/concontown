@@ -18,7 +18,13 @@ export default function RegisterPage() {
   const login = useAuthStore((state) => state.login);
   const [autoLogin, setAutoLogin] = useState(true);
 
+  const [showVerification, setShowVerification] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(600); // 10분 = 600초  
+  const [isVerified, setIsVerified] = useState(false);
+
   const [form, setForm] = useState({
+    member_id: '',
+    auth_code: '',    
     name_1st: '',
     name_3rd: '',
     birth: '',
@@ -77,13 +83,127 @@ export default function RegisterPage() {
       }
     }
   }, [searchParams]);
-  
+
+  useEffect(() => {
+    if (!showVerification) return;
+
+    const timer = setInterval(() => {
+      setTimeLeft((prev) => {
+        if (prev <= 1) {
+          clearInterval(timer);
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [showVerification]);  
+
+  const formatTime = (seconds: number) => {
+    const m = String(Math.floor(seconds / 60)).padStart(2, '0');
+    const s = String(seconds % 60).padStart(2, '0');
+    return `${m}:${s}`;
+  };
 
   const handleChange = (name: string, value: string) => {
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
+  const handleCheckDuplicate = async () => {
+    if (!form.member_id) {
+      setAlert({
+        open: true,
+        title: 'Check Email',
+        description: 'Please enter an email to check.',
+        buttonText: 'OK',
+      });
+      return;
+    }
+
+    if (!form.nationality) {
+      setAlert({ open: true, title: 'Caution', description: 'Please select your country/region.', buttonText: 'OK' });
+      return;
+    }
+
+    try {
+      const res = await fetch(`/api/member/check-id?member_id=${encodeURIComponent(form.member_id)}`);
+      const data = await res.json();
+
+      if (data.DeleteYN === 'Y') {
+        setAlert({ open: true, title: 'Unavailable', description: t('loginEmail.signUp.emailUnavailable', 'This email has been withdrawn and cannot be reused.'), buttonText: 'OK' });
+      } else if (data.idx) {
+        setAlert({ open: true, title: 'Duplicate', description: t('loginEmail.signUp.emailDuplicate', 'This email is already in use.'), buttonText: 'OK' });
+      } else {
+        setAlert({ open: true, title: 'Available', description: t('loginEmail.signUp.emailAvailable', 'This email is available.'), buttonText: 'OK' });
+
+        setIsVerified(false);
+        setShowVerification(true);
+        setTimeLeft(600); // 리셋
+
+        const res = await fetch('/api/auth/send', {
+          method: 'POST',
+          body: JSON.stringify({ member_id: form.member_id, nationality: form.nationality }),
+          headers: { 'Content-Type': 'application/json' },
+        });
+
+        if (!res.ok) {
+          return;
+        }
+
+        const data = await res.json();
+
+      }
+    } catch (error) {
+      console.log(error);
+      setAlert({ open: true, title: 'Error', description: 'Failed to check email. Please try again.', buttonText: 'OK' });
+    }
+  };
+
+  const handleVerify = async () => {
+    if (!form.auth_code) {
+      setAlert({ open: true, title: 'Caution', description: t('loginEmail.signUp.descVerifyCode', 'Please enter verify code.'), buttonText: 'OK' });
+      return;
+    }
+
+    const res = await fetch('/api/auth/check', {
+      method: 'POST',
+      body: JSON.stringify({ member_id: form.member_id, token: form.auth_code }),
+      headers: { 'Content-Type': 'application/json' },
+    });
+
+    const data = await res.json();
+    const code = data.result;
+
+    const messages: Record<string, string> = {
+      '0000': t('loginEmail.signUp.verifySuccess', 'Authentication succeeded.'),
+      '0001': t('loginEmail.signUp.verifyFailed', 'Authentication failed.'),
+      '0002': t('loginEmail.signUp.verifyTimeOut', 'Timeout. Please try again.'),
+    };
+
+    if(code === "0000") {
+      setIsVerified(true);
+    }
+
+    setAlert({
+        open: true,
+        title: 'Caution',
+        description: messages[code] || 'Unknown response',
+        buttonText: 'OK',
+    });
+  }  
+
   const handleSubmit = async () => {
+    if (!form.member_id) {
+      setAlert({ open: true, title: 'Caution', description: t('loginEmail.signUp.descMemberId', 'Please enter your email.'), buttonText: 'OK' });
+      return;
+    }
+
+    if (!isVerified) {
+      setAlert({ open: true, title: 'Caution', description: t('loginEmail.signUp.descVerifyEmail', 'Please verify your email address.'), buttonText: 'OK' });
+      return;
+    }
+      
     if (!form.name_1st || !form.name_3rd) {
       setAlert({ open: true, title: 'Caution', description: 'Please enter your full name.', buttonText: 'OK' });
       return;
@@ -133,6 +253,7 @@ export default function RegisterPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           method: 'INSERT',
+          member_id: form.member_id,          
           Name_1st: form.name_1st,
           Name_3rd: form.name_3rd,
           Birth_year: year,
@@ -238,6 +359,77 @@ export default function RegisterPage() {
       <BackButton label={t('loginEmail.signUp.subSns', 'SNS Register')} />
       <p className="text-[16px] text-gray-600 my-4">{t('loginEmail.signUp.snsTitle', 'Please enter the required information to complete SNS registration.')}</p>
 
+      {/* 국가 선택 */}
+      <div className="mt-6">
+        <h2 className="text-[16px] font-semibold mb-2">
+          {t('personalInfo.country', 'Country/Region')}
+        </h2>
+        <button 
+          type="button"
+          onClick={() => setShowCountryModal(true)} 
+          className="w-full border rounded-xl px-4 py-3 text-[16px] text-left text-gray-600 mb-3"
+          >
+          {form.nationality || t('personalInfo.country', 'Country/Region')}
+        </button>
+      </div>
+
+      {/* 도시 입력 */}
+      <div className="mt-4">
+        <input 
+          placeholder={t('personalInfo.city', 'City of residence')} 
+          value={form.city} 
+          onChange={(e) => handleChange('city', e.target.value)} 
+          className="w-full border rounded-xl px-4 py-3 text-[16px] mb-3" 
+        />
+        <p className="text-xs text-gray-500 ml-2 mt-1">
+          {t('personalInfo.cityNote', 'Do not put full address (ex. Seoul)')}
+        </p>
+      </div>
+
+      {/* 이메일 입력 + 중복 확인 */}
+      <p className="text-xs text-gray-500 mb-1">
+        {t('register.guide.email')}
+      </p>
+      <div className="flex gap-2">        
+        <input
+          placeholder={t('loginEmail.emailPlaceholder', 'Email')}
+          value={form.member_id}
+          onChange={(e) => handleChange('member_id', e.target.value)}
+          className="w-full border rounded-xl px-4 py-3 text-[16px] bg-white"
+        />
+        <button
+          onClick={handleCheckDuplicate} // ✅ 이렇게 수정해야 함
+          className="px-4 py-2 rounded-xl text-[16px] font-medium bg-[#FF8FA9] text-white"
+        >
+          {t('common.check', 'Check')}
+        </button>
+
+      </div>
+
+      {/* 인증번호 입력 영역 */}
+      {showVerification && (
+        <div className="flex flex-col gap-2">
+          <div className="flex gap-2">
+            <input
+              value={form.auth_code}
+              onChange={(e) => handleChange('auth_code', e.target.value)}
+              placeholder={t('loginEmail.signUp.descVerifyCode', 'Please enter verify code.')}
+              className="w-full border rounded-xl px-4 py-3 text-[16px] bg-white"
+            />
+            <button 
+              onClick={handleVerify}
+              className="px-4 py-2 rounded-xl text-[16px] font-medium bg-[#4CAF50] text-white">
+              {isVerified ? t('login.verified', 'Verified') : t('login.verify', 'Verify')}
+            </button>
+          </div>
+          {!isVerified && <p className="text-sm text-gray-600">
+            {timeLeft > 0
+              ? t('loginEmail.signUp.verifyCodeValid10') + `(${formatTime(timeLeft)})`
+              : t('loginEmail.signUp.verifyCodeExpired')}
+          </p>}
+        </div>
+      )}
+
       <p className="text-xs text-gray-500 mb-1">
         {t('register.guide.firstName')}
       </p>
@@ -307,33 +499,6 @@ export default function RegisterPage() {
             </button>
           ))}
         </div>
-      </div>
-
-      {/* 국가 선택 */}
-      <div className="mt-6">
-        <h2 className="text-[16px] font-semibold mb-2">
-          {t('personalInfo.country', 'Country/Region')}
-        </h2>
-        <button 
-          type="button"
-          onClick={() => setShowCountryModal(true)} 
-          className="w-full border rounded-xl px-4 py-3 text-[16px] text-left text-gray-600 mb-3"
-          >
-          {form.nationality || t('personalInfo.country', 'Country/Region')}
-        </button>
-      </div>
-
-      {/* 도시 입력 */}
-      <div className="mt-4">
-        <input 
-          placeholder={t('personalInfo.city', 'City of residence')} 
-          value={form.city} 
-          onChange={(e) => handleChange('city', e.target.value)} 
-          className="w-full border rounded-xl px-4 py-3 text-[16px] mb-3" 
-        />
-        <p className="text-xs text-gray-500 ml-2 mt-1">
-          {t('personalInfo.cityNote', 'Do not put full address (ex. Seoul)')}
-        </p>
       </div>
 
       {/* 연락처 */}

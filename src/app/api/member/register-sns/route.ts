@@ -15,6 +15,7 @@ export async function POST(req: NextRequest) {
     const {
       member_idx,
       method = 'INSERT',
+      member_id,      
       Name_1st,
       Name_2nd = '',
       Name_3rd,
@@ -46,7 +47,7 @@ export async function POST(req: NextRequest) {
     const result = await pool.request()
       .input('method', sql.VarChar, method)
       .input('member_idx', sql.Int, member_idx)
-      .input('member_id', sql.NVarChar, sns_email)
+      .input('member_id', sql.NVarChar, member_id)
       .input('Name_1st', sql.NVarChar, Name_1st)
       .input('Name_2nd', sql.NVarChar, Name_2nd)
       .input('Name_3rd', sql.NVarChar, Name_3rd)
