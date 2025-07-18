@@ -1,34 +1,3 @@
-// 'use client';
-
-// import { useState, useEffect } from 'react';
-// import { useRouter, useSearchParams } from 'next/navigation';
-// import BackButton from '../../../../components/common/BackButton';
-// import { useAuthStore } from '@/stores/useAuthStore';
-// import { useTranslation } from 'react-i18next';
-
-// export default function RegisterPage() {
-//   const { t } = useTranslation();
-//   const router = useRouter();
-//   const searchParams = useSearchParams();
-//   const [autoLogin, setAutoLogin] = useState(true);
-
-//   useEffect(() => {
-
-//   }, []);
-
-  
-//   return (
-//     <div className="max-w-[430px] mx-auto min-h-screen bg-white pt-5 pb-28 px-5 text-black relative">
-//       <BackButton label={t('loginEmail.signUp.subSns', 'SNS Register')} />
-//       <p className="text-[16px] text-gray-600 my-4">{t('loginEmail.signUp.snsTitle', 'Please enter the required information to complete SNS registration.')}</p>
-
-//       <p className="text-xs text-gray-500 mb-1">
-//         {t('register.guide.firstName')}
-//       </p>
-//     </div>
-//   );
-// }
-
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -58,10 +27,6 @@ export default function AppleRedirectPage() {
         const parsed = JSON.parse(stored).state;
 
         if (parsed?.token && parsed?.member) {
-          // setAlert({ open: true, title: 'Caution', description: parsed.autoLogin, buttonText: 'OK' });
-          // login(parsed.token, parsed.member, true);
-          // //router.replace('/');
-          // alert('handleLogin');
           setMemberId(parsed?.member.member_id);
           handleLogin();
         }
@@ -78,9 +43,6 @@ export default function AppleRedirectPage() {
   const handleLogin = async () => {
     const oauth = localStorage.getItem('sns_oauth_json');
     try {
-      // if (oauth) {
-        // const parsed = JSON.parse(oauth);
-        // if (parsed?.sub && parsed?.email) {
           const res = await fetch('/api/auth/login', {
             method: 'POST',
             body: JSON.stringify({ member_id: memberId, member_pwd: '12345', sns_provider: localStorage.getItem('sns_provider'), sns_uid: localStorage.getItem('sns_uid') }),
@@ -109,21 +71,16 @@ export default function AppleRedirectPage() {
           );
 
           router.replace('/');
-          // window.location.reload();
-          // router.refresh();
-        // }
-      // }
     } catch (err) {
       console.error('Login error:', err);
       alert(t('common.error', 'An error occurred during login.'));
     }
   };
 
-  // return null;
     return (
       <div className="max-w-[430px] mx-auto min-h-screen bg-white pt-5 pb-28 px-5 text-black relative">
-        <BackButton label={t('loginEmail.signUp.subSns', 'SNS Register')} />
-              <p className="text-[16px] text-gray-600 my-4">{t('loginEmail.signUp.snsTitle', 'Please enter the required information to complete SNS registration.')}</p>
+        {/*<BackButton label={t('loginEmail.signUp.subSns', 'SNS Register')} />*/}
+              {/*<p className="text-[16px] text-gray-600 my-4">{t('loginEmail.signUp.snsTitle', 'Please enter the required information to complete SNS registration.')}</p>*/}
 
       <AlertModal isOpen={alert.open} onClose={() => setAlert((prev) => ({ ...prev, open: false }))} title={alert.title} description={alert.description} buttonText={alert.buttonText} />
 
