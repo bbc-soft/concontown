@@ -51,24 +51,25 @@ export default function AppleRedirectPage() {
   });
 
   useEffect(() => {
-    // const stored = localStorage.getItem('auth-storage');
-    // if (stored) {
-    //   try {
-    //     const parsed = JSON.parse(stored).state;
-    //     if (parsed?.token && parsed?.member) {
-    //       login(parsed.token, parsed.member, parsed.autoLogin);
-    //       //router.replace('/');
-    //       alert('handleLogin');
-    //       handleLogin();
-    //     }
-    //   } catch (e) {
-    //     console.error('❌ Failed to parse auth-storage:', e);
-    //     router.replace('/login');
-    //   }
-    // } else {
-    //   router.replace('/login');
-    // }
-    setAlert({ open: true, title: 'Caution', description: 'apple redirect', buttonText: 'OK' });
+    const stored = localStorage.getItem('auth-storage');
+    if (stored) {
+      setAlert({ open: true, title: 'Caution', description: 'apple redirect', buttonText: 'OK' });
+      try {
+        const parsed = JSON.parse(stored).state;
+        if (parsed?.token && parsed?.member) {
+          setAlert({ open: true, title: 'Caution', description: parsed.token, buttonText: 'OK' });
+          login(parsed.token, parsed.member, parsed.autoLogin);
+          //router.replace('/');
+          alert('handleLogin');
+          handleLogin();
+        }
+      } catch (e) {
+        console.error('❌ Failed to parse auth-storage:', e);
+        router.replace('/login');
+      }
+    } else {
+      router.replace('/login');
+    }
   }, []);
 
 
