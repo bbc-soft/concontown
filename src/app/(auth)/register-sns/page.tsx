@@ -204,6 +204,9 @@ export default function RegisterPage() {
         const data = await res.json();
         const user = data.user;
 
+        localStorage.setItem('sns_provider', form.sns_provider);
+        localStorage.setItem('sns_uid', form.sns_sub);
+
         login(
           data.token,
           {

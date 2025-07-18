@@ -31,6 +31,7 @@ export default function SettingPage() {
   const [allowPush, setAllowPush] = useState(false);
   const [localVersion, setLocalVersion] = useState('1.0.0');
   const [storeVersion, setStoreVersion] = useState('1.0.0');
+  const [provider, setProvider] = useState('');
 
   useEffect(() => {
     if (i18n.isInitialized) {
@@ -72,6 +73,10 @@ export default function SettingPage() {
         const store_version = localStorage.getItem('storeVersion');
         if(store_version)
           setStoreVersion(store_version);
+
+        const sns_provider = localStorage.getItem('sns_provider');
+        if(sns_provider)
+          setProvider(sns_provider);
 
       } catch (err) {
         console.error('❌ Failed to fetch latest member detail:', err);
@@ -144,12 +149,12 @@ export default function SettingPage() {
       </div>
 
       {/* Account Password */}
-      <Link href="/setting/password">
+      { provider === '' && <Link href="/setting/password">
         <div className="px-5 py-4 border-b border-[#F0F1F3] flex justify-between items-center">
           <div className="text-md font-medium">{t('setting.setting.accountPassword')}</div>
           <ChevronRight size={16} className="text-gray-400" />
         </div>
-      </Link>
+      </Link>}
 
       {/* Notification */}
       <div className="px-5 pt-6 pb-1 border-b border-[#F0F1F3]">

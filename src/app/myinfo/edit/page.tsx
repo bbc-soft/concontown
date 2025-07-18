@@ -32,6 +32,9 @@ export default function EditInfoPage() {
   const [countryModalOpen, setCountryModalOpen] = useState(false);
   const [codeModalOpen, setCodeModalOpen] = useState(false);
 
+  const [provider, setProvider] = useState('');
+  const [snsSub, setSnsSub] = useState('');
+
   useEffect(() => {
     const fetchMemberInfo = async () => {
       try {
@@ -51,6 +54,14 @@ export default function EditInfoPage() {
           setCity(data.City || '');
           setPhone(data.Phone || '');
           setNationalCode(data.National_Code || '');
+
+          const sns_provider = localStorage.getItem('sns_provider');
+          if(sns_provider)
+            setProvider(sns_provider);      
+          
+          const sns_sub = localStorage.getItem('sns_uid');
+          if(sns_sub)
+            setSnsSub(sns_sub);     
         }
       } catch (err) {
         console.error('❌ Failed to load member info', err);
@@ -63,7 +74,7 @@ export default function EditInfoPage() {
   const handleSubmit = async () => {
     const idx = Number(member?.idx);
     if (!idx) return showAlert(t('common.error'), t('loginEmail.emailError.message'));
-    if (!currentPassword) return showAlert(t('password.sub'), t('loginPw.enterPassword'));
+    if (provider === '' && !currentPassword) return showAlert(t('password.sub'), t('loginPw.enterPassword'));
     if (!nationalCode || !phone) return showAlert(t('personalInfo.phone'), t('reservation.pointUsageNote'));
 
     const [year, month, day] = birth ? birth.split('-') : ['', '', ''];
@@ -75,8 +86,8 @@ export default function EditInfoPage() {
         method: 'UPDATE',
         member_idx: idx,
         member_id: memberId,
-        member_pwd: currentPassword,
-        member_pwd_new: currentPassword,
+        member_pwd: provider === '' ? currentPassword : '',
+        member_pwd_new: provider === '' ? currentPassword : '',
         Name_1st: firstName,
         Name_3rd: lastName,
         Gender: gender,
@@ -87,12 +98,14 @@ export default function EditInfoPage() {
         City: city,
         Phone: phone,
         National_Code: nationalCode,
+        sns_sub: snsSub,
+        sns_provider: provider,
       }),
     });
 
     const result = await res.json();
     if (result.result === '0000') {
-      showAlert(t('complete.success'), t('complete.congrats'), () => router.replace('/myinfo'));
+      showAlert(t('myPersonalInfo.edit.edited'), t('notice.title'), () => router.replace('/myinfo'));
     } else if (result.result === '0002') {
       showAlert(t('loginPw.forgotPassword'), t('loginPw.forgotPassword'));
     } else {
@@ -172,8 +185,8 @@ export default function EditInfoPage() {
         </div>
       </div>
 
-      <label className="block mb-2 text-[16px] font-medium">{t('loginPw.enterPassword')}</label>
-      <div className="relative mb-6">
+      {provider === '' && <label className="block mb-2 text-[16px] font-medium">{t('loginPw.enterPassword')}</label>}
+      {provider === '' && <div className="relative mb-6">
         <input
           type={showPassword ? 'text' : 'password'}
           value={currentPassword}
@@ -187,7 +200,7 @@ export default function EditInfoPage() {
         >
           {showPassword ? <Eye size={18} /> : <EyeOff size={18} />}
         </button>
-      </div>
+      </div>}
 
       <button onClick={handleSubmit} className="bg-[#FF8FA9] text-white w-full py-3 rounded-xl font-semibold">
         {t('myPersonalInfo.detail.editButton')}

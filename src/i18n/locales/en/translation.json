@@ -457,7 +457,8 @@
            "countrySub" : "Please check English name as in passport.",
            "citySub" : "No need to enter the full address (ex. Seoul)",
            "emailSub" : "You will receive the confirmation from CONCONTOWN package via this email",
-           "contractSub" : "You will receive the confirmation from CONCONTOWN package via this email."
+           "contractSub" : "You will receive the confirmation from CONCONTOWN package via this email.",
+           "edited": "Your personal information has been updated."
         }  
     },
     "point": {

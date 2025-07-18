@@ -144,6 +144,7 @@ export async function POST(req: NextRequest) {
             };
             localStorage.setItem("auth-storage", JSON.stringify(state));
             localStorage.setItem("sns_provider", "apple");
+            localStorage.setItem("sns_uid", "${sns_uid}");
             location.href = "${redirectTo}";
           </script>
         </body></html>`,
