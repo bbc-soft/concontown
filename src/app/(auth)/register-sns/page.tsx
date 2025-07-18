@@ -379,15 +379,15 @@ export default function RegisterPage() {
           placeholder={t('personalInfo.city', 'City of residence')} 
           value={form.city} 
           onChange={(e) => handleChange('city', e.target.value)} 
-          className="w-full border rounded-xl px-4 py-3 text-[16px] mb-3" 
+          className="w-full border rounded-xl px-4 py-3 text-[16px] " 
         />
-        <p className="text-xs text-gray-500 ml-2 mt-1">
+        <p className="text-xs text-gray-500 mt-1">
           {t('personalInfo.cityNote', 'Do not put full address (ex. Seoul)')}
         </p>
       </div>
 
       {/* 이메일 입력 + 중복 확인 */}
-      <p className="text-xs text-gray-500 mb-1">
+      <p className="text-xs text-gray-500 mb-1 mt-4">
         {t('register.guide.email')}
       </p>
       <div className="flex gap-2">        
@@ -408,7 +408,7 @@ export default function RegisterPage() {
 
       {/* 인증번호 입력 영역 */}
       {showVerification && (
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 mt-2">
           <div className="flex gap-2">
             <input
               value={form.auth_code}
