@@ -42,6 +42,7 @@ export default function AppleRedirectPage() {
   const { t } = useTranslation();
   const router = useRouter();
   const login = useAuthStore((state) => state.login);
+  const [memberId, setMemberId] = useState('');
 
   const [alert, setAlert] = useState({
     open: false,
@@ -61,6 +62,7 @@ export default function AppleRedirectPage() {
           // login(parsed.token, parsed.member, true);
           // //router.replace('/');
           // alert('handleLogin');
+          setMemberId(parsed?.member.member_id);
           handleLogin();
         }
       } catch (e) {
@@ -75,14 +77,13 @@ export default function AppleRedirectPage() {
 
   const handleLogin = async () => {
     const oauth = localStorage.getItem('sns_oauth_json');
-    setAlert({ open: true, title: 'Caution', description: oauth, buttonText: 'OK' });
     try {
-      if (oauth) {
-        const parsed = JSON.parse(oauth);
-        if (parsed?.sub && parsed?.email) {
+      // if (oauth) {
+        // const parsed = JSON.parse(oauth);
+        // if (parsed?.sub && parsed?.email) {
           const res = await fetch('/api/auth/login', {
             method: 'POST',
-            body: JSON.stringify({ member_id: parsed?.email, member_pwd: '12345', sns_provider: localStorage.getItem('sns_provider'), sns_uid: parsed?.sub }),
+            body: JSON.stringify({ member_id: memberId, member_pwd: '12345', sns_provider: localStorage.getItem('sns_provider'), sns_uid: localStorage.getItem('sns_uid') }),
             headers: { 'Content-Type': 'application/json' },
           });
 
@@ -110,8 +111,8 @@ export default function AppleRedirectPage() {
           router.replace('/');
           // window.location.reload();
           // router.refresh();
-        }
-      }
+        // }
+      // }
     } catch (err) {
       console.error('Login error:', err);
       alert(t('common.error', 'An error occurred during login.'));
