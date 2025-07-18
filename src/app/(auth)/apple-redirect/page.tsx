@@ -95,7 +95,8 @@ export default function SNSRedirectPage() {
           );
 
           // router.replace('/');
-          router.replace('/login');
+          window.location.reload();
+          // router.refresh();
         }
       }
     } catch (err) {
