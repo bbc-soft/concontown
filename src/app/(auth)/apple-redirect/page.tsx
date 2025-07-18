@@ -44,7 +44,6 @@ export default function SNSRedirectPage() {
 
   useEffect(() => {
     const stored = localStorage.getItem('auth-storage');
-    alert('stored check');
     if (stored) {
       try {
         const parsed = JSON.parse(stored).state;
@@ -56,14 +55,12 @@ export default function SNSRedirectPage() {
         }
       } catch (e) {
         console.error('❌ Failed to parse auth-storage:', e);
-        alert('Failed to parse auth-storage');
         router.replace('/login');
       }
     } else {
-      alert('stored no');
       router.replace('/login');
     }
-  }, [login, router]);
+  }, []);
 
 
   const handleLogin = async () => {
