@@ -53,21 +53,21 @@ export default function AppleRedirectPage() {
   useEffect(() => {
     const stored = localStorage.getItem('auth-storage');
     if (stored) {
-      setAlert({ open: true, title: 'Caution', description: 'auth-storage', buttonText: 'OK' });
-      try {
-        setAlert({ open: true, title: 'Caution', description: stored, buttonText: 'OK' });
-        const parsed = JSON.parse(stored).state;
+      setAlert({ open: true, title: 'Caution', description: stored, buttonText: 'OK' });
+      // try {
+      //   setAlert({ open: true, title: 'Caution', description: stored, buttonText: 'OK' });
+      //   const parsed = JSON.parse(stored).state;
 
-        if (parsed?.token && parsed?.member) {
-          login(parsed.token, parsed.member, parsed.autoLogin);
-          //router.replace('/');
-          alert('handleLogin');
-          handleLogin();
-        }
-      } catch (e) {
-        console.error('❌ Failed to parse auth-storage:', e);
-        router.replace('/login');
-      }
+      //   if (parsed?.token && parsed?.member) {
+      //     login(parsed.token, parsed.member, parsed.autoLogin);
+      //     //router.replace('/');
+      //     alert('handleLogin');
+      //     handleLogin();
+      //   }
+      // } catch (e) {
+      //   console.error('❌ Failed to parse auth-storage:', e);
+      //   router.replace('/login');
+      // }
     } else {
       router.replace('/login');
     }
