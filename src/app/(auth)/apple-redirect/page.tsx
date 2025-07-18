@@ -55,9 +55,10 @@ export default function AppleRedirectPage() {
     if (stored) {
       setAlert({ open: true, title: 'Caution', description: 'apple redirect', buttonText: 'OK' });
       try {
+        setAlert({ open: true, title: 'Caution', description: stored, buttonText: 'OK' });
         const parsed = JSON.parse(stored).state;
+
         if (parsed?.token && parsed?.member) {
-          setAlert({ open: true, title: 'Caution', description: parsed.token, buttonText: 'OK' });
           login(parsed.token, parsed.member, parsed.autoLogin);
           //router.replace('/');
           alert('handleLogin');
