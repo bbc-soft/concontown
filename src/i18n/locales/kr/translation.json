@@ -452,7 +452,8 @@
            "countrySub" : "여권에 기재된 영문 이름을 확인하세요.",
            "citySub" : "전체 주소를 입력하지 마세요. (예: 서울)",
            "emailSub" : "CONCONTOWN으로 부터 확인 메일을 받습니다. CONCONTOWN 에 가입한 이메일이 맞는지 확인하세요!",
-           "contractSub" : "CONCONTOWN으로 부터 확인 메일을 받습니다. CONCONTOWN 에 가입한 이메일이 맞는지 확인하세요!"
+           "contractSub" : "CONCONTOWN으로 부터 확인 메일을 받습니다. CONCONTOWN 에 가입한 이메일이 맞는지 확인하세요!",
+           "edited": "회원 정보가 수정되었습니다."
         }  
     },
     "point": {
