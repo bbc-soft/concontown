@@ -41,7 +41,7 @@
         "subSns" : "SNS Register",
         "email" : "Email",
         "emailAvailable" : "This email is available.",
-        "emailDuplicate" : "This email is already in use.",
+        "emailDuplicate" : "This email is already registered. Please log in to continue.",
         "emailUnavailable" : "This email has been withdrawn and cannot be reused.",
         "verify": "Verify",
         "verified": "Verified",
@@ -77,7 +77,8 @@
       "emailError": {
         "title": "Email verification failed",
         "message": "The email verification time has expired. Please resend the verification request again through the app.",
-        "ok": "OK"
+        "ok": "OK",
+        "tryLoginAgain": "Please log in and try again."
       }
     },
     "terms": {

@@ -41,7 +41,7 @@
         "subSns" : "SNS 注册",
         "email" : "Email",
         "emailAvailable" : "此Email可用。",
-        "emailDuplicate" : "此Email已被使用。",
+        "emailDuplicate" : "该账号已注册，请登录。",
         "emailUnavailable" : "此Email已被撤回，无法重复使用。",        
         "verify": "认证",
         "verified": "已验证",
@@ -77,7 +77,8 @@
       "emailError": {
         "title": "电子邮件验证失败",
         "message": "电子邮件验证时间已过期。请通过应用程序重新发送验证请求",
-        "ok": "确认"
+        "ok": "确认",
+        "tryLoginAgain": "请登录并重试。"
       }
     },
     "terms": {

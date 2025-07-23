@@ -73,7 +73,7 @@ export default function EditInfoPage() {
 
   const handleSubmit = async () => {
     const idx = Number(member?.idx);
-    if (!idx) return showAlert(t('common.error'), t('loginEmail.emailError.message'));
+    if (!idx) return showAlert(t('common.error'), t('loginEmail.emailError.tryLoginAgain'));
     if (provider === '' && !currentPassword) return showAlert(t('password.sub'), t('loginPw.enterPassword'));
     if (!nationalCode || !phone) return showAlert(t('personalInfo.phone'), t('reservation.pointUsageNote'));
 
