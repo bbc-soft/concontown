@@ -41,7 +41,7 @@
         "subSns" : "SNS登録",
         "email" : "Email",
         "emailAvailable" : "このメールアドレスは利用可能です。",
-        "emailDuplicate" : "このメールアドレスは既に使用されています。",
+        "emailDuplicate" : "このメールアドレスは既に会員登録されています。ログインしてください。",
         "emailUnavailable" : "このメールアドレスは削除されており、再利用できません。",        
         "verify": "認証",
         "verified": "検証済み",
@@ -77,7 +77,8 @@
       "emailError": {
         "title": "メール認証に失敗しました。",
         "message": "メール認証の有効期限が切れました。アプリから再度認証リクエストを送信してください。",
-        "ok": "OK"
+        "ok": "OK",
+        "tryLoginAgain": "ログインしてからもう一度お試しください。"
       }
     },
     "terms": {
