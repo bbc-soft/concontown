@@ -4,24 +4,18 @@ import sql from 'mssql';
 import { getDBConnection } from '../../../../../lib/db';
 
 export async function POST(req: NextRequest) {
-  const { member_id, nationality } = await req.json();
+  const { member_id, lang_id } = await req.json();
 
   const pool = await getDBConnection();
 
   try {
     const result = await pool
       .request()
-      .input('Nationality', sql.VarChar, nationality)
+      .input('LangID', sql.VarChar, lang_id)
       .input('Mail', sql.VarChar, member_id)
       .execute('Set_TokenSend');
 
       console.log('result', result);
-
-    // const record = result.recordset?.[0];
-
-    // if (!record || record.result !== '0000') {
-    //   return NextResponse.json({ error: '인증번호 전송 실패' }, { status: 401 });
-    // }
 
     return NextResponse.json(result);
     

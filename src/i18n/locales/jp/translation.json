@@ -23,6 +23,7 @@
         "guideMessage2": "会員登録の際は、認証メールを受信できるEメールアドレスをご使用ください。携帯キャリアメールでは、確認メールが届かないことがあるため、できるだけ@gmail.comなどのフリーメールのご使用をおすすめいたします。" 
     },    
     "loginEmail": {
+      "langSelect": "CONCONTOWNで使用する言語を選択してください。",
       "title": "ログインまたは会員登録のためにメールアドレスを入力してください。",
       "emailPlaceholder": "Email",
       "continueButton": "ログイン",

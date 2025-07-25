@@ -23,6 +23,7 @@
         "guideMessage2": "Please use an email that can receive verification messages. For moother registration, <gmail> is recommended." 
     },       
     "loginEmail": {
+      "langSelect": "Please select the language you want to use on CONCONTOWN.",
       "title": "Please enter your email to log in or sign up as a member",
       "emailPlaceholder": "Email",
       "continueButton": "Log in",
