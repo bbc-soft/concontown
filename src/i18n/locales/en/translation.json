@@ -257,7 +257,7 @@
           "coupon": "Coupon",
           "point": "Point",
           "personalInfo": "Personal Information",
-          "personalInfoMessage": "The reservation holder's name must match the English name on the passport. If not, please update it under \"More\" → \"My Personal Information\" before proceeding with the reservation. ",
+          "personalInfoMessage": "The reservation holder's name must match the English name on the passport. If not, please update it under \"My\" → \"My Personal Information\" before proceeding with the reservation. ",
           "companion": "Tour Friend’s Information",
           "companionMessage": "Please enter your First Name (Given Name). Use the exact English spelling as shown on your passport.",
           "selectBirthday": "Please select your date of birth.",

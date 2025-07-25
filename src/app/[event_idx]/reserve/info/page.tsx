@@ -208,6 +208,18 @@ export default function ReservationInfoPage() {
 
   const formatPrice = (price: number) => price.toLocaleString();
 
+  const formatNumberWithComma = (value: string | number): string => {
+    const num = Number(String(value).replace(/,/g, ''));
+    if (isNaN(num)) return '';
+    return num.toLocaleString();
+  };
+
+  const handleInputPointChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const rawValue = e.target.value.replace(/,/g, '');
+    if (!/^\d*$/.test(rawValue)) return; // 숫자만 허용
+    setPointUsage(rawValue);
+  };
+
 const isValid = () => {
   const { firstName, lastName } = formData;
 
@@ -537,7 +549,7 @@ useEffect(() => {
   return (
     <div className="max-w-[1200px] min-h-screen pb-36 pt-6 mx-auto bg-white text-black">
       <div className='px-5'>
-  <BackButton label={t('reservation.title')} />
+      <BackButton label={t('reservation.title')} />
   
       <div className="my-6 ">
         <h1 className="text-xl font-bold leading-tight">
@@ -550,8 +562,8 @@ useEffect(() => {
   
       <div className="my-6 px-5">
       <h2>{t('reservation.section.choice')}</h2>
-  <div className="bg-gray-50 border border-gray-200 rounded-xl p-4 text-[16px] text-gray-800 space-y-4">
-    {selectedPlan && (
+      <div className="bg-gray-50 border border-gray-200 rounded-xl p-4 text-[16px] text-gray-800 space-y-4">
+        {selectedPlan && (
       <>
         {/* 기본 선택 (Single/Twin) */}
         <div>
@@ -663,13 +675,13 @@ useEffect(() => {
       <div className="flex justify-between items-center text-[16px] font-medium mb-1">
         <span className="text-[#454545] font-semibold">{t('reservation.point.balance')}</span>
         <span className="text-[#FF8FA9] text-[16px] font-bold">
-          {point}P
+          {point.toLocaleString()}P
         </span>
       </div>
 
       <p className="text-[14px] text-[#267FF4] font-semibold mb-3">
         {t('reservation.point.usageNote', {
-          point,
+          point: point.toLocaleString(),
           amount: (pointUsage * 0.001).toFixed(2),
         })}<br />
         {t('reservation.point.conversion')}
@@ -678,11 +690,11 @@ useEffect(() => {
       <div className="flex gap-2">
         <div className="relative w-full">
           <input
-            type="number"
+            type="text"
             name="pointUsage"
             placeholder={t('reservation.point.placeholder')}
-            value={pointUsage}
-            onChange={handleInputChange}
+            value={formatNumberWithComma(pointUsage)}
+            onChange={handleInputPointChange}
             className="w-full border rounded-xl px-4 py-3 pr-15 text-[16px]"
             readOnly
           />
