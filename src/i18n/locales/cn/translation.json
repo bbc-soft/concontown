@@ -23,6 +23,7 @@
         "guideMessage2": "注册会员时，请使用可以接收验证邮件的邮箱。建议尽量使用 Gmail，以便更方便地使用服务。"         
     },    
     "loginEmail": {
+      "langSelect": "请选择您在 CONCONTOWN 上使用的语言。",
       "title": "请填写您的电子邮件地址以登录或注册会员。",
       "emailPlaceholder": "Email",
       "continueButton": "登录",

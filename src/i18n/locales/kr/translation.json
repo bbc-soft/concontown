@@ -23,6 +23,7 @@
         "guideMessage2": "회원 가입시 인증문자가 수신 가능한 이메일을 사용해 주시기 바랍니다. 가급적 Gmail 을 이용해 주시면 보다 편리하게 이용하실 수 있습니다." 
     },
     "loginEmail": {
+      "langSelect": "콘콘타운에서 사용할 언어를 선택해 주세요.",
       "title": "로그인 또는 회원등록을 위해 이메일 주소를 입력해 주세요.",
       "emailPlaceholder": "이메일",
       "continueButton": "로그인",

@@ -52,9 +52,23 @@ export default function RegisterPage() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [agreePrivacy, setAgreePrivacy] = useState(false);
 
+  const [langID, setLangID] = useState('');
+
   const [showVerification, setShowVerification] = useState(false);
   const [timeLeft, setTimeLeft] = useState(600); // 10분 = 600초
   const [isVerified, setIsVerified] = useState(false);
+
+  interface LanguageOption {
+    label: string; // 노출용
+    value: string; // 실제 값
+  }
+
+  const languages: LanguageOption[] = [
+    { label: '일본어', value: 'JP' },
+    { label: '영어', value: 'EN' },
+    { label: '중국어', value: 'CN' },
+    { label: '한국어', value: 'KR' },
+  ];
 
   useEffect(() => {
     if (!showVerification) return;
@@ -82,6 +96,12 @@ export default function RegisterPage() {
     return /[A-Z]/.test(password) && /[a-z]/.test(password) && /\d/.test(password) && password.length >= 8;
   };
 
+  const handleLanguageSelect = (value: string) => {
+    console.log('선택된 언어:', value);
+    // 예: 라우팅, 상태 저장, i18n 변경 등
+    setLangID(value);
+  };
+
   const handleChange = (name: string, value: string) => {
     const onlyEnglish = /^[a-zA-Z]*$/;
 
@@ -105,10 +125,15 @@ export default function RegisterPage() {
       return;
     }
 
-    if (!form.nationality) {
-      setAlert({ open: true, title: 'Caution', description: 'Please select your country/region.', buttonText: 'OK' });
-      return;
+    if(!langID) {
+      setAlert({ open: true, title: 'Caution', description:  t('loginEmail.langSelect'), buttonText: 'OK' });
+      return;      
     }
+
+    // if (!form.nationality) {
+    //   setAlert({ open: true, title: 'Caution', description: 'Please select your country/region.', buttonText: 'OK' });
+    //   return;
+    // }
 
     try {
       const res = await fetch(`/api/member/check-id?member_id=${encodeURIComponent(form.member_id)}`);
@@ -127,7 +152,7 @@ export default function RegisterPage() {
 
         const res = await fetch('/api/auth/send', {
           method: 'POST',
-          body: JSON.stringify({ member_id: form.member_id, nationality: form.nationality }),
+          body: JSON.stringify({ member_id: form.member_id, lang_id: langID }),
           headers: { 'Content-Type': 'application/json' },
         });
 
@@ -288,7 +313,7 @@ export default function RegisterPage() {
           MailYN: '',
           favorite_artist: '',
           favorite_artist_etc: '',
-          site_language: 'EN',
+          site_language: langID,
           MailSelector: '',
           U_IP: '',
         }),
@@ -377,31 +402,24 @@ export default function RegisterPage() {
     <BackButton label={t('loginEmail.signUp.sub', 'Register')} />
 
     <div className="space-y-4">
-      {/* 국가 선택 */}
-      <div className="mt-6">
-        <h2 className="text-[16px] font-semibold mb-2">
-          {t('personalInfo.country', 'Country/Region')}
-        </h2>
-        <button
-          type="button"
-          onClick={() => setShowCountryModal(true)}
-          className="w-full border rounded-xl px-4 py-3 text-[16px] text-left text-gray-600"
-        >
-          {form.nationality || t('personalInfo.country', 'Country/Region')}
-        </button>
-      </div>
+      <p className="text-[16px] font-semibold my-4">
+        {t('loginEmail.langSelect', 'Please select the language you want to use on CONCONTOWN.')}
+      </p>
 
-      {/* 도시 입력 */}
-      <div className="mt-4">
-        <input
-          placeholder={t('personalInfo.city', 'City of residence')}
-          value={form.city}
-          onChange={(e) => handleChange('city', e.target.value)}
-          className="w-full border rounded-xl px-4 py-3 text-[16px]"
-        />
-        <p className="text-xs text-gray-500 ml-2 mt-1">
-          {t('personalInfo.cityNote', 'Do not put full address (ex. Seoul)')}
-        </p>
+      <div className="flex justify-center gap-2 flex-wrap">
+        {languages.map((lang) => (
+          <button
+            key={lang.value}
+            onClick={() => handleLanguageSelect(lang.value)}
+            className={`px-4 py-2 rounded-full border text-sm transition
+              ${langID === lang.value
+                ? 'bg-blue-500 text-white border-blue-500'
+                : 'bg-white text-gray-800 border-gray-300 hover:bg-gray-100'}
+            `}
+          >
+            {lang.label}
+          </button>
+        ))}
       </div>
 
       <p className="text-[16px] font-semibold my-4">
@@ -574,6 +592,33 @@ export default function RegisterPage() {
             </button>
           ))}
         </div>
+      </div>
+
+      {/* 국가 선택 */}
+      <div className="mt-6">
+        <h2 className="text-[16px] font-semibold mb-2">
+          {t('personalInfo.country', 'Country/Region')}
+        </h2>
+        <button
+          type="button"
+          onClick={() => setShowCountryModal(true)}
+          className="w-full border rounded-xl px-4 py-3 text-[16px] text-left text-gray-600"
+        >
+          {form.nationality || t('personalInfo.country', 'Country/Region')}
+        </button>
+      </div>
+
+      {/* 도시 입력 */}
+      <div className="mt-4">
+        <input
+          placeholder={t('personalInfo.city', 'City of residence')}
+          value={form.city}
+          onChange={(e) => handleChange('city', e.target.value)}
+          className="w-full border rounded-xl px-4 py-3 text-[16px]"
+        />
+        <p className="text-xs text-gray-500 ml-2 mt-1">
+          {t('personalInfo.cityNote', 'Do not put full address (ex. Seoul)')}
+        </p>
       </div>
 
       {/* 연락처 */}

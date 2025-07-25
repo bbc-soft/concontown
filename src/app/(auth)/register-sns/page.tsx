@@ -18,6 +18,8 @@ export default function RegisterPage() {
   const login = useAuthStore((state) => state.login);
   const [autoLogin, setAutoLogin] = useState(true);
 
+  const [langID, setLangID] = useState('');
+
   const [showVerification, setShowVerification] = useState(false);
   const [timeLeft, setTimeLeft] = useState(600); // 10분 = 600초  
   const [isVerified, setIsVerified] = useState(false);
@@ -54,6 +56,18 @@ export default function RegisterPage() {
   const [showCountryModal, setShowCountryModal] = useState(false);
   const [showCodeModal, setShowCodeModal] = useState(false);
   const [authCode, setAuthCode] = useState('');
+
+  interface LanguageOption {
+    label: string; // 노출용
+    value: string; // 실제 값
+  }
+
+  const languages: LanguageOption[] = [
+    { label: '일본어', value: 'JP' },
+    { label: '영어', value: 'EN' },
+    { label: '중국어', value: 'CN' },
+    { label: '한국어', value: 'KR' },
+  ];
 
   useEffect(() => {
     const email = searchParams.get('email');
@@ -106,6 +120,12 @@ export default function RegisterPage() {
     return `${m}:${s}`;
   };
 
+  const handleLanguageSelect = (value: string) => {
+    console.log('선택된 언어:', value);
+    // 예: 라우팅, 상태 저장, i18n 변경 등
+    setLangID(value);
+  };
+
   const handleChange = (name: string, value: string) => {
     setForm((prev) => ({ ...prev, [name]: value }));
   };
@@ -121,10 +141,15 @@ export default function RegisterPage() {
       return;
     }
 
-    if (!form.nationality) {
-      setAlert({ open: true, title: 'Caution', description: 'Please select your country/region.', buttonText: 'OK' });
-      return;
+    if(!langID) {
+      setAlert({ open: true, title: 'Caution', description:  t('loginEmail.langSelect'), buttonText: 'OK' });
+      return;      
     }
+
+    // if (!form.nationality) {
+    //   setAlert({ open: true, title: 'Caution', description: 'Please select your country/region.', buttonText: 'OK' });
+    //   return;
+    // }
 
     try {
       const res = await fetch(`/api/member/check-id?member_id=${encodeURIComponent(form.member_id)}`);
@@ -143,7 +168,7 @@ export default function RegisterPage() {
 
         const res = await fetch('/api/auth/send', {
           method: 'POST',
-          body: JSON.stringify({ member_id: form.member_id, nationality: form.nationality }),
+          body: JSON.stringify({ member_id: form.member_id, lang_id: langID }),
           headers: { 'Content-Type': 'application/json' },
         });
 
@@ -267,7 +292,7 @@ export default function RegisterPage() {
           sns_provider: form.sns_provider,
           sns_sub: form.sns_sub,
           sns_oauth_json: form.sns_oauth_json,
-          site_language: 'EN',
+          site_language: langID,
           sns_email: form.sns_email
         }),
       });
@@ -356,34 +381,26 @@ export default function RegisterPage() {
   return (
     <div className="max-w-[430px] mx-auto min-h-screen bg-white pt-5 pb-28 px-5 text-black relative">
       <BackButton label={t('loginEmail.signUp.subSns', 'SNS Register')} />
-      <p className="text-[16px] text-gray-600 my-4">{t('loginEmail.signUp.snsTitle', 'Please enter the required information to complete SNS registration.')}</p>
-
-      {/* 국가 선택 */}
-      <div className="mt-6">
-        <h2 className="text-[16px] font-semibold mb-2">
-          {t('personalInfo.country', 'Country/Region')}
-        </h2>
-        <button 
-          type="button"
-          onClick={() => setShowCountryModal(true)} 
-          className="w-full border rounded-xl px-4 py-3 text-[16px] text-left text-gray-600 mb-2"
+      <p className="text-[16px] font-semibold my-4">
+        {t('loginEmail.langSelect', 'Please select the language you want to use on CONCONTOWN.')}
+      </p>
+      <div className="flex justify-center gap-2 flex-wrap">
+        {languages.map((lang) => (
+          <button
+            key={lang.value}
+            onClick={() => handleLanguageSelect(lang.value)}
+            className={`px-4 py-2 rounded-full border text-sm transition
+              ${langID === lang.value
+                ? 'bg-blue-500 text-white border-blue-500'
+                : 'bg-white text-gray-800 border-gray-300 hover:bg-gray-100'}
+            `}
           >
-          {form.nationality || t('personalInfo.country', 'Country/Region')}
-        </button>
+            {lang.label}
+          </button>
+        ))}
       </div>
 
-      {/* 도시 입력 */}
-      <div className="mt-4">
-        <input 
-          placeholder={t('personalInfo.city', 'City of residence')} 
-          value={form.city} 
-          onChange={(e) => handleChange('city', e.target.value)} 
-          className="w-full border rounded-xl px-4 py-3 text-[16px] " 
-        />
-        <p className="text-xs text-gray-500 mt-1">
-          {t('personalInfo.cityNote', 'Do not put full address (ex. Seoul)')}
-        </p>
-      </div>
+      <p className="text-[16px] text-gray-600 my-4">{t('loginEmail.signUp.snsTitle', 'Please enter the required information to complete SNS registration.')}</p>
 
       {/* 이메일 입력 + 중복 확인 */}
       <p className="text-xs text-gray-500 mb-1 mt-6">
@@ -498,6 +515,33 @@ export default function RegisterPage() {
             </button>
           ))}
         </div>
+      </div>
+
+      {/* 국가 선택 */}
+      <div className="mt-6">
+        <h2 className="text-[16px] font-semibold mb-2">
+          {t('personalInfo.country', 'Country/Region')}
+        </h2>
+        <button 
+          type="button"
+          onClick={() => setShowCountryModal(true)} 
+          className="w-full border rounded-xl px-4 py-3 text-[16px] text-left text-gray-600 mb-2"
+          >
+          {form.nationality || t('personalInfo.country', 'Country/Region')}
+        </button>
+      </div>
+
+      {/* 도시 입력 */}
+      <div className="mt-4">
+        <input 
+          placeholder={t('personalInfo.city', 'City of residence')} 
+          value={form.city} 
+          onChange={(e) => handleChange('city', e.target.value)} 
+          className="w-full border rounded-xl px-4 py-3 text-[16px] " 
+        />
+        <p className="text-xs text-gray-500 mt-1">
+          {t('personalInfo.cityNote', 'Do not put full address (ex. Seoul)')}
+        </p>
       </div>
 
       {/* 연락처 */}
