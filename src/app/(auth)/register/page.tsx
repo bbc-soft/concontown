@@ -144,7 +144,7 @@ export default function RegisterPage() {
       } else if (data.idx) {
         setAlert({ open: true, title: 'Duplicate', description: t('loginEmail.signUp.emailDuplicate', 'This email is already in use.'), buttonText: 'OK' });
       } else {
-        setAlert({ open: true, title: 'Available', description: t('loginEmail.signUp.emailAvailable', 'This email is available.'), buttonText: 'OK' });
+        setAlert({ open: true, title: 'Available', description: t('loginEmail.signUp.verifyCodeSent', 'This email is available.'), buttonText: 'OK' });
 
         setIsVerified(false);
         setShowVerification(true);
