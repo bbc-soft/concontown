@@ -44,6 +44,7 @@
         "emailAvailable" : "이 이메일을 사용할 수 있습니다.",
         "emailDuplicate" : "이미 회원가입되어 있는 이메일입니다. 로그인 해주세요.",
         "emailUnavailable" : "이 이메일은 삭제되었으며 재사용할 수 없습니다.",
+        "verifyCodeSent" : "인증 번호가 메일로 발송 되었습니다. 인증번호를 확인해 주세요.",
         "verify": "인증",
         "verified": "인증확인",
         "verifySuccess": "인증이 성공하였습니다.",

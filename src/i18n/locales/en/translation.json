@@ -44,6 +44,7 @@
         "emailAvailable" : "This email is available.",
         "emailDuplicate" : "This email is already registered. Please log in to continue.",
         "emailUnavailable" : "This email has been withdrawn and cannot be reused.",
+        "verifyCodeSent" : "The verification code has been sent by email. Please check the code.",
         "verify": "Verify",
         "verified": "Verified",
         "verifySuccess": "Authentication succeeded.",
