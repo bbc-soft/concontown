@@ -63,10 +63,10 @@ export default function RegisterPage() {
   }
 
   const languages: LanguageOption[] = [
-    { label: '일본어', value: 'JP' },
-    { label: '영어', value: 'EN' },
-    { label: '중국어', value: 'CN' },
-    { label: '한국어', value: 'KR' },
+    { label: t('language.japanese', 'japanese'), value: 'JP' },
+    { label: t('language.english', 'english'), value: 'EN' },
+    { label: t('language.chinese', 'chinese'), value: 'CN' },
+    { label: t('language.korean', 'korean'), value: 'KR' },
   ];
 
   useEffect(() => {
