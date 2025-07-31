@@ -122,7 +122,11 @@ export default function SettingPage() {
     const iosLink = 'https://apps.apple.com/app/concontown/id6745476319';
     const androidLink = 'https://play.google.com/store/apps/details?id=com.concontown.app';
     const link = isIOS ? iosLink : isAndroid ? androidLink : '/';
-    window.open(link, '_blank');
+    if(navigator.userAgent.includes('concontown-android') || navigator.userAgent.includes('concontown-ios')) {
+      window.location.href = link;
+    } else {
+      window.open(link, '_blank');
+    }
   };
 
   return (
