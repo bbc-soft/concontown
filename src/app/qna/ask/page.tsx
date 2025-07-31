@@ -102,15 +102,22 @@ export default function QnAAskPage() {
       return;
     }
 
+    setAlert({
+      open: true,
+      title: 'Upload',
+      description: title,
+      buttonText: 'OK',
+    });
+
     try {
       let fileUrl = '';
       let fileName = '';
 
-      if (image) {
-        const uploaded = await uploadToAzureBlob(image);
-        fileUrl = uploaded.fileUrl;
-        fileName = uploaded.fileName;
-      }
+      // if (image) {
+      //   const uploaded = await uploadToAzureBlob(image);
+      //   fileUrl = uploaded.fileUrl;
+      //   fileName = uploaded.fileName;
+      // }
 
       // if (!isLoggedIn || !token) {
       //   alert(t('QnAAsk.toast.loginRequired', 'Login is required.'));
