@@ -69,6 +69,14 @@ export default function QnAAskPage() {
     const folder = now.toISOString().slice(0, 7).replace('-', '');
     const fileName = now.toISOString().replace(/[-T:.Z]/g, '').slice(0, 17) + '.' + extension;
 
+    setAlert({
+        open: true,
+        title: 'Upload',
+        description: file.name,
+        buttonText: 'OK',
+      });
+
+
     const blobAccount = 'concontown';
     const blobContainer = 'data';  // 컨테이너명만 넣기 (예: 'data')
     const blobName = `qna/${folder}/${fileName}`;  // blob 이름에 경로 포함
@@ -77,6 +85,20 @@ export default function QnAAskPage() {
 
     const sasToken = '?sv=2024-11-04&ss=bfqt&srt=co&sp=rwdlacupiytfx&se=2026-06-23T22:16:36Z&st=2025-06-23T13:16:36Z&spr=https&sig=ldloFAIOFbKYFNoFUlz6yrdcS2Hu%2Fq8XK9IPe95stbw%3D';
     const fullUrl = fileUrl + sasToken;
+
+      setAlert({
+        open: true,
+        title: 'Upload',
+        description: fullUrl,
+        buttonText: 'OK',
+      });
+
+            setAlert({
+        open: true,
+        title: 'Upload',
+        description: file.type,
+        buttonText: 'OK',
+      });
 
     const uploadRes = await fetch(fullUrl, {
       method: 'PUT',
@@ -102,36 +124,20 @@ export default function QnAAskPage() {
       return;
     }
 
-    setAlert({
-      open: true,
-      title: 'Upload',
-      description: content,
-      buttonText: 'OK',
-    });
-
     try {
       let fileUrl = '';
       let fileName = '';
 
-      // if (image) {
-      //   const uploaded = await uploadToAzureBlob(image);
-      //   fileUrl = uploaded.fileUrl;
-      //   fileName = uploaded.fileName;
-      // }
+      if (image) {
+        const uploaded = await uploadToAzureBlob(image);
+        fileUrl = uploaded.fileUrl;
+        fileName = uploaded.fileName;
+      }
 
       // if (!isLoggedIn || !token) {
       //   alert(t('QnAAsk.toast.loginRequired', 'Login is required.'));
       //   return;
       // }
-
-      // setAlert({
-      //   open: true,
-      //   title: 'Upload',
-      //   description: fileUrl + '/' + fileName,
-      //   buttonText: 'OK',
-      // });
-
-
 
       // const res = await fetch('/api/qna/ask', {
       //   method: 'POST',
