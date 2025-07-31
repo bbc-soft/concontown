@@ -8,6 +8,7 @@ import Image from 'next/image';
 import { useAuthStore } from '@/stores/useAuthStore';
 import { useTranslation } from 'react-i18next';
 import { X } from 'lucide-react'
+import AlertModal from '../../../../components/common/AlertModal';
 
 export default function QnAAskPage() {
   const router = useRouter();
@@ -24,6 +25,13 @@ export default function QnAAskPage() {
   const [image, setImage] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   const [toastMessage, setToastMessage] = useState('');
+
+  const [alert, setAlert] = useState({
+    open: false,
+    title: '',
+    description: '',
+    buttonText: t('loginEmail.modal.button', 'OK'),
+  });
 
   useEffect(() => {
     const fetchEventAndCategory = async () => {
@@ -104,48 +112,46 @@ export default function QnAAskPage() {
         fileName = uploaded.fileName;
       }
 
-      if (!isLoggedIn || !token) {
-        alert(t('QnAAsk.toast.loginRequired', 'Login is required.'));
-        return;
-      }
+      // if (!isLoggedIn || !token) {
+      //   alert(t('QnAAsk.toast.loginRequired', 'Login is required.'));
+      //   return;
+      // }
 
-      setToastMessage(JSON.stringify({
-          member_idx: member?.idx,
-          member_id: member?.member_id,
-          event_idx: event || null,
-          category,
-          title,
-          content,
-          file_name: fileName,
-          file_url: fileUrl,
-        }));
-
-      const res = await fetch('/api/qna/ask', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({
-          member_idx: member?.idx,
-          member_id: member?.member_id,
-          event_idx: event || null,
-          category,
-          title,
-          content,
-          file_name: fileName,
-          file_url: fileUrl,
-        }),
+      setAlert({
+        open: true,
+        title: 'Upload',
+        description: fileUrl + '/' + fileName,
+        buttonText: 'OK',
       });
 
-      const result = await res.json();
 
-      if (result.result === '0000') {
-        setToastMessage(t('QnAAsk.toast.success', 'Successfully submitted.'));
-        setTimeout(() => router.push('/qna'), 1500);
-      } else {
-        setToastMessage(t('QnAAsk.toast.failed', 'Failed to submit inquiry.'));
-      }
+
+      // const res = await fetch('/api/qna/ask', {
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //     Authorization: `Bearer ${token}`,
+      //   },
+      //   body: JSON.stringify({
+      //     member_idx: member?.idx,
+      //     member_id: member?.member_id,
+      //     event_idx: event || null,
+      //     category,
+      //     title,
+      //     content,
+      //     file_name: fileName,
+      //     file_url: fileUrl,
+      //   }),
+      // });
+
+      // const result = await res.json();
+
+      // if (result.result === '0000') {
+      //   setToastMessage(t('QnAAsk.toast.success', 'Successfully submitted.'));
+      //   setTimeout(() => router.push('/qna'), 1500);
+      // } else {
+      //   setToastMessage(t('QnAAsk.toast.failed', 'Failed to submit inquiry.'));
+      // }
     } catch (err : any) {
       console.error('Submit failed:', err);
       // setToastMessage(t('QnAAsk.toast.error', 'An error occurred. Please try again.'));
@@ -212,6 +218,14 @@ export default function QnAAskPage() {
           {toastMessage}
         </div>
       )}
+
+            <AlertModal
+              isOpen={alert.open}
+              onClose={() => setAlert((prev) => ({ ...prev, open: false }))}
+              title={alert.title}
+              description={alert.description}
+              buttonText={alert.buttonText}
+              />
     </div>
   );
 }

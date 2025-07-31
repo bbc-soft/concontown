@@ -5,6 +5,7 @@ import Switch from '../../../components/common/Switch';
 import { ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 import BackButton from '../../../components/common/BackButton';
+import AlertModal from '../../../components/common/AlertModal';
 import { useLanguageStore } from '@/stores/useLanguageStore';
 import { useTranslation } from 'react-i18next';
 import i18n from '@/i18n/i18n';
@@ -32,6 +33,13 @@ export default function SettingPage() {
   const [localVersion, setLocalVersion] = useState('1.0.0');
   const [storeVersion, setStoreVersion] = useState('1.0.0');
   const [provider, setProvider] = useState('');
+
+  const [alert, setAlert] = useState({
+    open: false,
+    title: '',
+    description: '',
+    buttonText: t('loginEmail.modal.button', 'OK'),
+  });
 
   useEffect(() => {
     if (i18n.isInitialized) {
@@ -122,7 +130,13 @@ export default function SettingPage() {
     const iosLink = 'https://apps.apple.com/app/concontown/id6745476319';
     const androidLink = 'https://play.google.com/store/apps/details?id=com.concontown.app';
     const link = isIOS ? iosLink : isAndroid ? androidLink : '/';
-    window.open(link, '_blank');
+    // window.open(link, '_blank');
+    setAlert({
+        open: true,
+        title: 'Update link',
+        description: link,
+        buttonText: 'OK',
+      });
   };
 
   return (
@@ -201,6 +215,14 @@ export default function SettingPage() {
           {t('setting.setting.applicationInformation.updateApp', 'Update App')}
         </button>
       </div>
+
+      <AlertModal
+        isOpen={alert.open}
+        onClose={() => setAlert((prev) => ({ ...prev, open: false }))}
+        title={alert.title}
+        description={alert.description}
+        buttonText={alert.buttonText}
+        />
     </div>
   );
 }
