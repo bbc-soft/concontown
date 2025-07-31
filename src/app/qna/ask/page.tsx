@@ -109,6 +109,17 @@ export default function QnAAskPage() {
         return;
       }
 
+      setToastMessage(JSON.stringify({
+          member_idx: member?.idx,
+          member_id: member?.member_id,
+          event_idx: event || null,
+          category,
+          title,
+          content,
+          file_name: fileName,
+          file_url: fileUrl,
+        }));
+
       const res = await fetch('/api/qna/ask', {
         method: 'POST',
         headers: {
@@ -138,7 +149,7 @@ export default function QnAAskPage() {
     } catch (err : any) {
       console.error('Submit failed:', err);
       // setToastMessage(t('QnAAsk.toast.error', 'An error occurred. Please try again.'));
-      setToastMessage(err.message || String(err));
+      // setToastMessage(err.message || String(err));
     }
   };
 
