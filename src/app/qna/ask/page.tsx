@@ -105,7 +105,7 @@ export default function QnAAskPage() {
     setAlert({
       open: true,
       title: 'Upload',
-      description: title,
+      description: content,
       buttonText: 'OK',
     });
 
@@ -124,12 +124,12 @@ export default function QnAAskPage() {
       //   return;
       // }
 
-      setAlert({
-        open: true,
-        title: 'Upload',
-        description: fileUrl + '/' + fileName,
-        buttonText: 'OK',
-      });
+      // setAlert({
+      //   open: true,
+      //   title: 'Upload',
+      //   description: fileUrl + '/' + fileName,
+      //   buttonText: 'OK',
+      // });
 
 
 
