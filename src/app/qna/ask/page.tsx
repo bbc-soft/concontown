@@ -135,9 +135,10 @@ export default function QnAAskPage() {
       } else {
         setToastMessage(t('QnAAsk.toast.failed', 'Failed to submit inquiry.'));
       }
-    } catch (err) {
+    } catch (err : any) {
       console.error('Submit failed:', err);
-      setToastMessage(t('QnAAsk.toast.error', 'An error occurred. Please try again.'));
+      // setToastMessage(t('QnAAsk.toast.error', 'An error occurred. Please try again.'));
+      setToastMessage(err.message || String(err));
     }
   };
 
