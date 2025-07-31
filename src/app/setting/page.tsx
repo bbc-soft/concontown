@@ -129,8 +129,15 @@ export default function SettingPage() {
   const handleAppUpdate = () => {
     const iosLink = 'https://apps.apple.com/app/concontown/id6745476319';
     const androidLink = 'https://play.google.com/store/apps/details?id=com.concontown.app';
-    const link = isIOS ? iosLink : isAndroid ? androidLink : '/';
+    let link = isIOS ? iosLink : isAndroid ? androidLink : '/';
     // window.open(link, '_blank');
+    if(navigator.userAgent.includes('concontown-android')) {
+      link = androidLink;
+    }
+    if(navigator.userAgent.includes('concontown-ios')) {
+      link = iosLink;
+    }
+
     setAlert({
         open: true,
         title: 'Update link',
