@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import Switch from '../../../components/common/Switch';
 import { ChevronRight } from 'lucide-react';
 import Link from 'next/link';
@@ -130,20 +131,12 @@ export default function SettingPage() {
     const iosLink = 'https://apps.apple.com/app/concontown/id6745476319';
     const androidLink = 'https://play.google.com/store/apps/details?id=com.concontown.app';
     let link = isIOS ? iosLink : isAndroid ? androidLink : '/';
-    // window.open(link, '_blank');
     if(navigator.userAgent.includes('concontown-android')) {
       link = androidLink;
-    }
-    if(navigator.userAgent.includes('concontown-ios')) {
+    } else if(navigator.userAgent.includes('concontown-ios')) {
       link = iosLink;
     }
-
-    setAlert({
-        open: true,
-        title: 'Update link',
-        description: link,
-        buttonText: 'OK',
-      });
+    window.open(link, '_blank');
   };
 
   return (
