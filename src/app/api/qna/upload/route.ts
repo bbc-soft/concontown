@@ -26,12 +26,18 @@ export async function POST(req: NextRequest) {
 
     const resultText = await uploadRes.text();
 
+    // if (!uploadRes.ok) {
+    //   return NextResponse.json(
+    //     { error: `Azure upload failed`, detail: resultText },
+    //     { status: uploadRes.status }
+    //   );
+    // }
+
     if (!uploadRes.ok) {
-      return NextResponse.json(
-        { error: `Azure upload failed`, detail: resultText },
-        { status: uploadRes.status }
-      );
-    }
+      const errorText = await uploadRes.text(); // 👈 Azure가 주는 에러 XML
+      console.error('Azure upload error:', uploadRes.status, errorText);
+      return NextResponse.json({ error: 'Azure upload failed', detail: errorText }, { status: 500 });
+    }    
 
     return NextResponse.json({ message: 'Upload successful' });
   } catch (err: any) {
