@@ -47,6 +47,7 @@ export default function QnAAskPage() {
     if (e.target.files && e.target.files[0]) {
       setImage(e.target.files[0]);
       setImagePreview(URL.createObjectURL(e.target.files[0]));
+      setToastMessage(URL.createObjectURL(e.target.files[0]));
     }
   };
 
