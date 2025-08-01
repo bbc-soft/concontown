@@ -21,7 +21,7 @@ export async function POST(req: NextRequest) {
         'Content-Type': contentType,
       },
       body: req.body, // 스트리밍 방식 전달
-    });
+    } as RequestInit & { duplex: 'half' });
 
     const resultText = await uploadRes.text();
 
