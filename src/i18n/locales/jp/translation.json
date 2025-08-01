@@ -652,7 +652,8 @@
             "modal" : [
                 "写真を撮る",
                 "アルバムから選択"
-            ]
+            ],
+            "successSubmit": "Q&Aが登録されました。"
         },
         "qnaConfirmation": {
             "message": "投稿を削除しますか？ 削除すると復旧できません。",

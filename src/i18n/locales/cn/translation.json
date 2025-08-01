@@ -652,7 +652,8 @@
             "modal" : [
                 "拍照",
                 "从相册选择"
-            ]
+            ],
+            "successSubmit": "问答已登记。"
         },
         "qnaConfirmation": {
             "message": "您确定要删除您的帖子吗？删除后将无法恢复。",
