@@ -78,13 +78,6 @@ export default function QnAAskPage() {
     const sasToken = '?sv=2024-11-04&ss=bfqt&srt=co&sp=rwdlacupiytfx&se=2026-06-23T22:16:36Z&st=2025-06-23T13:16:36Z&spr=https&sig=ldloFAIOFbKYFNoFUlz6yrdcS2Hu%2Fq8XK9IPe95stbw%3D';
     const fullUrl = fileUrl + sasToken;
 
-      setAlert({
-        open: true,
-        title: 'Upload',
-        description: fullUrl,
-        buttonText: 'OK',
-      });
-
     const uploadRes = await fetch(fullUrl, {
       method: 'PUT',
       headers: {
@@ -93,6 +86,13 @@ export default function QnAAskPage() {
       },
       body: file,
     });
+
+    setAlert({
+        open: true,
+        title: 'Upload',
+        description: JSON.stringify(uploadRes),
+        buttonText: 'OK',
+      });
 
     if (!uploadRes.ok) {
       const errorText = await uploadRes.text();
