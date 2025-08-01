@@ -674,7 +674,8 @@
             "modal" : [
                 "Take a photo",
                 "Select from album"
-            ]
+            ],
+            "successSubmit": "Q&A has been registered."
         },
         "qnaConfirmation": {
             "message": "Are you sure you want to delete your post? Once deleted, it cannot be restored.",

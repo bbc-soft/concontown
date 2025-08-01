@@ -117,7 +117,7 @@ export default function QnAAskPage() {
       const result = await res.json();
 
       if (result.result === '0000') {
-        setToastMessage(t('QnAAsk.toast.success', 'Successfully submitted.'));
+        setToastMessage(t('QnA.ask.successSubmit', 'Q&A has been registered.'));
         setTimeout(() => router.push('/qna'), 1500);
       } else {
         setToastMessage(t('QnAAsk.toast.failed', 'Failed to submit inquiry.'));

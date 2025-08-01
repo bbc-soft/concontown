@@ -654,7 +654,8 @@
             "modal" : [
                 "사진 촬영",
                 "앨범에서 선택"
-            ]
+            ],
+            "successSubmit": "Q&A가 등록되었습니다."
         },
         "qnaConfirmation": {
             "message": "게시물을 삭제하시겠습니까? 삭제하면 복구할 수 없습니다.",
