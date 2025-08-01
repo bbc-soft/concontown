@@ -58,24 +58,40 @@ export default function QnAAskPage() {
   }
 
   const uploadToAzureBlob = async (file: File) => {
-    const extension = file.name.split('.').pop() || 'bin';
-    const now = new Date();
-    const folder = now.toISOString().slice(0, 7).replace('-', '');
-    const fileName = now.toISOString().replace(/[-T:.Z]/g, '').slice(0, 17) + '.' + extension;
+    // const extension = file.name.split('.').pop() || 'bin';
+    // const now = new Date();
+    // const folder = now.toISOString().slice(0, 7).replace('-', '');
+    // const fileName = now.toISOString().replace(/[-T:.Z]/g, '').slice(0, 17) + '.' + extension;
 
-    const blobAccount = 'concontown';
-    const blobContainer = 'data';  // 컨테이너명만 넣기 (예: 'data')
-    const blobName = `qna/${folder}/${fileName}`;  // blob 이름에 경로 포함
+    // const blobAccount = 'concontown';
+    // const blobContainer = 'data';  // 컨테이너명만 넣기 (예: 'data')
+    // const blobName = `qna/${folder}/${fileName}`;  // blob 이름에 경로 포함
 
-    const fileUrl = `https://${blobAccount}.blob.core.windows.net/${blobContainer}/${blobName}`;
+    // const fileUrl = `https://${blobAccount}.blob.core.windows.net/${blobContainer}/${blobName}`;
 
-    const sasToken = '?sv=2024-11-04&ss=bfqt&srt=co&sp=rwdlacupiytfx&se=2026-06-23T22:16:36Z&st=2025-06-23T13:16:36Z&spr=https&sig=ldloFAIOFbKYFNoFUlz6yrdcS2Hu%2Fq8XK9IPe95stbw%3D';
-    const fullUrl = fileUrl + sasToken;
+    // const sasToken = '?sv=2024-11-04&ss=bfqt&srt=co&sp=rwdlacupiytfx&se=2026-06-23T22:16:36Z&st=2025-06-23T13:16:36Z&spr=https&sig=ldloFAIOFbKYFNoFUlz6yrdcS2Hu%2Fq8XK9IPe95stbw%3D';
+    // const fullUrl = fileUrl + sasToken;
 
-    // const uploadRes = await fetch(fullUrl, {
-    //   method: 'PUT',
+    // // const uploadRes = await fetch(fullUrl, {
+    // //   method: 'PUT',
+    // //   headers: {
+    // //     'x-ms-blob-type': 'BlockBlob',
+    // //     'Content-Type': file.type || 'application/octet-stream',
+    // //   },
+    // //   body: file,
+    // // });
+
+    // // if (!uploadRes.ok) {
+    // //   const errorText = await uploadRes.text();
+    // //   console.error('Azure upload error:', uploadRes.status, errorText);
+    // //   throw new Error(`Azure Blob upload failed: ${uploadRes.status}`);
+    // // }
+
+    // const apiUploadUrl = `/api/qna/upload?url=${encodeURIComponent(fullUrl)}`;
+
+    // const uploadRes = await fetch(apiUploadUrl, {
+    //   method: 'POST',
     //   headers: {
-    //     'x-ms-blob-type': 'BlockBlob',
     //     'Content-Type': file.type || 'application/octet-stream',
     //   },
     //   body: file,
@@ -83,27 +99,26 @@ export default function QnAAskPage() {
 
     // if (!uploadRes.ok) {
     //   const errorText = await uploadRes.text();
-    //   console.error('Azure upload error:', uploadRes.status, errorText);
-    //   throw new Error(`Azure Blob upload failed: ${uploadRes.status}`);
-    // }
+    //   console.error('Proxy upload error:', uploadRes.status, errorText);
+    //   throw new Error(`Upload failed via proxy: ${uploadRes.status}`);
+    // }    
 
-    const apiUploadUrl = `/api/qna/upload?url=${encodeURIComponent(fullUrl)}`;
+    // return { fileName, fileUrl };
+    const formData = new FormData();
+    formData.append('file', file);
 
-    const uploadRes = await fetch(apiUploadUrl, {
+    const uploadRes = await fetch('/api/qna/upload', {
       method: 'POST',
-      headers: {
-        'Content-Type': file.type || 'application/octet-stream',
-      },
-      body: file,
+      body: formData,
     });
 
     if (!uploadRes.ok) {
       const errorText = await uploadRes.text();
       console.error('Proxy upload error:', uploadRes.status, errorText);
       throw new Error(`Upload failed via proxy: ${uploadRes.status}`);
-    }    
+    }
 
-    return { fileName, fileUrl };
+    return await uploadRes.json(); // { fileName, fileUrl }    
   };  
 
   const handleSubmit = async () => {
