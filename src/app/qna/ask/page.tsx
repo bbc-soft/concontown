@@ -78,26 +78,31 @@ export default function QnAAskPage() {
     const sasToken = '?sv=2024-11-04&ss=bfqt&srt=co&sp=rwdlacupiytfx&se=2026-06-23T22:16:36Z&st=2025-06-23T13:16:36Z&spr=https&sig=ldloFAIOFbKYFNoFUlz6yrdcS2Hu%2Fq8XK9IPe95stbw%3D';
     const fullUrl = fileUrl + sasToken;
 
-    const uploadRes = await fetch(fullUrl, {
-      method: 'PUT',
-      headers: {
-        'x-ms-blob-type': 'BlockBlob',
-        'Content-Type': file.type || 'application/octet-stream',
-      },
-      body: file,
-    });
-
-    setAlert({
-        open: true,
-        title: 'Upload',
-        description: JSON.stringify(uploadRes),
-        buttonText: 'OK',
+    try {
+      const uploadRes = await fetch(fullUrl, {
+        method: 'PUT',
+        headers: {
+          'x-ms-blob-type': 'BlockBlob',
+          'Content-Type': file.type || 'application/octet-stream',
+        },
+        body: file,
       });
 
-    if (!uploadRes.ok) {
-      const errorText = await uploadRes.text();
-      console.error('Azure upload error:', uploadRes.status, errorText);
-      throw new Error(`Azure Blob upload failed: ${uploadRes.status}`);
+
+      if (!uploadRes.ok) {
+        const errorText = await uploadRes.text();
+        console.error('Azure upload error:', uploadRes.status, errorText);
+        throw new Error(`Azure Blob upload failed: ${uploadRes.status}`);
+      }
+
+    } catch (e) {
+      console.error('🚨 Upload exception:', e);
+      setAlert({
+          open: true,
+          title: 'Upload',
+          description: `🚨 업로드 중 오류 발생:\n${e}`,
+          buttonText: 'OK',
+        });
     }
 
     return { fileName, fileUrl };
