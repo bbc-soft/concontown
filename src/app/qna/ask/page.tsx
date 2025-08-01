@@ -49,7 +49,6 @@ export default function QnAAskPage() {
       const previewUrl = URL.createObjectURL(file);
       setImage(file);
       setImagePreview(previewUrl);
-      setToastMessage(previewUrl);
     }
   };
 
@@ -73,10 +72,26 @@ export default function QnAAskPage() {
     const sasToken = '?sv=2024-11-04&ss=bfqt&srt=co&sp=rwdlacupiytfx&se=2026-06-23T22:16:36Z&st=2025-06-23T13:16:36Z&spr=https&sig=ldloFAIOFbKYFNoFUlz6yrdcS2Hu%2Fq8XK9IPe95stbw%3D';
     const fullUrl = fileUrl + sasToken;
 
-    const uploadRes = await fetch(fullUrl, {
-      method: 'PUT',
+    // const uploadRes = await fetch(fullUrl, {
+    //   method: 'PUT',
+    //   headers: {
+    //     'x-ms-blob-type': 'BlockBlob',
+    //     'Content-Type': file.type || 'application/octet-stream',
+    //   },
+    //   body: file,
+    // });
+
+    // if (!uploadRes.ok) {
+    //   const errorText = await uploadRes.text();
+    //   console.error('Azure upload error:', uploadRes.status, errorText);
+    //   throw new Error(`Azure Blob upload failed: ${uploadRes.status}`);
+    // }
+
+    const apiUploadUrl = `/api/qna/upload?url=${encodeURIComponent(fullUrl)}`;
+
+    const uploadRes = await fetch(apiUploadUrl, {
+      method: 'POST',
       headers: {
-        'x-ms-blob-type': 'BlockBlob',
         'Content-Type': file.type || 'application/octet-stream',
       },
       body: file,
@@ -84,9 +99,9 @@ export default function QnAAskPage() {
 
     if (!uploadRes.ok) {
       const errorText = await uploadRes.text();
-      console.error('Azure upload error:', uploadRes.status, errorText);
-      throw new Error(`Azure Blob upload failed: ${uploadRes.status}`);
-    }
+      console.error('Proxy upload error:', uploadRes.status, errorText);
+      throw new Error(`Upload failed via proxy: ${uploadRes.status}`);
+    }    
 
     return { fileName, fileUrl };
   };  
