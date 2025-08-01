@@ -8,7 +8,6 @@ import Image from 'next/image';
 import { useAuthStore } from '@/stores/useAuthStore';
 import { useTranslation } from 'react-i18next';
 import { X } from 'lucide-react'
-import AlertModal from '../../../../components/common/AlertModal';
 
 export default function QnAAskPage() {
   const router = useRouter();
@@ -25,13 +24,6 @@ export default function QnAAskPage() {
   const [image, setImage] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   const [toastMessage, setToastMessage] = useState('');
-
-  const [alert, setAlert] = useState({
-    open: false,
-    title: '',
-    description: '',
-    buttonText: t('loginEmail.modal.button', 'OK'),
-  });
 
   useEffect(() => {
     const fetchEventAndCategory = async () => {
@@ -78,31 +70,19 @@ export default function QnAAskPage() {
     const sasToken = '?sv=2024-11-04&ss=bfqt&srt=co&sp=rwdlacupiytfx&se=2026-06-23T22:16:36Z&st=2025-06-23T13:16:36Z&spr=https&sig=ldloFAIOFbKYFNoFUlz6yrdcS2Hu%2Fq8XK9IPe95stbw%3D';
     const fullUrl = fileUrl + sasToken;
 
-    try {
-      const uploadRes = await fetch(fullUrl, {
-        method: 'PUT',
-        headers: {
-          'x-ms-blob-type': 'BlockBlob',
-          'Content-Type': file.type || 'application/octet-stream',
-        },
-        body: file,
-      });
+    const uploadRes = await fetch(fullUrl, {
+      method: 'PUT',
+      headers: {
+        'x-ms-blob-type': 'BlockBlob',
+        'Content-Type': file.type || 'application/octet-stream',
+      },
+      body: file,
+    });
 
-
-      if (!uploadRes.ok) {
-        const errorText = await uploadRes.text();
-        console.error('Azure upload error:', uploadRes.status, errorText);
-        throw new Error(`Azure Blob upload failed: ${uploadRes.status}`);
-      }
-
-    } catch (e) {
-      console.error('🚨 Upload exception:', e);
-      setAlert({
-          open: true,
-          title: 'Upload',
-          description: `🚨 업로드 중 오류 발생:\n${e}`,
-          buttonText: 'OK',
-        });
+    if (!uploadRes.ok) {
+      const errorText = await uploadRes.text();
+      console.error('Azure upload error:', uploadRes.status, errorText);
+      throw new Error(`Azure Blob upload failed: ${uploadRes.status}`);
     }
 
     return { fileName, fileUrl };
@@ -124,41 +104,40 @@ export default function QnAAskPage() {
         fileName = uploaded.fileName;
       }
 
-      // if (!isLoggedIn || !token) {
-      //   alert(t('QnAAsk.toast.loginRequired', 'Login is required.'));
-      //   return;
-      // }
+      if (!isLoggedIn || !token) {
+        alert(t('QnAAsk.toast.loginRequired', 'Login is required.'));
+        return;
+      }
 
-      // const res = await fetch('/api/qna/ask', {
-      //   method: 'POST',
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //     Authorization: `Bearer ${token}`,
-      //   },
-      //   body: JSON.stringify({
-      //     member_idx: member?.idx,
-      //     member_id: member?.member_id,
-      //     event_idx: event || null,
-      //     category,
-      //     title,
-      //     content,
-      //     file_name: fileName,
-      //     file_url: fileUrl,
-      //   }),
-      // });
+      const res = await fetch('/api/qna/ask', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          member_idx: member?.idx,
+          member_id: member?.member_id,
+          event_idx: event || null,
+          category,
+          title,
+          content,
+          file_name: fileName,
+          file_url: fileUrl,
+        }),
+      });
 
-      // const result = await res.json();
+      const result = await res.json();
 
-      // if (result.result === '0000') {
-      //   setToastMessage(t('QnAAsk.toast.success', 'Successfully submitted.'));
-      //   setTimeout(() => router.push('/qna'), 1500);
-      // } else {
-      //   setToastMessage(t('QnAAsk.toast.failed', 'Failed to submit inquiry.'));
-      // }
+      if (result.result === '0000') {
+        setToastMessage(t('QnAAsk.toast.success', 'Successfully submitted.'));
+        setTimeout(() => router.push('/qna'), 1500);
+      } else {
+        setToastMessage(t('QnAAsk.toast.failed', 'Failed to submit inquiry.'));
+      }
     } catch (err : any) {
       console.error('Submit failed:', err);
-      // setToastMessage(t('QnAAsk.toast.error', 'An error occurred. Please try again.'));
-      // setToastMessage(err.message || String(err));
+      setToastMessage(t('QnAAsk.toast.error', 'An error occurred. Please try again.'));
     }
   };
 
@@ -221,14 +200,6 @@ export default function QnAAskPage() {
           {toastMessage}
         </div>
       )}
-
-            <AlertModal
-              isOpen={alert.open}
-              onClose={() => setAlert((prev) => ({ ...prev, open: false }))}
-              title={alert.title}
-              description={alert.description}
-              buttonText={alert.buttonText}
-              />
     </div>
   );
 }
