@@ -69,14 +69,6 @@ export default function QnAAskPage() {
     const folder = now.toISOString().slice(0, 7).replace('-', '');
     const fileName = now.toISOString().replace(/[-T:.Z]/g, '').slice(0, 17) + '.' + extension;
 
-    setAlert({
-        open: true,
-        title: 'Upload',
-        description: file.name,
-        buttonText: 'OK',
-      });
-
-
     const blobAccount = 'concontown';
     const blobContainer = 'data';  // 컨테이너명만 넣기 (예: 'data')
     const blobName = `qna/${folder}/${fileName}`;  // blob 이름에 경로 포함
@@ -90,13 +82,6 @@ export default function QnAAskPage() {
         open: true,
         title: 'Upload',
         description: fullUrl,
-        buttonText: 'OK',
-      });
-
-            setAlert({
-        open: true,
-        title: 'Upload',
-        description: file.type,
         buttonText: 'OK',
       });
 
