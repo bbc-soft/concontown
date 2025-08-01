@@ -45,9 +45,11 @@ export default function QnAAskPage() {
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
-      setImage(e.target.files[0]);
-      setImagePreview(URL.createObjectURL(e.target.files[0]));
-      setToastMessage(URL.createObjectURL(e.target.files[0]));
+      const file = e.target.files[0];
+      const previewUrl = URL.createObjectURL(file);
+      setImage(file);
+      setImagePreview(previewUrl);
+      setToastMessage(previewUrl);
     }
   };
 
