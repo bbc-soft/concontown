@@ -63,7 +63,7 @@ export async function POST(req: NextRequest) {
     const blobContainer = 'data';
     const blobName = `qna/${folder}/${fileName}`;
     const fileUrl = `https://${blobAccount}.blob.core.windows.net/${blobContainer}/${blobName}`;
-    const sasToken = '?sv=...'; // ← 생략
+    const sasToken = '?sv=2024-11-04&ss=bfqt&srt=co&sp=rwdlacupiytfx&se=2026-06-23T22:16:36Z&st=2025-06-23T13:16:36Z&spr=https&sig=ldloFAIOFbKYFNoFUlz6yrdcS2Hu%2Fq8XK9IPe95stbw%3D'; // ← 생략
 
     const fullUrl = fileUrl + sasToken;
 
