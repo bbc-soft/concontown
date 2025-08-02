@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { Pagination, Autoplay } from 'swiper/modules';
@@ -28,6 +29,7 @@ export default function BottomPopup({ notices }: Props) {
   const [isOpen, setIsOpen] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(1);
   const { t } = useTranslation();
+  const router = useRouter();
 
   // 필터: POPUP_YN === 'Y'인 공지만
   const popupNotices = notices.filter(n => n.POPUP_YN === 'Y' && n.BANNER_URL);
@@ -59,6 +61,9 @@ export default function BottomPopup({ notices }: Props) {
                   src={notice.BANNER_URL!}
                   alt={notice.TITLE}
                   className="w-full h-auto object-cover"
+                  onClick={() =>
+                    router.push(`/notice/${notice.NOTICE_MASTER_IDX}?type=notice&isPersonal=false`)
+                  }
                 />
               </SwiperSlide>
             ))}
