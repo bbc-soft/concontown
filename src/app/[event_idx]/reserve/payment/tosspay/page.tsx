@@ -167,7 +167,7 @@ export default function TossPaymentPage() {
 
       await paymentWidgetRef.current.requestPayment({
         orderId,
-        orderName: 'Concert Ticket',
+        orderName: 'CONCONTOWN package',
         successUrl: `${window.location.origin}/success`,
         failUrl: `${window.location.origin}/fail`,
       });
