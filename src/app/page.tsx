@@ -7,14 +7,32 @@ import NotificationBar from "../../components/home/NotificationBar";
 import MainScrollSlider from "../../components/home/MainScrollSlider";
 import Footer from "../../components/common/Footer";
 import TicketSection from "../../components/home/TicketSection";
+import BottomPopup from "../../components/home/BottomPopup";
 import Loading from "../../components/common/Loading"; // ✅ 추가
 import { useAuthStore } from "@/stores/useAuthStore"; // zustand import 추가
+import { useLanguageStore } from '@/stores/useLanguageStore';
 import { useRouter, useSearchParams } from 'next/navigation';
+
+interface Notice {
+  NOTICE_MASTER_IDX: number;
+  NOTICE_SUB_IDX: number;
+  TITLE: string;
+  PUB_DATE: string;
+  LANGUAGE_YN: string;
+  READ_DATE?: string | null;
+  ALL_YN?: string;
+  MAIN_YN?: string;
+  POPUP_YN?: string;
+  LOGIN_YN?: string;
+  BANNER_URL?: string;
+}
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
-  const auth = useAuthStore(); // ✅ 유저 상태 접근
+  const { isLoggedIn, member } = useAuthStore();
   const router = useRouter();
+  const [notices, setNotices] = useState<Notice[]>([]);
+  const { langId } = useLanguageStore();
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -49,19 +67,37 @@ export default function Home() {
 
   // ✅ Flutter WebView로 유저 정보 전달 (최초 진입 시 1회)
   useEffect(() => {
-    if (auth.isLoggedIn && typeof window !== "undefined" && (window as any).LoginChannel) {
+    if (isLoggedIn && typeof window !== "undefined" && (window as any).LoginChannel) {
       const payload = {
-        user_id: auth.member?.member_id ?? "",
-        email: auth.member?.email ?? "",
-        firstname: auth.member?.Name_1st ?? "",
-        lastname : auth.member?.Name_3rd ?? "",
-        member_idx: auth.member?.idx ?? 0, // ✅ 추가됨
+        user_id: member?.member_id ?? "",
+        email: member?.email ?? "",
+        firstname: member?.Name_1st ?? "",
+        lastname : member?.Name_3rd ?? "",
+        member_idx: member?.idx ?? 0, // ✅ 추가됨
       };
   
       (window as any).LoginChannel.postMessage(JSON.stringify(payload));
       console.log("✅ Flutter에 유저 정보 전달:", payload);
     }
-  }, [auth.isLoggedIn, auth.member]);
+  }, [isLoggedIn, member]);
+
+  useEffect(() => {
+    fetchNoticeList();
+  }, [langId, member]);
+
+  const fetchNoticeList = async () => {
+    if (!member?.idx) return;
+      const bannerRes = await fetch(
+        `/api/notice/banner?lang=${langId.toUpperCase()}&member=${member.idx}`
+      );
+
+      const bannerData = await bannerRes.json();
+
+      console.log('bannerData', bannerData);
+
+      setNotices(bannerData);
+  };
+
   
   if (isLoading) {
     return <Loading />;
@@ -87,6 +123,9 @@ export default function Home() {
       </div>
       <div className="fixed bottom-0 left-0 w-full max-w-[430px] mx-auto z-50">
         <Navbar />
+      </div>
+      <div>
+        <BottomPopup notices={notices} />
       </div>
     </div>
   );
