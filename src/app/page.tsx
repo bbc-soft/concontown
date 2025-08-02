@@ -93,8 +93,6 @@ export default function Home() {
 
       const bannerData = await bannerRes.json();
 
-      console.log('bannerData', bannerData);
-
       setNotices(bannerData);
   };
 

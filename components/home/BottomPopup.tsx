@@ -35,13 +35,19 @@ export default function BottomPopup({ notices }: Props) {
   const popupNotices = notices.filter(n => n.POPUP_YN === 'Y' && n.BANNER_URL);
 
   useEffect(() => {
-    const dismissed = localStorage.getItem('popupDismissedToday');
-    if (dismissed === 'true') {
+    const dismissedDate = localStorage.getItem('popupDismissedDate');
+    const today = getTodayString();
+    if (dismissedDate === today) {
       setIsOpen(false);
     }
   }, []);
 
   if (!isOpen || popupNotices.length === 0) return null;
+
+  function getTodayString() {
+    const now = new Date();
+    return now.toISOString().split('T')[0]; // 'YYYY-MM-DD'
+  }
 
   return (
     <div className="fixed bottom-0 left-0 w-full z-50 flex justify-center">
@@ -77,8 +83,10 @@ export default function BottomPopup({ notices }: Props) {
         <div className="flex justify-between items-center border-t border-gray-300 px-4 py-3 text-sm bg-white">
           <button
             onClick={() => {
-              localStorage.setItem('popupDismissedToday', 'true');
-              setIsOpen(false);
+                const today = getTodayString();
+                console.log('today', today);
+                localStorage.setItem('popupDismissedDate', today);
+                setIsOpen(false);
             }}
             className="text-[#101010] font-bold"
           >
