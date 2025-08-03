@@ -100,6 +100,14 @@ export default function ForgotPasswordPage() {
           placeholder={t('personalInfo.firstName', 'First name ( Given name)')}
           value={form.name_1st}
           onChange={(e) => handleChange('name_1st', e.target.value)}
+          onFocus={(e) => {
+            if (document.activeElement && document.activeElement !== e.target) {
+              (document.activeElement as HTMLElement).blur();
+            }
+            setTimeout(() => {
+              e.target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 300);
+          }}
           className="w-full px-4 py-3 border border-[#e7527f] rounded-lg text-[16px]"
         />
       </div>
