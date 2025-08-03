@@ -75,7 +75,7 @@ export default function ForgotPasswordPage() {
   }
 
   return (
-    <div className="min-h-screen px-5 pt-12 pb-6 flex flex-col bg-white">
+    <div className="min-h-[100dvh] px-5 pt-12 pb-6 flex flex-col bg-white">
       <BackButton />
 
       <div className="mt-8">
