@@ -67,9 +67,14 @@ export default function BottomPopup({ notices }: Props) {
                   src={notice.BANNER_URL!}
                   alt={notice.TITLE}
                   className="w-full h-auto object-cover"
-                  // onClick={() =>
-                  //   router.push(`/notice/${notice.NOTICE_MASTER_IDX}?type=notice&isPersonal=false`)
-                  // }
+                  onClick={() => {
+                      if (typeof notice.NOTICE_SUB_IDX === "number" && notice.NOTICE_SUB_IDX > 0) {
+                        router.push(`/notice/${notice.NOTICE_SUB_IDX}?type=notice&isPersonal=true`)
+                      } else {
+                        router.push(`/notice/${notice.NOTICE_MASTER_IDX}?type=notice&isPersonal=false`)
+                      }
+                    }
+                  }
                 />
               </SwiperSlide>
             ))}
