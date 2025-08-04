@@ -430,12 +430,12 @@ export default function RegisterPage() {
           onChange={(e) => handleChange('member_id', e.target.value)}
           className="w-full border rounded-xl px-4 py-3 text-[16px] bg-white"
         />
-        <button
+        { !isMemverIdDisabled && <button
           onClick={handleCheckDuplicate} // ✅ 이렇게 수정해야 함
           className="px-4 py-2 rounded-xl text-[16px] font-medium bg-[#FF8FA9] text-white"
         >
           {t('common.check', 'Check')}
-        </button>
+        </button>}
 
       </div>
 
