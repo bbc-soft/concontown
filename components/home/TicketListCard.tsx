@@ -111,19 +111,7 @@ const filteredTickets = useMemo(() => {
       {filteredTickets.map((ticket) => {
         const isExpired = ticket.end_date && new Date(ticket.end_date) < now;
         const canEnterDetail = ticket.isCommingSoon !== 'Y' && !isExpired;
-        const status =
-        ticket.strBtn || (
-          isExpired
-            ? 'Closed'
-            : ticket.isCommingSoon === 'Y'
-            ? 'Coming soon'
-            : ticket.isJoin === 'Y'
-            ? 'Reserve'
-            : ticket.isWaiting === 'Y'
-            ? 'Waiting'
-            : 'Closed'
-        );
-
+        const status = ticket.strBtn;
         return (
           <div
             key={ticket.event_idx}
@@ -158,7 +146,7 @@ const filteredTickets = useMemo(() => {
                 type="button"
                 onClick={(e) => {
                   e.stopPropagation();
-                  if (canEnterDetail) {
+                  if (!ticket.strAlert) {//canEnterDetail
                     handleClick(ticket);
                   } else {
                     setAlertContent({
@@ -169,7 +157,7 @@ const filteredTickets = useMemo(() => {
                   }
                 }}
                 className={`flex-1 py-2 text-[13px] font-bold rounded-lg ${
-                  canEnterDetail
+                  !ticket.strAlert
                     ? 'bg-[#ff8fa9] text-white'
                     : 'bg-[#e2e3e7] text-[#a3a6aa]'
                 }`}
