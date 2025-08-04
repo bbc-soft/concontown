@@ -235,6 +235,11 @@ export default function RegisterPage() {
   }  
 
   const handleSubmit = async () => {
+    if(!langID) {
+      setAlert({ open: true, title: 'Caution', description:  t('loginEmail.langSelect'), buttonText: 'OK' });
+      return;      
+    }
+
     if (!form.member_id) {
       setAlert({ open: true, title: 'Caution', description: t('loginEmail.signUp.descMemberId', 'Please enter your email.'), buttonText: 'OK' });
       return;
