@@ -23,6 +23,7 @@ export default function RegisterPage() {
   const [showVerification, setShowVerification] = useState(false);
   const [timeLeft, setTimeLeft] = useState(600); // 10분 = 600초  
   const [isVerified, setIsVerified] = useState(false);
+  const [isMemverIdDisabled, setIsMemverIdDisabled] = useState(false);
 
   const [form, setForm] = useState({
     member_id: '',
@@ -83,15 +84,30 @@ export default function RegisterPage() {
     if (email && sub && oauth && provider) {
       try {
         const parsed = JSON.parse(oauth);
-        setForm((prev) => ({
-          ...prev,
-          name_1st: sns_family_name,
-          name_3rd: sns_given_name,
-          sns_email: email,
-          sns_sub: sub,
-          sns_oauth_json: oauth,
-          sns_provider: provider,
-        }));
+        if(provider === 'google') {
+          setForm((prev) => ({
+            ...prev,
+            member_id: email,
+            name_1st: sns_family_name,
+            name_3rd: sns_given_name,
+            sns_email: email,
+            sns_sub: sub,
+            sns_oauth_json: oauth,
+            sns_provider: provider,
+          }));
+          setIsMemverIdDisabled(true);
+          setIsVerified(true);
+        } else {
+          setForm((prev) => ({
+            ...prev,
+            name_1st: sns_family_name,
+            name_3rd: sns_given_name,
+            sns_email: email,
+            sns_sub: sub,
+            sns_oauth_json: oauth,
+            sns_provider: provider,
+          }));
+        }
       } catch (e) {
         console.error('Failed to parse sns_oauth_json', e);
       }
@@ -408,6 +424,7 @@ export default function RegisterPage() {
       </p>
       <div className="flex gap-2">        
         <input
+          disabled={isMemverIdDisabled}
           placeholder={t('loginEmail.emailPlaceholder', 'Email')}
           value={form.member_id}
           onChange={(e) => handleChange('member_id', e.target.value)}
