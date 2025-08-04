@@ -76,7 +76,7 @@ export default function MainScrollSlider() {
     console.log('🧪 strAlert 값 확인:', item.strAlert);
     console.log('🧪 strAlert 타입:', typeof item.strAlert);
   
-    if (canEnter) {
+    if (!item.strAlert) {//canEnter
       router.push(`/${item.event_idx}/reserve/detail`);
     } else {
       setAlertContent({
@@ -200,21 +200,10 @@ export default function MainScrollSlider() {
       >
         {displayItems.map((item, idx) => {
           const isActive = idx === currentIndex;
-          const canEnter = item.isCommingSoon !== 'Y' && !item.isClosed;
+          // const canEnter = item.isCommingSoon !== 'Y' && !item.isClosed;
 
           const buttonLabel = item.strBtn;
-            // item.strBtn ||
-            // (item.isCommingSoon === 'Y'
-            //   ? 'Coming Soon'
-            //   : item.isClosed
-            //   ? 'Closed'
-            //   : item.isJoin === 'Y'
-            //   ? 'Reserve'
-            //   : item.isWaiting === 'Y'
-            //   ? 'Waiting'
-            //   : 'Closed');
-
-          const buttonColor = canEnter ? 'bg-[#ff8fa9]' : 'bg-[#e2e3e7]';
+          const buttonColor = !item.strAlert ? 'bg-[#ff8fa9]' : 'bg-[#e2e3e7]';
 
           return (
             <div
