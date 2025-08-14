@@ -79,6 +79,20 @@ export default function Home() {
       (window as any).LoginChannel.postMessage(JSON.stringify(payload));
       console.log("✅ Flutter에 유저 정보 전달:", payload);
     }
+
+    if (isLoggedIn && typeof window !== "undefined" && window.flutter_inappwebview) {
+      const payload = {
+        user_id: member?.member_id ?? "",
+        email: member?.email ?? "",
+        firstname: member?.Name_1st ?? "",
+        lastname: member?.Name_3rd ?? "",
+        member_idx: member?.idx ?? 0,
+      };
+
+      window.flutter_inappwebview.callHandler('LoginChannel', JSON.stringify(payload));
+      console.log("✅ Flutter에 유저 정보 전달:", payload);
+    }
+
   }, [isLoggedIn, member]);
 
   useEffect(() => {
