@@ -15,7 +15,7 @@ export async function GET(req: NextRequest) {
       .input('LangId', sql.Char(2), LangId)
       .input('Type', sql.VarChar(10), Type)
       .input('Member_Idx', sql.Int, Member_Idx)
-      .input('isMAIN', sql.Char(1), isMAIN)
+      // .input('isMAIN', sql.Char(1), isMAIN)
       .execute('Get_General_Notice_List');
 
     return NextResponse.json(result.recordset);
