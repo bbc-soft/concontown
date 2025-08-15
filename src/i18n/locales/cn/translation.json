@@ -321,7 +321,11 @@
         "method": "支付方式",
         "creditCard": "信用卡",
         "purchaseButton": "{{price}} 购买",
-        "back": "返回付款方式"
+        "back": "返回付款方式",
+        "requestError": "결제 요청 오류",
+        "notReadyMethod": "결제 수단이 아직 준비되지 않았습니다.",
+        "requestFail": "결제 요청 실패",
+        "agreeRequireTerms": "필수 약관에 동의해주세요."
     },
     "confirmation": {
         "title": "付款已完成。",

@@ -328,7 +328,11 @@
         "method": "Payment method",
         "creditCard": "Credit Card",
         "purchaseButton": "{{price}} Purchase",
-        "back": "Back to Payment Method"
+        "back": "Back to Payment Method",
+        "requestError": "Payment Request Error",
+        "notReadyMethod": "Payment method not yet ready.",
+        "requestFail": "Payment Request Failed",
+        "agreeRequireTerms": "Please agree to the Terms and Conditions."
     },
     "confirmation": {
         "title": "The payment has been completed.",

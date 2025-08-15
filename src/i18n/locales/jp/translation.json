@@ -321,7 +321,11 @@
         "method": "支払い方法",
         "creditCard": "クレジットカード",
         "purchaseButton": "{{price}} 購入",
-        "back": "支払い方法に戻る"
+        "back": "支払い方法に戻る",
+        "requestError": "お支払いリクエストエラー",
+        "notReadyMethod": "お支払い方法はまだ準備されていません。",
+        "requestFail": "お支払いリクエストに失敗しました",
+        "agreeRequireTerms": "必須条件に同意してください。"
     },
     "confirmation": {
         "title": "支払いが完了しました。",
