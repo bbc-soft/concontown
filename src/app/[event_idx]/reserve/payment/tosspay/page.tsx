@@ -43,6 +43,7 @@ export default function TossPaymentPage() {
   const { t } = useTranslation();
 
   const [alertOpen, setAlertOpen] = useState(false);
+  const [alertTitle, setAlertTitle] = useState('');
   const [alertMessage, setAlertMessage] = useState('');
 
   const clientKey = 'live_gck_P9BRQmyarYY5JzmZYJb7rJ07KzLN';
@@ -157,7 +158,8 @@ export default function TossPaymentPage() {
       if (!orderId || !paymentWidgetRef.current) return;
 
       if (selectedTab === 'KR' && (!exchangeRate || !krwPrice || krwPrice <= 0)) {
-        setAlertMessage(t('payment.errorNoMethod', '결제 수단이 아직 준비되지 않았습니다.'));
+        setAlertTitle(t('payment.requestError', 'Payment Error'));
+        setAlertMessage(t('payment.notReadyMethod', '결제 수단이 아직 준비되지 않았습니다.'));
         setAlertOpen(true);
         return;
       }
@@ -173,7 +175,8 @@ export default function TossPaymentPage() {
       });
     } catch (e) {
       console.error('Payment error:', e);
-      setAlertMessage(t('payment.errorUnexpected', '결제 요청 중 오류가 발생했습니다. 다시 시도해 주세요.'));
+      setAlertTitle(t('payment.requestFail', 'Payment Error'));
+      setAlertMessage(t('payment.agreeRequireTerms', '필수 약관에 동의해주세요.'));
       setAlertOpen(true);
     }
   };
@@ -229,7 +232,7 @@ export default function TossPaymentPage() {
       <AlertModal
         isOpen={alertOpen}
         onClose={() => setAlertOpen(false)}
-        title={t('payment.alertTitle', 'Payment Error')}
+        title={alertTitle}
         description={alertMessage}
         buttonText={t('payment.confirm', 'OK')}
       />

@@ -323,7 +323,11 @@
         "method": "결제 방법",
         "creditCard": "신용카드",
         "purchaseButton": "{{price}} 구매",
-        "back": "결제 방법 선택으로 돌아가기"
+        "back": "결제 방법 선택으로 돌아가기",
+        "requestError": "결제 요청 오류",
+        "notReadyMethod": "결제 수단이 아직 준비되지 않았습니다.",
+        "requestFail": "결제 요청 실패",
+        "agreeRequireTerms": "필수 약관에 동의해주세요."
     },
     "confirmation": {
         "title": "결제가 완료되었습니다",
