@@ -67,6 +67,7 @@ export default function BookingDetailPage() {
   const { t } = useTranslation();
   const { resCode } = useParams();
   const [detail, setDetail] = useState<BookingDetail | null>(null);
+  const [details, setDetails] = useState<BookingDetail[]>([]);
   const [payment, setPayment] = useState<PaymentInfo | null>(null);
   const [cancelPolicy, setCancelPolicy] = useState<CancelPolicy[]>([]);
   const [showCancelModal, setShowCancelModal] = useState(false);
@@ -131,6 +132,10 @@ export default function BookingDetailPage() {
       const detailData = await resDetail.json();
       const paymentData = await resPayment.json();
       setDetail(detailData[0]);
+      if (detailData.length > 0) {
+        setDetails(detailData);
+      }
+
       setPayment(paymentData?.[0] ?? null);
 
       const cancelRes = await fetch(`/api/event/cancel-policy?event_idx=${detailData[0]?.Event_idx}`);
@@ -236,11 +241,23 @@ export default function BookingDetailPage() {
 
 
       {/* 개인 정보 */}
-      <section className="border-b border-gray-300 pb-4 mb-6">
+      {/* <section className="border-b border-gray-300 pb-4 mb-6">
         <h2 className="text-[16px] font-semibold text-gray-500 mb-2">{t('confirmation.personalInfo')}</h2>
         <p className="text-[16px]">{detail.Name_1st} {detail.Name_3rd}</p>
         <p className="text-[16px]">{detail.Mail}</p>
-      </section>
+      </section> */}
+      {details.map((item, index) => (
+        <section
+          key={index}
+          className="border-b border-gray-300 pb-4 mb-6"
+        >
+          <h2 className="text-[16px] font-semibold text-gray-500 mb-2">
+            {t('confirmation.personalInfo')} #{index + 1}
+          </h2>
+          <p className="text-[16px]">{item.Name_1st} {item.Name_3rd}</p>
+          <p className="text-[16px]">{item.Mail}</p>
+        </section>
+      ))}
 
       {/* Q&A 버튼 */}
       <section className="text-center pt-6  border-gray-200">
