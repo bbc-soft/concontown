@@ -392,6 +392,12 @@
             "agreementCheck1": "I have checked and agree with the cancellation policy.",
             "agreementCheck2": "I have read the below information and agree with the Terms of Use",
             "purchaseBtn": "Purchase"
+        },
+        "status" : {
+            "available" : "Available",
+            "soldOut" : "Sold out",
+            "comingSoon" : "Coming soon",
+            "closed" : "Closed"
         }
     },
     "cart": {

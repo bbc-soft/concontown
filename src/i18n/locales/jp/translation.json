@@ -385,6 +385,12 @@
             "agreementCheck1": "キャンセルポリシーを確認し、同意します。",
             "agreementCheck2": "以下の内容を読み、利用規約に同意します。",
             "purchaseBtn": "購入"
+        },
+        "status" : {
+            "available" : "予約受付中",
+            "soldOut" : "受付終了",
+            "comingSoon" : "近日公開",
+            "closed" : "締切中"
         }
     },
     "cart": {
