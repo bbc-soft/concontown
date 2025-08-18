@@ -31,7 +31,8 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[430px] h-[71px] border-t border-[#e2e3e7] bg-white flex justify-around items-center py-3.5 z-50">
+      {/* <div className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[430px] h-[71px] border-t border-[#e2e3e7] bg-white flex justify-around items-center py-3.5 z-50"> */}
+      <div className="fixed bottom-0 w-full max-w-[430px] h-[71px] border-t border-[#e2e3e7] bg-white flex justify-around items-center py-3.5 z-50 mx-auto">
         {navItems.map((item) => {
           const active = isActive(item.path);
           const iconSrc = `/common/navbar/${item.icon}_${active ? 'On' : 'Off'}.svg`;
