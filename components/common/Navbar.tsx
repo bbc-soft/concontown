@@ -31,8 +31,7 @@ export default function Navbar() {
 
   return (
     <>
-      {/* <div className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[430px] h-[71px] border-t border-[#e2e3e7] bg-white flex justify-around items-center py-3.5 z-50"> */}
-      <div className="fixed bottom-0 left-1/2 -translate-x-1/2 w-screen max-w-[430px] h-[71px] border-t border-[#e2e3e7] bg-white flex justify-around items-center py-3.5 z-50">
+      <div className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[430px] h-[71px] border-t border-[#e2e3e7] bg-white flex justify-around items-center py-3.5 z-50">
         {navItems.map((item) => {
           const active = isActive(item.path);
           const iconSrc = `/common/navbar/${item.icon}_${active ? 'On' : 'Off'}.svg`;
@@ -41,7 +40,7 @@ export default function Navbar() {
             <button
               key={item.path}
               onClick={() => handleNavClick(item.path)}
-              className="flex-1 flex flex-col items-center gap-0.5 text-[13px] leading-[17.16px]"
+              className="flex flex-col items-center gap-0.5 text-[13px] leading-[17.16px]"
             >
               <Image src={iconSrc} alt={item.label} width={38} height={43} />
             </button>
