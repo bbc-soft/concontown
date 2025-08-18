@@ -194,9 +194,13 @@ export default function MainScrollSlider() {
   return (
     <div className="mt-5 px-0 w-full overflow-visible pb-2.5">
       <div
-        className="flex gap-2 overflow-hidden scroll-smooth px-4 pb-2.5"
+        className="flex gap-2 overflow-x-auto no-scrollbar scroll-smooth px-4 pb-2.5"
         ref={scrollRef}
         onTransitionEnd={handleScrollEnd}
+        style={{
+          WebkitOverflowScrolling: 'touch', // iOS에서 터치 스크롤 활성화
+          overscrollBehaviorX: 'contain',   // 바운스 최소화
+        }}
       >
         {displayItems.map((item, idx) => {
           const isActive = idx === currentIndex;
