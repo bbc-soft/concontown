@@ -387,6 +387,12 @@
             "agreementCheck1": "취소 정책을 확인하였으며 이에 동의합니다.",
             "agreementCheck2": "아래 내용을 읽었으며 이용 약관에 동의합니다.",
             "purchaseBtn": "구매"
+        },
+        "status" : {
+            "available" : "예약가능",
+            "soldOut" : "판매종료",
+            "comingSoon" : "커밍순",
+            "closed" : "마감중"
         }
     },
     "cart": {
