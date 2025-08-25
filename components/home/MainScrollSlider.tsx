@@ -96,6 +96,8 @@ export default function MainScrollSlider() {
       
       if (!member?.idx) return; // ✅ 멤버 정보 없으면 패스
 
+
+// 임시 막음
       // try {
       //   const res = await fetch(`/api/event/list?LangId=${langId}&member_idx=${member.idx}`);
 
