@@ -96,36 +96,34 @@ export default function MainScrollSlider() {
       
       if (!member?.idx) return; // ✅ 멤버 정보 없으면 패스
 
+      try {
+        const res = await fetch(`/api/event/list?LangId=${langId}&member_idx=${member.idx}`);
 
-// 임시 막음
-      // try {
-      //   const res = await fetch(`/api/event/list?LangId=${langId}&member_idx=${member.idx}`);
-
-      //   const data = await res.json();
+        const data = await res.json();
         
-      //   if (!Array.isArray(data)) {
-      //     console.error('❌ API 응답이 배열이 아님:', data);
-      //     return;
-      //   }
+        if (!Array.isArray(data)) {
+          console.error('❌ API 응답이 배열이 아님:', data);
+          return;
+        }
 
-      //   const now = new Date();
-      //   const updated = data.map((item: EventItem) => ({
-      //     ...item,
-      //     isClosed: new Date(item.end_date) < now,
-      //   }));
-      //   setItems(updated);
+        const now = new Date();
+        const updated = data.map((item: EventItem) => ({
+          ...item,
+          isClosed: new Date(item.end_date) < now,
+        }));
+        setItems(updated);
         
-      //   // displayItems도 isClosed 반영한 데이터로
-      //   if (updated.length > 0) {
-      //     const looped = [...updated, ...updated, ...updated];
-      //     setDisplayItems(looped);
-      //     const initialIndex = updated.length;
-      //     setCurrentIndex(initialIndex);
-      //     setTimeout(() => scrollToIndex(initialIndex, 'auto'), 50);
-      //   }
-      // } catch (error) {
-      //   console.error('행사 데이터를 불러오지 못했습니다 ❌', error);
-      // }
+        // displayItems도 isClosed 반영한 데이터로
+        if (updated.length > 0) {
+          const looped = [...updated, ...updated, ...updated];
+          setDisplayItems(looped);
+          const initialIndex = updated.length;
+          setCurrentIndex(initialIndex);
+          setTimeout(() => scrollToIndex(initialIndex, 'auto'), 50);
+        }
+      } catch (error) {
+        console.error('행사 데이터를 불러오지 못했습니다 ❌', error);
+      }
     };
 
     fetchData();
