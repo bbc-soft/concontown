@@ -39,24 +39,26 @@ export default function TicketListCard({ selected }: TicketListCardProps) {
   useEffect(() => {
     const fetchTickets = async () => {
       if (!member?.idx) return;
+
+      // 임시 막기
   
-      try {
-        const res = await fetch(`/api/event/list?LangId=${langId}&member_idx=${member.idx}`);
-        const data = await res.json();
+      // try {
+      //   const res = await fetch(`/api/event/list?LangId=${langId}&member_idx=${member.idx}`);
+      //   const data = await res.json();
   
-        if (Array.isArray(data)) {
-          // const nullItems = data.filter((item) => !item.event_idx);
-          // if (nullItems.length > 0) {
-          //   console.error('다음 항목에서 event_idx가 null입니다:', nullItems);
-          // }
-          const uniqueData = uniqueByEventIdx(data); // 중복 제거
-          setTickets(uniqueData);
-        } else {
-          console.error('API 응답이 배열이 아닙니다:', data);
-        }
-      } catch (error) {
-        console.error('티켓 데이터를 불러오지 못했습니다:', error);
-      }
+      //   if (Array.isArray(data)) {
+      //     // const nullItems = data.filter((item) => !item.event_idx);
+      //     // if (nullItems.length > 0) {
+      //     //   console.error('다음 항목에서 event_idx가 null입니다:', nullItems);
+      //     // }
+      //     const uniqueData = uniqueByEventIdx(data); // 중복 제거
+      //     setTickets(uniqueData);
+      //   } else {
+      //     console.error('API 응답이 배열이 아닙니다:', data);
+      //   }
+      // } catch (error) {
+      //   console.error('티켓 데이터를 불러오지 못했습니다:', error);
+      // }
     };
   
     fetchTickets();
@@ -111,8 +113,6 @@ const filteredTickets = useMemo(() => {
       {filteredTickets.map((ticket) => {
         const isExpired = ticket.end_date && new Date(ticket.end_date) < now;
         const canEnterDetail = ticket.isCommingSoon !== 'Y' && !isExpired;
-        ticket.strBtn = 'Closing';
-        ticket.strAlert = 'This package is not yet available.';
         const status = ticket.strBtn;
         return (
           <div
