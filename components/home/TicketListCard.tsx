@@ -111,6 +111,8 @@ const filteredTickets = useMemo(() => {
       {filteredTickets.map((ticket) => {
         const isExpired = ticket.end_date && new Date(ticket.end_date) < now;
         const canEnterDetail = ticket.isCommingSoon !== 'Y' && !isExpired;
+        ticket.strBtn = 'Closing';
+        ticket.strAlert = 'This package is not yet available.';
         const status = ticket.strBtn;
         return (
           <div
