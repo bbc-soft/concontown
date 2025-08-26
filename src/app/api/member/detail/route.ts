@@ -19,7 +19,7 @@ export async function GET(req: NextRequest) {
     const rows = result.recordset;
 
     // ✅ 로그 추가
-    console.log('🧾 [Get_Member_Detail Result]', rows);
+    // console.log('🧾 [Get_Member_Detail Result]', rows);
 
     return NextResponse.json(rows?.[0] || {});
   } catch (error) {

@@ -113,8 +113,8 @@ export default function SelectPage() {
         eventOptionRes.json() as Promise<EventOption[]>,
       ]);
   
-      console.log('✅ pickupData', pickupData);
-      console.log('✅ eventData', eventData);
+      // console.log('✅ pickupData', pickupData);
+      // console.log('✅ eventData', eventData);
   
       setPickupOptions(pickupData);
       setEventOptions(eventData.filter((o) => o.isDisable !== 'Y'));
@@ -130,7 +130,7 @@ export default function SelectPage() {
       const res = await fetch(`/api/event/ticketplan?event_idx=${event_idx}&package_code=${selected.packageCode || 'C'}`);
       const data: TicketPlan[] = await res.json(); // ✅ 타입 명시
       setTicketPlans(data.filter((t) => t.Condition === 'Available'));
-      console.log("ticketplan");
+      // console.log("ticketplan");
     };
   
     if (selected.packageIdx && selected.packageCode) {
@@ -180,7 +180,7 @@ export default function SelectPage() {
       try {
         const res = await fetch(`/api/event/plan?event_idx=${event_idx}&member_idx=${member.idx}`);
         const data = await res.json();
-        console.log('📦 패키지 플랜 응답:', data); // 디버깅용 로그
+        // console.log('📦 패키지 플랜 응답:', data); // 디버깅용 로그
         setPlans(data);
       } catch (err) {
         console.error('❌ 패키지 플랜 조회 실패:', err);
@@ -196,7 +196,7 @@ export default function SelectPage() {
   }, [selected]); // ✅ 선택값이 바뀔 때만 저장
 
   const handleNext = async () => {
-    console.log('🟡 선택된 값:', selected); // ✅ 전체 selected 상태 확인
+    // console.log('🟡 선택된 값:', selected); // ✅ 전체 selected 상태 확인
   
     if (!selected.course || selected.course.trim() === '') {
       setAlertVisible(true);
@@ -224,13 +224,13 @@ export default function SelectPage() {
     
   
     // ✅ 최종 서버 전송 값 확인
-    console.log('🟢 최종 서버 확인 요청 데이터:', {
-      Event_Idx: event_idx,
-      Package_Idx: selected.packageIdx,
-      Ticket_Idx: selected.ticketIdx,
-      Pickup_Idx: selected.pickupIdx || '0',
-      Option_Idx: selected.optionIdx || '0',
-    });
+    // console.log('🟢 최종 서버 확인 요청 데이터:', {
+    //   Event_Idx: event_idx,
+    //   Package_Idx: selected.packageIdx,
+    //   Ticket_Idx: selected.ticketIdx,
+    //   Pickup_Idx: selected.pickupIdx || '0',
+    //   Option_Idx: selected.optionIdx || '0',
+    // });
   
     try {
       const res = await fetch('/api/check/package-block', {
@@ -246,7 +246,7 @@ export default function SelectPage() {
       });
   
       const data = await res.json();
-      console.log('✅ 서버 응답:', data); // 응답 확인
+      // console.log('✅ 서버 응답:', data); // 응답 확인
   
       if (data.Result === '0000') {
         router.push(`/${event_idx}/reserve/info`);
@@ -402,7 +402,8 @@ export default function SelectPage() {
               <div className="space-y-2">
               {plans
               .filter((p) => p.Course === course)
-              .map((plan, idx) => {    console.log('✅ plan data:', plan); // 🔍 콘솔에서 일본어가 깨졌는지 확인
+              .map((plan, idx) => {    
+                // console.log('✅ plan data:', plan); // 🔍 콘솔에서 일본어가 깨졌는지 확인
 
 return              (
                 

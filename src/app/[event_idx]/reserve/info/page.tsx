@@ -261,7 +261,7 @@ const handlePurchase = async () => {
   try {
     const member_idx = member?.idx;
 
-    console.log('pointUsage', pointUsage);
+    // console.log('pointUsage', pointUsage);
 
     // ✅ Step 1. 예약 마스터 저장
     const res = await fetch('/api/reserve/booking/master', {
@@ -409,7 +409,7 @@ const handlePurchase = async () => {
     localStorage.setItem('reservationConfirmation', JSON.stringify(reservationData));
     
     // ✅ 콘솔 출력 추가
-    console.log('✅ [reservationConfirmation 저장 데이터]', reservationData);
+    // console.log('✅ [reservationConfirmation 저장 데이터]', reservationData);
     // localStorage.setItem('reservationConfirmation', JSON.stringify(reservationData));
 
     // if (selectedPrice <= 0) {
@@ -449,14 +449,14 @@ useEffect(() => {
   if (!memberIdx) return;
 
   const fetchCoupons = async () => {
-    console.log('✅ fetchCoupons 실행, memberIdx:', memberIdx);
+    // console.log('✅ fetchCoupons 실행, memberIdx:', memberIdx);
 
     const res = await fetch(`/api/coupon/event?LangId=EN&member_idx=${memberIdx}`);
     const data = await res.json();
-    console.log('✅ 쿠폰 API 응답:', data);
+    // console.log('✅ 쿠폰 API 응답:', data);
 
     const filtered = data.filter((c: Coupon) => c.ABLE_YN === 'Y' && c.isUse === 'N');
-    console.log('✅ 필터된 쿠폰:', filtered);
+    // console.log('✅ 필터된 쿠폰:', filtered);
 
     setCoupons(filtered);
   };
@@ -477,7 +477,7 @@ useEffect(() => {
       setPoint(total);
 
       const rounded = Math.floor(total / 1000) * 1000;
-      console.log('rounded', rounded);
+      // console.log('rounded', rounded);
       setPointUsage(rounded);
     };
     
