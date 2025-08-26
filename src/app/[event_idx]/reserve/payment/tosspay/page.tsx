@@ -164,6 +164,8 @@ export default function TossPaymentPage() {
         return;
       }
 
+      console.log(`${window.location.origin}/success`);
+
       const rateToSave = selectedTab === 'KR' && exchangeRate ? exchangeRate : 1;
       localStorage.setItem('reservationExchangeRate', String(rateToSave));
 
