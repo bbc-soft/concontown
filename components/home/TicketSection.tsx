@@ -1,6 +1,7 @@
 import TicketTabFilter from './TicketTabFilter';
 import TicketListCard from './TicketListCard';
 import { useState } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 export default function TicketSection() {
   const [selected, setSelected] = useState<'all' | 'coming' | 'reserve'  | 'closing' | 'waiting' | 'end'>('all');
@@ -8,9 +9,9 @@ export default function TicketSection() {
   return (
     <div>
       <TicketTabFilter selected={selected} setSelected={setSelected} />
-      <div className="px-4 space-y-6">
+      {navigator.userAgent.includes('concontown-android') && <div className="px-4 space-y-6">
         <TicketListCard selected={selected} />
-      </div>
+      </div>}
     </div>
   );
 }
