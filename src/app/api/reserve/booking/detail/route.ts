@@ -56,7 +56,6 @@ export async function POST(req: Request) {
       .input('Flight_info2', sql.NVarChar, body.Flight_info2 || '')
       .execute('dbo.Set_Booking_Detail'); 
 
-
     return NextResponse.json({ success: true, result: result.recordset });
   } catch (err) {
     console.error('Set_Booking_Detail 오류:', err);
