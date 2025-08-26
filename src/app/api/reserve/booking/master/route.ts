@@ -4,6 +4,9 @@ import { getDBConnection } from '../../../../../../lib/db';
 
 export async function POST(req: Request) {
   const body = await req.json();
+  
+  console.log('Set_Booking_Master 요청 파라미터:', body);
+
   const {
     member_idx, event_idx, package_idx, ticket_idx,
     pickup_idx = 0, option_idx = 0,
@@ -13,20 +16,6 @@ export async function POST(req: Request) {
 
   try {
     const pool = await getDBConnection();
-
-    console.log('Set_Booking_Master 요청 파라미터:', {
-       method: 'INSERT',
-       LangId: lang,
-       Member_Idx: member_idx,
-       Event_Idx: event_idx,
-       Package_Idx: package_idx,
-       Ticket_Idx: ticket_idx,
-       Pickup_Idx: pickup_idx,
-       Option_Idx: option_idx,
-       Coupon_Idx: coupon_idx,
-       U_IP: u_ip,
-       Point: point
-     });
 
     const result = await pool.request()
       .input('method', sql.VarChar, 'INSERT')
@@ -41,7 +30,6 @@ export async function POST(req: Request) {
       .input('U_IP', sql.VarChar, u_ip)
       .input('Point', sql.Int, point)
       .execute('Set_Booking_Master');
-
 
     const record = result.recordset?.[0];
 
