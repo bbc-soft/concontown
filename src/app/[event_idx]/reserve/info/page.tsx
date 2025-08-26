@@ -286,6 +286,7 @@ const handlePurchase = async () => {
     const { Result, Res_Day, Res_Seq } = data;
 
     if (Result !== '0000') {
+      setIsLoading(false);
       alert(data?.strResult || '예약에 실패했습니다.');
       return;
     }
@@ -431,17 +432,17 @@ const handlePurchase = async () => {
 };
 
 // 인풋 변경 시 처리 함수
-const handleInputChange = (
-  e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-) => {
-  const { name, value } = e.target;
+// const handleInputChange = (
+//   e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+// ) => {
+//   const { name, value } = e.target;
 
-  setFormData((prev) => ({
-    ...prev,
-    [name]:
-      e.target.type === 'number' ? value.replace(/[^0-9]/g, '') : value,
-  }));
-};
+//   setFormData((prev) => ({
+//     ...prev,
+//     [name]:
+//       e.target.type === 'number' ? value.replace(/[^0-9]/g, '') : value,
+//   }));
+// };
 
 
 useEffect(() => {
