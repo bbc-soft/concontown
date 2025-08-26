@@ -3,8 +3,10 @@
 import TicketTabFilter from './TicketTabFilter';
 import TicketListCard from './TicketListCard';
 import { useState, useEffect, useState as useReactState } from 'react';
+import { useAuthStore } from '@/stores/useAuthStore';
 
 export default function TicketSection() {
+  const { member } = useAuthStore();
   const [selected, setSelected] = useState<'all' | 'coming' | 'reserve'  | 'closing' | 'waiting' | 'end'>('all');
   const [isAndroidApp, setIsAndroidApp] = useReactState(false);
   const [isIosApp, setIsIosApp] = useReactState(false);
@@ -20,7 +22,7 @@ export default function TicketSection() {
   return (
     <div>
       <TicketTabFilter selected={selected} setSelected={setSelected} />
-      {!isAndroidApp && !isIosApp && <div className="px-4 space-y-6">
+      {((!isAndroidApp && !isIosApp) || member?.idx === 169) && <div className="px-4 space-y-6">
         <TicketListCard selected={selected} />
       </div>}
     </div>
