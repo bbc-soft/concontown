@@ -14,6 +14,20 @@ export async function POST(req: Request) {
   try {
     const pool = await getDBConnection();
 
+    console.log('Set_Booking_Master 요청 파라미터:', {
+       method: 'INSERT',
+       LangId: lang,
+       Member_Idx: member_idx,
+       Event_Idx: event_idx,
+       Package_Idx: package_idx,
+       Ticket_Idx: ticket_idx,
+       Pickup_Idx: pickup_idx,
+       Option_Idx: option_idx,
+       Coupon_Idx: coupon_idx,
+       U_IP: u_ip,
+       Point: point
+     });
+
     const result = await pool.request()
       .input('method', sql.VarChar, 'INSERT')
       .input('LangId', sql.NVarChar, lang)
