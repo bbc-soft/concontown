@@ -17,10 +17,10 @@ export async function GET(request: Request) {
 
     await pool.request().query('SET TEXTSIZE 2147483647');
 
-    console.log('📨 프로시저 요청 파라미터:', {
-      LangId: langId,
-      Event_idx: Number(event_idx),
-    });
+    // console.log('📨 프로시저 요청 파라미터:', {
+    //   LangId: langId,
+    //   Event_idx: Number(event_idx),
+    // });
 
     const result = await pool
       .request()
@@ -28,7 +28,7 @@ export async function GET(request: Request) {
       .input('Event_idx', sql.Int, Number(event_idx))
       .query(`exec [dbo].[Get_Event_Detail] @LangId=@LangId, @Event_idx=@Event_idx`);
 
-    console.log('✅ 프로시저 응답 recordset:', result.recordset);
+    // console.log('✅ 프로시저 응답 recordset:', result.recordset);
 
     if (result.recordset.length === 0) {
       console.warn('⚠️ 결과 없음');

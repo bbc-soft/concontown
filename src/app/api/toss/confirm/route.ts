@@ -12,6 +12,12 @@ export async function POST(req: NextRequest) {
     const secretKey = 'live_gsk_DnyRpQWGrNWdWERY2M0l8Kwv1M9E';
     const encodedKey = Buffer.from(`${secretKey}:`).toString('base64');
 
+    console.log('결제 승인요청 파라미터:', {
+       paymentKey: paymentKey,
+       orderId: orderId,
+       amount: amount
+     });
+
     // ✅ Step 1: Toss 결제 승인 요청
     const tossRes = await fetch('https://api.tosspayments.com/v1/payments/confirm', {
       method: 'POST',
@@ -24,8 +30,11 @@ export async function POST(req: NextRequest) {
 
     const tossResult = await tossRes.json();
     if (!tossRes.ok) {
+      console.log('결제 승인요청 실패', tossResult);
       return NextResponse.json({ success: false, error: tossResult }, { status: tossRes.status });
     }
+
+    console.log('결제 승인요청 성공');
 
     // ✅ Step 2: 예약코드 파싱
     const [Res_day, Res_seq_raw] = orderId.includes('-') ? orderId.split('-') : [null, null];
@@ -54,14 +63,17 @@ export async function POST(req: NextRequest) {
       request.input('exchange_rate', sql.Float, exchangeRate);
     }
 
+    console.log('프로시저 실행 Set_Payment_Log');
     const dbResult = await request.execute('Set_Payment_Log');
     const output = dbResult.recordset?.[0];
     const dbCode = output?.Result ?? output?.result;
 
     if (dbCode !== '0000') {
+      console.log('프로시저 실행 Set_Payment_Log 실패!!', dbResult);
       return NextResponse.json({ success: false, error: 'DB logging failed', result: dbCode }, { status: 500 });
     }
 
+    console.log('프로시저 실행 Set_Payment_Log 성공!!');
     return NextResponse.json({ success: true, data: tossResult });
 
   } catch (error) {
