@@ -22,7 +22,7 @@ export async function GET(req: NextRequest) {
       .input('intPageSize', sql.Int, size)
       .execute('Get_Member_QnA_list');
 
-    console.dir(result, { depth: null });
+    // console.dir(result, { depth: null });
     return NextResponse.json(result.recordset);
   } catch (err) {
     console.error('QnA 리스트 API 오류:', err);
