@@ -80,7 +80,9 @@ export default function SNSRedirectPage() {
           try {
             const parsed = JSON.parse(stored).state;
             if (parsed?.token && parsed?.member) {
-              console.log('member_id', parsed?.member.member_id);
+              const member = JSON.parse(parsed?.member);
+              console.log('member', member);
+              console.log('member_id', member.member_id);
 
             }
           } catch (e) {
