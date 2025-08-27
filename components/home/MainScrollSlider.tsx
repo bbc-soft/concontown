@@ -73,8 +73,8 @@ export default function MainScrollSlider() {
   const handleReserveClick = (item: EventItem) => {
     const canEnter = item.isCommingSoon !== 'Y' && !item.isClosed;
   
-    console.log('🧪 strAlert 값 확인:', item.strAlert);
-    console.log('🧪 strAlert 타입:', typeof item.strAlert);
+    // console.log('🧪 strAlert 값 확인:', item.strAlert);
+    // console.log('🧪 strAlert 타입:', typeof item.strAlert);
   
     if (!item.strAlert) {//canEnter
       router.push(`/${item.event_idx}/reserve/detail`);

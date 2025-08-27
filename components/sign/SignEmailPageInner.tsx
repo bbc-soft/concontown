@@ -56,7 +56,7 @@ export default function SignEmailPageInner() {
             </span>
           </button>}
 
-          {!navigator.userAgent.includes('concontown-android') && <button
+          {<button
             onClick={() => {
               window.location.href = '/api/auth/google/login';
             }}
