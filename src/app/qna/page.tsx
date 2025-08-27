@@ -44,9 +44,6 @@ export default function QnaPage() {
 
   const fetchQnA = async () => {
     if (!member?.idx) return;
-    if(member?.idx === 169 || member?.idx === 17076) {
-      setToastMessage('Get qna list');
-    }
     const res = await fetch(`/api/qna?lang=${langCode}&member_idx=${member.idx}&page=1&size=20`);
     const data = await res.json();
     setQnaList(data);
@@ -68,13 +65,9 @@ export default function QnaPage() {
     fetchCategories();
   }, [langCode]);
 
-  // useEffect(() => {
-  //   if (member?.idx) fetchQnA();
-  // }, [member]);
-  
   useEffect(() => {
-    fetchQnA();
-  }, []);
+    if (member?.idx) fetchQnA();
+  }, [member]);
 
   const selectedCategoryTitle =
     selectedCategoryValue === 'All'
