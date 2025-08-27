@@ -40,8 +40,13 @@ export default function QnaPage() {
   const [categories, setCategories] = useState<Category[]>([]);
   const [selectedCategoryValue, setSelectedCategoryValue] = useState<string>('All');
 
+  const [toastMessage, setToastMessage] = useState('');
+
   const fetchQnA = async () => {
     if (!member?.idx) return;
+    if(member?.idx === 169 || member?.idx === 17076) {
+      setToastMessage('Get qna list');
+    }
     const res = await fetch(`/api/qna?lang=${langCode}&member_idx=${member.idx}&page=1&size=20`);
     const data = await res.json();
     setQnaList(data);
@@ -156,6 +161,12 @@ export default function QnaPage() {
           {t('QnA.button', 'Ask a question')}
         </button>
       </div>
+
+      {toastMessage && (
+        <div className="fixed bottom-24 left-1/2 -translate-x-1/2 bg-black text-white text-[16px] py-2 px-4 rounded-full shadow-lg animate-fade-in-out">
+          {toastMessage}
+        </div>
+      )}
     </div>
   );
 }
