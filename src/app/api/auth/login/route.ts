@@ -22,6 +22,8 @@ export interface MemberInfo {
 export async function POST(req: NextRequest) {
   const { member_id, member_pwd, sns_provider, sns_uid} = await req.json();
 
+  console.log('🧾 구글 로그인 요청', sns_uid);
+
   const pool = await getDBConnection();
 
   const forwarded = req.headers.get('x-forwarded-for');
