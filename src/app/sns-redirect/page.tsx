@@ -14,6 +14,13 @@ export default function SNSRedirectPage() {
 
   useEffect(() => {
     const stored = localStorage.getItem('auth-storage');
+    console.log('stored00', stored);
+
+  }, []);
+
+  useEffect(() => {
+    const stored = localStorage.getItem('auth-storage');
+    console.log('stored01', stored);
     if (stored) {
       try {
         const parsed = JSON.parse(stored).state;
@@ -34,6 +41,7 @@ export default function SNSRedirectPage() {
 
   const handleLogin = async () => {
     const oauth = localStorage.getItem('sns_oauth_json');
+    console.log('oauth', oauth);
     try {
       if (oauth) {
         const parsed = JSON.parse(oauth);
