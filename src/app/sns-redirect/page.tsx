@@ -17,7 +17,6 @@ export default function SNSRedirectPage() {
     if (stored) {
       try {
         const parsed = JSON.parse(stored).state;
-        console.log('parsed', parsed);
         if (parsed?.token && parsed?.member) {
           login(parsed.token, parsed.member, parsed.autoLogin);
           //router.replace('/');
