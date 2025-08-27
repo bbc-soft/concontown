@@ -14,17 +14,6 @@ export default function SNSRedirectPage() {
 
   useEffect(() => {
     const stored = localStorage.getItem('auth-storage');
-    console.log('stored00', stored);
-    const sns_uid = localStorage.getItem('sns_uid');
-    console.log('sns_uid00', sns_uid);
-
-  }, []);
-
-  useEffect(() => {
-    const stored = localStorage.getItem('auth-storage');
-    console.log('stored01', stored);
-    const sns_uid = localStorage.getItem('sns_uid');
-    console.log('sns_uid01', sns_uid);
     if (stored) {
       try {
         const parsed = JSON.parse(stored).state;
@@ -43,10 +32,8 @@ export default function SNSRedirectPage() {
     }
   }, [login, router]);
 
-
   const handleLogin = async () => {
     const oauth = localStorage.getItem('sns_oauth_json');
-    console.log('oauth', oauth);
 
     try {
       if (oauth) {
@@ -84,9 +71,25 @@ export default function SNSRedirectPage() {
       } else {
         //이미 가입된 계정으로 로그인 시에는 null임
         const stored = localStorage.getItem('auth-storage');
-        console.log('stored02', stored);
         const sns_uid = localStorage.getItem('sns_uid');
-        console.log('sns_uid02', sns_uid);
+        const sns_provider = localStorage.getItem('sns_provider');
+        console.log('sns_uid', sns_uid);
+        console.log('sns_provider', sns_provider);
+
+        if (stored) {
+          try {
+            const parsed = JSON.parse(stored).state;
+            if (parsed?.token && parsed?.member) {
+              console.log('member_id', parsed?.member.member_id);
+
+            }
+          } catch (e) {
+            console.error('❌ Failed to parse auth-storage:', e);
+            router.replace('/login');
+          }
+        } else {
+          router.replace('/login');
+        }        
       }
     } catch (err) {
       console.error('Login error:', err);
