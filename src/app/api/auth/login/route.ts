@@ -22,8 +22,6 @@ export interface MemberInfo {
 export async function POST(req: NextRequest) {
   const { member_id, member_pwd, sns_provider, sns_uid} = await req.json();
 
-  console.log('🧾 구글 로그인 요청', sns_uid);
-
   const pool = await getDBConnection();
 
   const forwarded = req.headers.get('x-forwarded-for');
@@ -41,8 +39,6 @@ export async function POST(req: NextRequest) {
       if (!memberInfo) {
         return NextResponse.json({ error: '구글 로그인 실패' }, { status: 401 });
       }
-
-      console.log('🧾 구글 로그인 성공', loginResult);
 
       return NextResponse.json({
         token: memberInfo.idx, // 예시로 token 처리
