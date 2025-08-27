@@ -34,6 +34,7 @@ export default function SNSRedirectPage() {
 
   const handleLogin = async () => {
     const oauth = localStorage.getItem('sns_oauth_json');
+    console.log('oauth', oauth);
     try {
       if (oauth) {
         const parsed = JSON.parse(oauth);
