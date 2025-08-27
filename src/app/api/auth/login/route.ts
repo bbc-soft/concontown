@@ -40,6 +40,8 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({ error: '구글 로그인 실패' }, { status: 401 });
       }
 
+      console.log('🧾 구글 로그인 성공', loginResult);
+
       return NextResponse.json({
         token: memberInfo.idx, // 예시로 token 처리
         user: {
