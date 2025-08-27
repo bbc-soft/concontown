@@ -22,7 +22,7 @@ export default function TicketSection() {
   return (
     <div>
       <TicketTabFilter selected={selected} setSelected={setSelected} />
-      {((!isAndroidApp && !isIosApp) || member?.idx === 169) && <div className="px-4 space-y-6">
+      {((!isAndroidApp && !isIosApp) || member?.idx === 169 || member?.idx === 17105) && <div className="px-4 space-y-6">
         <TicketListCard selected={selected} />
       </div>}
     </div>
