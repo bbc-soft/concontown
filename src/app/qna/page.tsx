@@ -68,9 +68,13 @@ export default function QnaPage() {
     fetchCategories();
   }, [langCode]);
 
+  // useEffect(() => {
+  //   if (member?.idx) fetchQnA();
+  // }, [member]);
+  
   useEffect(() => {
-    if (member?.idx) fetchQnA();
-  }, [member]);
+    fetchQnA();
+  }, []);
 
   const selectedCategoryTitle =
     selectedCategoryValue === 'All'
