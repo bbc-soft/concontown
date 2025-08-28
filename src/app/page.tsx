@@ -124,9 +124,9 @@ export default function Home() {
       <div className="overflow-x-auto whitespace-nowrap scrollbar-hide">
         <NotificationBar />
       </div>
-      {/*<div>
+      <div>
         <MainScrollSlider />
-      </div>*/}
+      </div>
       <div>
         <TicketSection />
       </div>
