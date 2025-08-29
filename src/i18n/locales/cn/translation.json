@@ -219,7 +219,8 @@
         "emailNote": "您将收到来自CONCONTOWN的确认信。如果您有 CONCONTOWN Package 邮件，请输入邮件 。",
         "dialCode": "接国家代码",
         "phone": "联系电话号码",
-        "update":"更新信息"
+        "update":"更新信息",
+        "disableEditAlert": "目前暂时无法修改个人信息。请通过Q&A提交修改请求"
     }, 
     "reserve" : {
         "title": "套餐",

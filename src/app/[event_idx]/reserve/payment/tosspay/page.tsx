@@ -40,6 +40,7 @@ export default function TossPaymentPage() {
   const [krwPrice, setKrwPrice] = useState<number | null>(null);
   const [exchangeRate, setExchangeRate] = useState<number | null>(null);
   const paymentWidgetRef = useRef<TossPaymentsWidgetInstance | null>(null);
+
   const { t } = useTranslation();
 
   const [alertOpen, setAlertOpen] = useState(false);
@@ -163,7 +164,7 @@ export default function TossPaymentPage() {
         setAlertOpen(true);
         return;
       }
-      
+
       const rateToSave = selectedTab === 'KR' && exchangeRate ? exchangeRate : 1;
       localStorage.setItem('reservationExchangeRate', String(rateToSave));
 

@@ -7,14 +7,14 @@ export async function POST(req: NextRequest) {
     const db = await getDBConnection();
 
     // ✅ EXEC 쿼리 콘솔 출력
-    console.log(`🧾 [EXEC 쿼리 예시]
-EXEC [dbo].[Set_CheckPackageBlockBeforeReserve]
-  @Event_Idx = ${Event_Idx},
-  @Package_Idx = ${Package_Idx},
-  @Ticket_Idx = ${Ticket_Idx},
-  @Pickup_Idx = ${Pickup_Idx},
-  @Option_Idx = ${Option_Idx}
-`);
+//     console.log(`🧾 [EXEC 쿼리 예시]
+// EXEC [dbo].[Set_CheckPackageBlockBeforeReserve]
+//   @Event_Idx = ${Event_Idx},
+//   @Package_Idx = ${Package_Idx},
+//   @Ticket_Idx = ${Ticket_Idx},
+//   @Pickup_Idx = ${Pickup_Idx},
+//   @Option_Idx = ${Option_Idx}
+// `);
 
     const result = await db
       .request()

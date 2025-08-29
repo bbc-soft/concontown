@@ -261,6 +261,25 @@ const handlePurchase = async () => {
   try {
     const member_idx = member?.idx;
 
+      const resBlock = await fetch('/api/check/package-block', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          Event_Idx: event_idx,
+          Package_Idx: selectedPlan?.packageIdx,
+          Ticket_Idx: selectedPlan?.ticketIdx,
+          Pickup_Idx: selectedPlan?.pickupIdx || '0',
+          Option_Idx: selectedPlan?.optionIdx || '0',
+        }),
+      });
+  
+    const dataBlock = await resBlock.json();
+    if (dataBlock.Result !== '0000') {
+        setAlertVisible(true);
+        setAlertMessage(dataBlock.strResult || t('select.alert.noPackage'));
+      return;
+    }
+
     console.log('pointUsage', pointUsage);
 
     // ✅ Step 1. 예약 마스터 저장
@@ -286,6 +305,7 @@ const handlePurchase = async () => {
     const { Result, Res_Day, Res_Seq } = data;
 
     if (Result !== '0000') {
+      setIsLoading(false);
       alert(data?.strResult || '예약에 실패했습니다.');
       return;
     }
@@ -409,7 +429,7 @@ const handlePurchase = async () => {
     localStorage.setItem('reservationConfirmation', JSON.stringify(reservationData));
     
     // ✅ 콘솔 출력 추가
-    console.log('✅ [reservationConfirmation 저장 데이터]', reservationData);
+    // console.log('✅ [reservationConfirmation 저장 데이터]', reservationData);
     // localStorage.setItem('reservationConfirmation', JSON.stringify(reservationData));
 
     // if (selectedPrice <= 0) {
@@ -431,17 +451,17 @@ const handlePurchase = async () => {
 };
 
 // 인풋 변경 시 처리 함수
-const handleInputChange = (
-  e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-) => {
-  const { name, value } = e.target;
+// const handleInputChange = (
+//   e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+// ) => {
+//   const { name, value } = e.target;
 
-  setFormData((prev) => ({
-    ...prev,
-    [name]:
-      e.target.type === 'number' ? value.replace(/[^0-9]/g, '') : value,
-  }));
-};
+//   setFormData((prev) => ({
+//     ...prev,
+//     [name]:
+//       e.target.type === 'number' ? value.replace(/[^0-9]/g, '') : value,
+//   }));
+// };
 
 
 useEffect(() => {
@@ -449,14 +469,14 @@ useEffect(() => {
   if (!memberIdx) return;
 
   const fetchCoupons = async () => {
-    console.log('✅ fetchCoupons 실행, memberIdx:', memberIdx);
+    // console.log('✅ fetchCoupons 실행, memberIdx:', memberIdx);
 
     const res = await fetch(`/api/coupon/event?LangId=EN&member_idx=${memberIdx}`);
     const data = await res.json();
-    console.log('✅ 쿠폰 API 응답:', data);
+    // console.log('✅ 쿠폰 API 응답:', data);
 
     const filtered = data.filter((c: Coupon) => c.ABLE_YN === 'Y' && c.isUse === 'N');
-    console.log('✅ 필터된 쿠폰:', filtered);
+    // console.log('✅ 필터된 쿠폰:', filtered);
 
     setCoupons(filtered);
   };
@@ -477,7 +497,7 @@ useEffect(() => {
       setPoint(total);
 
       const rounded = Math.floor(total / 1000) * 1000;
-      console.log('rounded', rounded);
+      // console.log('rounded', rounded);
       setPointUsage(rounded);
     };
     

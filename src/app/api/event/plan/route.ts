@@ -13,7 +13,7 @@ export async function GET(request: Request) {
   }
 
   try {
-    console.log(`▶️ 실행 프로시저: exec [dbo].[Get_Event_Plan] @Member_Idx=${member_idx}, @event_idx=${event_idx}, @Package_Idx=${package_idx}`);
+    //console.log(`▶️ 실행 프로시저: exec [dbo].[Get_Event_Plan] @Member_Idx=${member_idx}, @event_idx=${event_idx}, @Package_Idx=${package_idx}`);
 
     const pool = await getDBConnection();
     const result = await pool
@@ -24,7 +24,7 @@ export async function GET(request: Request) {
       .query('exec [dbo].[Get_Event_Plan] @Member_Idx, @event_idx, @Package_Idx');
 
     // ✅ 로그 추가
-    console.log('✅ [Get_Event_Plan] 응답 데이터:', result.recordset);
+    //console.log('✅ [Get_Event_Plan] 응답 데이터:', result.recordset);
 
     return NextResponse.json(result.recordset);
   } catch (err) {

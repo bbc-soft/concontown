@@ -129,13 +129,13 @@ export default function EditInfoPage() {
       <BackButton label={t('myPersonalInfo.title')} />
 
       <label className="block mb-2 text-[16px] font-medium">{t('personalInfo.firstName')}</label>
-      <input value={firstName} onChange={e => setFirstName(e.target.value)} className="w-full border p-3 rounded-xl mb-4" />
+      <input value={firstName} onChange={e => setFirstName(e.target.value)} className="w-full border p-3 rounded-xl mb-4"/>
 
       <label className="block mb-2 text-[16px] font-medium">{t('personalInfo.lastName')}</label>
-      <input value={lastName} onChange={e => setLastName(e.target.value)} className="w-full border p-3 rounded-xl mb-4" />
+      <input value={lastName} onChange={e => setLastName(e.target.value)} className="w-full border p-3 rounded-xl mb-4"/>
 
       <label className="block mb-2 text-[16px] font-medium">{t('personalInfo.dob')}</label>
-      <input type="date" value={birth} onChange={e => setBirth(e.target.value)} className="w-full border p-3 rounded-xl mb-4" />
+      <input type="date" value={birth} onChange={e => setBirth(e.target.value)} className="w-full border p-3 rounded-xl mb-4"/>
 
       <label className="block mb-2 text-[16px] font-medium">{t('personalInfo.gender')}</label>
       <div className="flex gap-3 mb-4">

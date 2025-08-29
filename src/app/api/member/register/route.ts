@@ -67,7 +67,7 @@ export async function POST(req: NextRequest) {
       .execute('Set_Member');
 
       const resultCode = result.recordset?.[0]?.Result || '9999';
-      console.log('💬 Name_1st:', Name_1st, 'Name_3rd:', Name_3rd);
+      // console.log('💬 Name_1st:', Name_1st, 'Name_3rd:', Name_3rd);
 
    
         return NextResponse.json({
