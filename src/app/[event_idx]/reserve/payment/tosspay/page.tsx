@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams, useParams } from 'next/navigation';
 import BackButton from '../../../../../../components/common/BackButton';
 import AlertModal from '../../../../../../components/common/AlertModal';
 import { useTranslation } from 'react-i18next';
@@ -32,14 +32,34 @@ declare global {
 
 type TabType = 'KR' | 'PAYPAL' | 'USD';
 
+interface SelectedPlan {
+  room: string;
+  course: string;
+  grade: string;
+  price: string;
+  packageIdx: string;
+  packageCode?: string;
+  ticketIdx?: string;
+  ticketName?: string;
+  ticketPrice?: number; // ✅ 추가
+  pickupIdx?: string;
+  pickupName?: string;
+  pickupPrice?: number; // ✅ 추가
+  optionIdx?: string;
+  optionName?: string;
+}
+
 export default function TossPaymentPage() {
   const router = useRouter();
+  const { event_idx } = useParams();
   const searchParams = useSearchParams();
   const [selectedTab, setSelectedTab] = useState<TabType>('KR');
   const [finalPrice, setFinalPrice] = useState(0);
   const [krwPrice, setKrwPrice] = useState<number | null>(null);
   const [exchangeRate, setExchangeRate] = useState<number | null>(null);
   const paymentWidgetRef = useRef<TossPaymentsWidgetInstance | null>(null);
+  const [selectedPlan, setSelectedPlan] = useState<SelectedPlan | null>(null);
+
   const { t } = useTranslation();
 
   const [alertOpen, setAlertOpen] = useState(false);
@@ -54,6 +74,11 @@ export default function TossPaymentPage() {
     PAYPAL: t('paymentTab.paypal', 'PayPal'),
     USD: t('paymentTab.overseasCard', 'Overseas Card'),
   };
+
+  useEffect(() => {
+    const stored = localStorage.getItem('selectedPlan');
+    if (stored) setSelectedPlan(JSON.parse(stored));
+  }, []);
 
   const loadTossSdk = () => {
     return new Promise<void>((resolve, reject) => {
@@ -154,6 +179,27 @@ export default function TossPaymentPage() {
 
   const handlePay = async () => {
     try {
+      const resBlock = await fetch('/api/check/package-block', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          Event_Idx: event_idx,
+          Package_Idx: selectedPlan?.packageIdx,
+          Ticket_Idx: selectedPlan?.ticketIdx,
+          Pickup_Idx: selectedPlan?.pickupIdx || '0',
+          Option_Idx: selectedPlan?.optionIdx || '0',
+        }),
+      });
+  
+    const dataBlock = await resBlock.json();
+    if (dataBlock.Result !== '0000') {
+        setAlertTitle(t('payment.requestError', 'Payment Error'));
+        setAlertMessage(dataBlock.strResult || t('select.alert.noPackage'));
+        setAlertOpen(true);
+      return;
+    }
+
+
       const orderId = localStorage.getItem('reservationOrderCode');
       if (!orderId || !paymentWidgetRef.current) return;
 
@@ -163,7 +209,7 @@ export default function TossPaymentPage() {
         setAlertOpen(true);
         return;
       }
-      
+
       const rateToSave = selectedTab === 'KR' && exchangeRate ? exchangeRate : 1;
       localStorage.setItem('reservationExchangeRate', String(rateToSave));
 

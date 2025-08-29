@@ -261,7 +261,26 @@ const handlePurchase = async () => {
   try {
     const member_idx = member?.idx;
 
-    // console.log('pointUsage', pointUsage);
+      const resBlock = await fetch('/api/check/package-block', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          Event_Idx: event_idx,
+          Package_Idx: selectedPlan?.packageIdx,
+          Ticket_Idx: selectedPlan?.ticketIdx,
+          Pickup_Idx: selectedPlan?.pickupIdx || '0',
+          Option_Idx: selectedPlan?.optionIdx || '0',
+        }),
+      });
+  
+    const dataBlock = await resBlock.json();
+    if (dataBlock.Result !== '0000') {
+        setAlertVisible(true);
+        setAlertMessage(dataBlock.strResult || t('select.alert.noPackage'));
+      return;
+    }
+
+    console.log('pointUsage', pointUsage);
 
     // ✅ Step 1. 예약 마스터 저장
     const res = await fetch('/api/reserve/booking/master', {
