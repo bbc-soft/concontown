@@ -4,9 +4,6 @@ import { getDBConnection } from '../../../../../../lib/db';
 
 export async function POST(req: Request) {
   const body = await req.json();
-  
-  console.log('Set_Booking_Master 요청 파라미터:', body);
-
   const {
     member_idx, event_idx, package_idx, ticket_idx,
     pickup_idx = 0, option_idx = 0,
@@ -30,6 +27,7 @@ export async function POST(req: Request) {
       .input('U_IP', sql.VarChar, u_ip)
       .input('Point', sql.Int, point)
       .execute('Set_Booking_Master');
+
 
     const record = result.recordset?.[0];
 

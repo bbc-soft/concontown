@@ -116,7 +116,7 @@ export default function QnaPage() {
           const replies = qnaList.filter((item) => item.depth === 1 && item.parents === parent.idx);
           return (
             <div key={parent.idx} className="border rounded-xl p-4 bg-white">
-              <div className="text-[12px] text-gray-400 mb-1">{parent.ins_date.split(' ')[0]}</div>
+              <div className="text-[12px] text-gray-400 mb-1">{parent.ins_date}</div>
               <div className="font-semibold text-[16px] mb-2">
                 [{parent.SUB_CATEGORY || t('ask.Select Category', 'Uncategorized')}] {parent.title}
               </div>
@@ -133,19 +133,6 @@ export default function QnaPage() {
                 </div>
               )}
 
-              {/*reply && (
-                <div className="mt-4 bg-[#F8F9FB] rounded-lg p-3 text-[16px]">
-                  <div className="font-semibold mb-1 text-[#12235B]">
-                    {t('ask.answer', 'Answer')}
-                  </div>
-                  <div className="text-gray-800 whitespace-pre-line">
-                    {reply.contents || t('ask.noAnswer', 'No reply content.')}
-                  </div>
-                  <div className="text-xs text-right mt-2 text-gray-500">
-                    {reply.ins_date.split(' ')[0]}
-                  </div>
-                </div>
-              )*/}
               {replies.length > 0 && (
                 <div className="mt-4 space-y-4">
                   {replies.map((reply) => (
@@ -160,7 +147,7 @@ export default function QnaPage() {
                         {reply.contents || t('ask.noAnswer', 'No reply content.')}
                       </div>
                       <div className="text-xs text-right mt-2 text-gray-500">
-                        {reply.ins_date.split(' ')[0]}
+                        {reply.ins_date}
                       </div>
                     </div>
                   ))}

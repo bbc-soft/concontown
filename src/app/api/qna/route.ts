@@ -14,10 +14,6 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({ error: 'member_idx is required' }, { status: 400 });
     }
 
-    if(member_idx === 17076) {
-      console.log('Get_Member_QnA_list 요청');  
-    }
-
     const pool = await getDBConnection();
     const result = await pool.request()
       .input('LangId', sql.Char(2), lang)
@@ -25,10 +21,6 @@ export async function GET(req: NextRequest) {
       .input('intPageNo', sql.Int, page)
       .input('intPageSize', sql.Int, size)
       .execute('Get_Member_QnA_list');
-
-    if(member_idx === 17076) {
-      console.log('Get_Member_QnA_list 결과', result.recordset);  
-    }
 
     // console.dir(result, { depth: null });
     return NextResponse.json(result.recordset);
