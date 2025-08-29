@@ -120,8 +120,8 @@ export default function MyInfoPage() {
       <button
         className="mt-10 w-full py-3 bg-[#FF8FA9] text-white text-base font-bold rounded-xl"
         onClick={() => {
-          // showAlert(t('setting.setting.notification.title'), t('personalInfo.disableEditAlert'));
-          router.push('/myinfo/edit');
+          showAlert(t('setting.setting.notification.title'), t('personalInfo.disableEditAlert'));
+          // router.push('/myinfo/edit');
         }}
       >
         {t('myPersonalInfo.detail.editButton')}
