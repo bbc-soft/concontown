@@ -220,7 +220,8 @@
         "emailNote": "CONCONTOWN으로 부터 확인 메일을 받습니다. CONCONTOWN 에 가입한 이메일이 맞는지 확인하세요!",
         "dialCode": "국가 코드",
         "phone": "연락처 번호",
-        "update":"정보 업데이트"
+        "update":"정보 업데이트",
+        "disableEditAlert": "현재 임시로 개인정보 수정이 금지 되어 있습니다. Q&A로 수정 요청하세요"
     }, 
     "reserve" : {
         "title": "패키지",

@@ -220,7 +220,8 @@
         "emailNote": "You will receive the confirmation letter from CONCONTOWN Package via this email.",
         "dialCode": "Country code",
         "phone": "Contact Number",
-        "update": "Update information"
+        "update": "Update information",
+        "disableEditAlert": "Currently, editing personal information is temporarily disabled. Please request modifications via Q&A."
     }, 
     "reserve" : {
         "title": "Package",

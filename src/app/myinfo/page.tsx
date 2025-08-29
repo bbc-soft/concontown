@@ -6,6 +6,8 @@ import { ChevronLeft } from 'lucide-react';
 import { useAuthStore } from '@/stores/useAuthStore';
 import { useTranslation } from 'react-i18next';
 
+import AlertModal from '../../../components/common/AlertModal';
+
 interface MemberInfo {
   Name_1st: string;
   Name_3rd: string;
@@ -28,6 +30,8 @@ export default function MyInfoPage() {
   const router = useRouter();
   const { t } = useTranslation();
   const [info, setInfo] = useState<MemberInfo | null>(null);
+  const [alertOpen, setAlertOpen] = useState(false);
+  const [alertContent, setAlertContent] = useState({ title: '', description: '' });
 
   useEffect(() => {
     const fetchInfo = async () => {
@@ -43,6 +47,17 @@ export default function MyInfoPage() {
     const day = d.toString().padStart(2, '0');
     const month = m.toString().padStart(2, '0');
     return `${y}.${month}.${day}`;
+  };
+
+  const showAlert = (title: string, description: string, callback?: () => void) => {
+    setAlertContent({ title, description });
+    setAlertOpen(true);
+    if (callback) {
+      setTimeout(() => {
+        setAlertOpen(false);
+        callback();
+      }, 2000);
+    }
   };
 
   return (
@@ -104,10 +119,20 @@ export default function MyInfoPage() {
       {/* 수정 버튼 */}
       <button
         className="mt-10 w-full py-3 bg-[#FF8FA9] text-white text-base font-bold rounded-xl"
-        onClick={() => router.push('/myinfo/edit')}
+        onClick={() => {
+          showAlert(t('setting.setting.notification.title'), t('personalInfo.disableEditAlert'));
+          // router.push('/myinfo/edit');
+        }}
       >
         {t('myPersonalInfo.detail.editButton')}
       </button>
+
+      <AlertModal
+        isOpen={alertOpen}
+        onClose={() => setAlertOpen(false)}
+        title={alertContent.title}
+        description={alertContent.description}
+        />
     </div>
   );
 }

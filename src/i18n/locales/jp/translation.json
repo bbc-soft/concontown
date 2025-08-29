@@ -219,7 +219,8 @@
         "emailNote": "CONCONTOWNから確認メールを受け取ります。 CONCONTOWNにご登録済みのメールアドレス(ID)をご確認ください。",
         "dialCode": "国番号",
         "phone": "連絡先番号",
-        "update":"情報を更新"
+        "update":"情報を更新",
+        "disableEditAlert": "現在、一時的に個人情報の修正はできません。修正をご希望の方はQ&Aからご依頼ください。"
     }, 
     "reserve" : {
         "title": "パッケージ",
