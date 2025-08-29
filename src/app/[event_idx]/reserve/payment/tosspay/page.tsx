@@ -75,10 +75,10 @@ export default function TossPaymentPage() {
     USD: t('paymentTab.overseasCard', 'Overseas Card'),
   };
 
-  useEffect(() => {
-    const stored = localStorage.getItem('selectedPlan');
-    if (stored) setSelectedPlan(JSON.parse(stored));
-  }, []);
+  // useEffect(() => {
+  //   const stored = localStorage.getItem('selectedPlan');
+  //   if (stored) setSelectedPlan(JSON.parse(stored));
+  // }, []);
 
   const loadTossSdk = () => {
     return new Promise<void>((resolve, reject) => {
@@ -179,25 +179,25 @@ export default function TossPaymentPage() {
 
   const handlePay = async () => {
     try {
-      const resBlock = await fetch('/api/check/package-block', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          Event_Idx: event_idx,
-          Package_Idx: selectedPlan?.packageIdx,
-          Ticket_Idx: selectedPlan?.ticketIdx,
-          Pickup_Idx: selectedPlan?.pickupIdx || '0',
-          Option_Idx: selectedPlan?.optionIdx || '0',
-        }),
-      });
+    //   const resBlock = await fetch('/api/check/package-block', {
+    //     method: 'POST',
+    //     headers: { 'Content-Type': 'application/json' },
+    //     body: JSON.stringify({
+    //       Event_Idx: event_idx,
+    //       Package_Idx: selectedPlan?.packageIdx,
+    //       Ticket_Idx: selectedPlan?.ticketIdx,
+    //       Pickup_Idx: selectedPlan?.pickupIdx || '0',
+    //       Option_Idx: selectedPlan?.optionIdx || '0',
+    //     }),
+    //   });
   
-    const dataBlock = await resBlock.json();
-    if (dataBlock.Result !== '0000') {
-        setAlertTitle(t('payment.requestError', 'Payment Error'));
-        setAlertMessage(dataBlock.strResult || t('select.alert.noPackage'));
-        setAlertOpen(true);
-      return;
-    }
+    // const dataBlock = await resBlock.json();
+    // if (dataBlock.Result !== '0000') {
+    //     setAlertTitle(t('payment.requestError', 'Payment Error'));
+    //     setAlertMessage(dataBlock.strResult || t('select.alert.noPackage'));
+    //     setAlertOpen(true);
+    //   return;
+    // }
 
 
       const orderId = localStorage.getItem('reservationOrderCode');
