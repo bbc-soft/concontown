@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
+import { useAuthStore } from '@/stores/useAuthStore';
 import BackButton from '../../../../../../components/common/BackButton';
 import AlertModal from '../../../../../../components/common/AlertModal';
 import { useTranslation } from 'react-i18next';
@@ -21,6 +22,9 @@ interface TossPaymentsWidgetInstance {
     orderName: string;
     successUrl: string;
     failUrl: string;
+    customerEmail: string;
+    customerName: string;
+    customerMobilePhone: string;
   }) => Promise<void>;
 }
 
@@ -34,11 +38,17 @@ type TabType = 'KR' | 'PAYPAL' | 'USD';
 
 export default function TossPaymentPage() {
   const router = useRouter();
+  const { member } = useAuthStore();
+
   const searchParams = useSearchParams();
   const [selectedTab, setSelectedTab] = useState<TabType>('KR');
   const [finalPrice, setFinalPrice] = useState(0);
   const [krwPrice, setKrwPrice] = useState<number | null>(null);
   const [exchangeRate, setExchangeRate] = useState<number | null>(null);
+  const [customerEmail, setCustomerEmail] = useState('');
+  const [customerName, setCustomerName] = useState('');
+  const [customerMobilePhone, setCustomerMobilePhone] = useState('');  
+
   const paymentWidgetRef = useRef<TossPaymentsWidgetInstance | null>(null);
 
   const { t } = useTranslation();
@@ -55,6 +65,25 @@ export default function TossPaymentPage() {
     PAYPAL: t('paymentTab.paypal', 'PayPal'),
     USD: t('paymentTab.overseasCard', 'Overseas Card'),
   };
+
+  useEffect(() => {
+    const fetchMemberInfo = async () => {
+      try {
+        const res = await fetch(`/api/member/detail?member_idx=${member?.idx}`);
+        const data = await res.json();
+        if (data) {
+          // console.log('member', data);
+          setCustomerEmail(data.member_id || '');
+          setCustomerName(data.Name_1st + ' ' + data.Name_3rd);
+          setCustomerMobilePhone(data.Phone || '');
+        }
+      } catch (err) {
+        console.error('❌ Failed to load member info', err);
+      }
+    };
+
+    if (member?.idx) fetchMemberInfo();
+  }, [member]);
 
   const loadTossSdk = () => {
     return new Promise<void>((resolve, reject) => {
@@ -173,6 +202,9 @@ export default function TossPaymentPage() {
         orderName: 'CONCONTOWN package',
         successUrl: `${window.location.origin}/success`,
         failUrl: `${window.location.origin}/fail`,
+        customerEmail: customerEmail,
+        customerName: customerName,
+        customerMobilePhone: customerMobilePhone,
       });
     } catch (e) {
       console.error('Payment error:', e);

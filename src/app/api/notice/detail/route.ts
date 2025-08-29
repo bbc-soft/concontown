@@ -10,14 +10,6 @@ export async function GET(req: NextRequest) {
   const U_IP = params.get('ip') || '0.0.0.0';
   const Type = params.get('type') || 'NOTICE';
 
-  console.log('Set_General_Notice_Detail parameter', {
-    LangId: LangId,
-    Type: Type,
-    Member_Idx: Member_Idx,
-    idx: idx,
-    U_IP: U_IP
-  });
-
   try {
     const pool = await getDBConnection();
     const result = await pool.request()
