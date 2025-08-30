@@ -22,9 +22,9 @@ export default function TicketSection() {
   return (
     <div>
       <TicketTabFilter selected={selected} setSelected={setSelected} />
-      {<div className="px-4 space-y-6">
+      <div className="px-4 space-y-6">
         <TicketListCard selected={selected} />
-      </div>}
+      </div>
     </div>
   );
 }
